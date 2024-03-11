@@ -3,28 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyDV4xELqeSgYg1pCY71Q4LqqZWYjHp__C0</string>
+	<string>AIzaSyD3z0znEX6QzP5b959pFbGH0eZkx3YHdG4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>329525952768</string>
+	<string>354765179939</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.ziadahmed.Nutrex</string>
 	<key>PROJECT_ID</key>
-	<string>nutrex-76259</string>
+	<string>nutrex-5a8a1</string>
 	<key>STORAGE_BUCKET</key>
-	<string>nutrex-76259.appspot.com</string>
+	<string>nutrex-5a8a1.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:329525952768:ios:19fd66aa3d76b801c773e5</string>
+	<string>1:354765179939:ios:5d508aa463dae19a407596</string>
 </dict>
 </plist>
