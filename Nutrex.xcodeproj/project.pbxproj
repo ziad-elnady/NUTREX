@@ -10,7 +10,6 @@
 		B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */; };
 		B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */; };
 		B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */; };
-		B7A91D882B9F22E9007D493A /* AuthenticatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91D872B9F22E9007D493A /* AuthenticatorView.swift */; };
 		B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D892B9F280D007D493A /* Launch Screen.storyboard */; };
 		B7A91D8C2B9F2C4A007D493A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */; };
 		B7A91DC32B9F35A9007D493A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC22B9F35A9007D493A /* FirebaseAnalytics */; };
@@ -18,6 +17,15 @@
 		B7A91DC72B9F35A9007D493A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC62B9F35A9007D493A /* FirebaseAnalyticsSwift */; };
 		B7A91DC92B9F35A9007D493A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC82B9F35A9007D493A /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		B7A91DCB2B9F35A9007D493A /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DCA2B9F35A9007D493A /* FirebaseAppCheck */; };
+		B7A91DCE2B9F3839007D493A /* AuthenticationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */; };
+		B7A91DD32B9F3DFC007D493A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD22B9F3DFC007D493A /* FirebaseFirestoreSwift */; };
+		B7A91DD52B9F3E11007D493A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD42B9F3E11007D493A /* FirebaseAuth */; };
+		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
+		B7D731B12BA08B4000C94A2D /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B02BA08B4000C94A2D /* AuthErrors.swift */; };
+		B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */; };
+		B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */; };
+		B7D731C12BA09D4D00C94A2D /* ProfileSetupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */; };
+		B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +33,15 @@
 		B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrexApp.swift; sourceTree = "<group>"; };
 		B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B7A91D872B9F22E9007D493A /* AuthenticatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorView.swift; sourceTree = "<group>"; };
 		B7A91D892B9F280D007D493A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
+		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
+		B7D731B02BA08B4000C94A2D /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
+		B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScreen.swift; sourceTree = "<group>"; };
+		B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupScreen.swift; sourceTree = "<group>"; };
+		B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDiaryScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +54,8 @@
 				B7A91DC52B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				B7A91DCB2B9F35A9007D493A /* FirebaseAppCheck in Frameworks */,
 				B7A91DC92B9F35A9007D493A /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				B7A91DD52B9F3E11007D493A /* FirebaseAuth in Frameworks */,
+				B7A91DD32B9F3DFC007D493A /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +67,7 @@
 			children = (
 				B73DE38E2B9B8B2B009BFFCD /* Nutrex */,
 				B73DE38D2B9B8B2B009BFFCD /* Products */,
+				B7A91DCF2B9F3D99007D493A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +85,7 @@
 				B7A91D822B9F2228007D493A /* Source */,
 				B7A91D812B9F2220007D493A /* Core */,
 				B7A91D802B9F2214007D493A /* Model */,
+				B7A91DCC2B9F3817007D493A /* Stores */,
 				B7A91D832B9F227A007D493A /* Features */,
 				B73DE3952B9B8B2D009BFFCD /* Preview Content */,
 			);
@@ -92,6 +110,10 @@
 		B7A91D812B9F2220007D493A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B7D731BE2BA09D2000C94A2D /* Components */,
+				B7D731BB2BA09CF400C94A2D /* Helpers */,
+				B7D731B22BA08C5200C94A2D /* Error */,
+				B7A91DD62B9F52A3007D493A /* Environment */,
 				B7A91D852B9F2293007D493A /* App */,
 			);
 			path = Core;
@@ -110,6 +132,8 @@
 		B7A91D832B9F227A007D493A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B7D731BF2BA09D3700C94A2D /* ProfileSetup */,
+				B7D731B82BA09C3D00C94A2D /* Nutrition */,
 				B7A91D862B9F22D0007D493A /* Authentication */,
 			);
 			path = Features;
@@ -119,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */,
+				B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -126,9 +151,102 @@
 		B7A91D862B9F22D0007D493A /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				B7A91D872B9F22E9007D493A /* AuthenticatorView.swift */,
+				B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		B7A91DCC2B9F3817007D493A /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */,
+				B7A91DD92B9F5E35007D493A /* FireStore.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		B7A91DCF2B9F3D99007D493A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7A91DD62B9F52A3007D493A /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				B7A91DD82B9F52B7007D493A /* Date */,
+				B7A91DD72B9F52AB007D493A /* Error */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		B7A91DD72B9F52AB007D493A /* Error */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		B7A91DD82B9F52B7007D493A /* Date */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
+		B7D731B22BA08C5200C94A2D /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731B02BA08B4000C94A2D /* AuthErrors.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		B7D731B82BA09C3D00C94A2D /* Nutrition */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */,
+			);
+			path = Nutrition;
+			sourceTree = "<group>";
+		};
+		B7D731BB2BA09CF400C94A2D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731BD2BA09D0700C94A2D /* Modifiers */,
+				B7D731BC2BA09D0200C94A2D /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B7D731BC2BA09D0200C94A2D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B7D731BD2BA09D0700C94A2D /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		B7D731BE2BA09D2000C94A2D /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B7D731BF2BA09D3700C94A2D /* ProfileSetup */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */,
+			);
+			path = ProfileSetup;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +271,8 @@
 				B7A91DC62B9F35A9007D493A /* FirebaseAnalyticsSwift */,
 				B7A91DC82B9F35A9007D493A /* FirebaseAnalyticsWithoutAdIdSupport */,
 				B7A91DCA2B9F35A9007D493A /* FirebaseAppCheck */,
+				B7A91DD22B9F3DFC007D493A /* FirebaseFirestoreSwift */,
+				B7A91DD42B9F3E11007D493A /* FirebaseAuth */,
 			);
 			productName = Nutrex;
 			productReference = B73DE38C2B9B8B2B009BFFCD /* Nutrex.app */;
@@ -213,7 +333,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7A91D882B9F22E9007D493A /* AuthenticatorView.swift in Sources */,
+				B7A91DCE2B9F3839007D493A /* AuthenticationStore.swift in Sources */,
+				B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */,
+				B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */,
+				B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */,
+				B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */,
+				B7D731C12BA09D4D00C94A2D /* ProfileSetupScreen.swift in Sources */,
+				B7D731B12BA08B4000C94A2D /* AuthErrors.swift in Sources */,
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,12 +477,14 @@
 				DEVELOPMENT_TEAM = 842Q2Y29VQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NUTRIX;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,12 +510,14 @@
 				DEVELOPMENT_TEAM = 842Q2Y29VQ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = NUTRIX;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -461,6 +591,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7A91DC12B9F35A9007D493A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
+		};
+		B7A91DD22B9F3DFC007D493A /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A91DC12B9F35A9007D493A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		B7A91DD42B9F3E11007D493A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A91DC12B9F35A9007D493A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

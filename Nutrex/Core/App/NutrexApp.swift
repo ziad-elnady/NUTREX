@@ -18,12 +18,14 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct NutrexApp: App {
+    @StateObject var authStore = AuthenticationStore()
     
     var body: some Scene {
         @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
         
         WindowGroup {
-            AuthenticatorView()
+            AppCoordinator()
+                .environmentObject(authStore)
         }
     }
     
