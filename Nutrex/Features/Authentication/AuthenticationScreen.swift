@@ -11,7 +11,7 @@ struct AuthenticationScreen: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        Text("Hello, World!")
+        Text("Authentication Screen")
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
                     Button {

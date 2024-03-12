@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="DailyNutrition" representedClassName="DailyNutrition" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="diary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Diary" inverseName="dailyNutrition" inverseEntity="Diary"/>
+        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="nutrition" inverseEntity="Food"/>
+    </entity>
+    <entity name="DailyWorkout" representedClassName="DailyWorkout" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="diary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Diary" inverseName="dailyWorkout" inverseEntity="Diary"/>
+        <relationship name="exercise" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workoutRoutine" inverseEntity="Exercise"/>
+    </entity>
+    <entity name="Diary" representedClassName="Diary" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="dailyNutrition" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyNutrition" inverseName="diary" inverseEntity="DailyNutrition"/>
+        <relationship name="dailyWorkout" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DailyWorkout" inverseName="diary" inverseEntity="DailyWorkout"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="diaries" inverseEntity="User"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="date"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="Exercise" representedClassName="Exercise" syncable="YES">
+        <attribute name="burnedCal" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="difficulty" optional="YES" attributeType="String"/>
+        <attribute name="equipment" optional="YES" attributeType="String"/>
+        <attribute name="estimatedTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="muscle" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="video" optional="YES" attributeType="String"/>
+        <relationship name="workoutPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WorkoutPlan" inverseName="exercises" inverseEntity="WorkoutPlan"/>
+        <relationship name="workoutRoutine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyWorkout" inverseName="exercise" inverseEntity="DailyWorkout"/>
+    </entity>
+    <entity name="Food" representedClassName="Food" syncable="YES">
+        <attribute name="meal" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="serving" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unit" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="customMeal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="foods" inverseEntity="Meal"/>
+        <relationship name="historyItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HistoryItem" inverseName="food" inverseEntity="HistoryItem"/>
+        <relationship name="measurementUnits" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MeasurementUnit" inverseName="food" inverseEntity="MeasurementUnit"/>
+        <relationship name="nutrition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DailyNutrition" inverseName="foods" inverseEntity="DailyNutrition"/>
+        <relationship name="nutritionalInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NutritionalInfo" inverseName="food" inverseEntity="NutritionalInfo"/>
+    </entity>
+    <entity name="HistoryItem" representedClassName="HistoryItem" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="repetition" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="serving" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="unit" optional="YES" attributeType="String"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="historyItem" inverseEntity="Food"/>
+        <relationship name="meal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Meal" inverseName="historyItem" inverseEntity="Meal"/>
+    </entity>
+    <entity name="Meal" representedClassName="Meal" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="instructions" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="foods" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Food" inverseName="customMeal" inverseEntity="Food"/>
+        <relationship name="historyItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="HistoryItem" inverseName="meal" inverseEntity="HistoryItem"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="MeasurementUnit" representedClassName="MeasurementUnit" syncable="YES">
+        <attribute name="conversionToGrams" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="unitName" optional="YES" attributeType="String"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="measurementUnits" inverseEntity="Food"/>
+    </entity>
+    <entity name="NutritionalInfo" representedClassName="NutritionalInfo" syncable="YES">
+        <attribute name="caloriesPerGram" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="carbsPerGram" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="fatPerGram" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="proteinPerGram" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="food" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Food" inverseName="nutritionalInfo" inverseEntity="Food"/>
+    </entity>
+    <entity name="RoutineMeal" representedClassName="RoutineMeal" syncable="YES">
+        <attribute name="index" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="mealRoutines" inverseEntity="User"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="bodyType" optional="YES" attributeType="String"/>
+        <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="gender" optional="YES" attributeType="String"/>
+        <attribute name="goal" optional="YES" attributeType="String"/>
+        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <relationship name="diaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Diary" inverseName="user" inverseEntity="Diary"/>
+        <relationship name="mealRoutines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoutineMeal" inverseName="user" inverseEntity="RoutineMeal"/>
+    </entity>
+    <entity name="WorkoutPlan" representedClassName="WorkoutPlan" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="info" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="String"/>
+        <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="workoutPlan" inverseEntity="Exercise"/>
+    </entity>
+</model>

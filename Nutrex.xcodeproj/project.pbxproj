@@ -26,6 +26,34 @@
 		B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */; };
 		B7D731C12BA09D4D00C94A2D /* ProfileSetupScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */; };
 		B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */; };
+		B7D731C62BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7D731C42BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld */; };
+		B7D731C82BA09F9100C94A2D /* Foods.json in Resources */ = {isa = PBXBuildFile; fileRef = B7D731C72BA09F9100C94A2D /* Foods.json */; };
+		B7D731CB2BA0A00100C94A2D /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */; };
+		B7D731E62BA0A08400C94A2D /* DailyNutrition+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731CE2BA0A08300C94A2D /* DailyNutrition+CoreDataClass.swift */; };
+		B7D731E72BA0A08400C94A2D /* DailyNutrition+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731CF2BA0A08300C94A2D /* DailyNutrition+CoreDataProperties.swift */; };
+		B7D731E82BA0A08400C94A2D /* Diary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D02BA0A08300C94A2D /* Diary+CoreDataClass.swift */; };
+		B7D731E92BA0A08400C94A2D /* Diary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D12BA0A08300C94A2D /* Diary+CoreDataProperties.swift */; };
+		B7D731EA2BA0A08400C94A2D /* MeasurementUnit+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D22BA0A08300C94A2D /* MeasurementUnit+CoreDataClass.swift */; };
+		B7D731EB2BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D32BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift */; };
+		B7D731EC2BA0A08400C94A2D /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D42BA0A08400C94A2D /* Exercise+CoreDataClass.swift */; };
+		B7D731ED2BA0A08400C94A2D /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D52BA0A08400C94A2D /* Exercise+CoreDataProperties.swift */; };
+		B7D731EE2BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D62BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift */; };
+		B7D731EF2BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D72BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift */; };
+		B7D731F02BA0A08400C94A2D /* Meal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D82BA0A08400C94A2D /* Meal+CoreDataClass.swift */; };
+		B7D731F12BA0A08400C94A2D /* Meal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731D92BA0A08400C94A2D /* Meal+CoreDataProperties.swift */; };
+		B7D731F22BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DA2BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift */; };
+		B7D731F32BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DB2BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift */; };
+		B7D731F42BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DC2BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift */; };
+		B7D731F52BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DD2BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift */; };
+		B7D731F62BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DE2BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift */; };
+		B7D731F72BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731DF2BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift */; };
+		B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731E02BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift */; };
+		B7D731F92BA0A08400C94A2D /* WorkoutPlan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731E12BA0A08400C94A2D /* WorkoutPlan+CoreDataProperties.swift */; };
+		B7D731FA2BA0A08400C94A2D /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731E22BA0A08400C94A2D /* Food+CoreDataClass.swift */; };
+		B7D731FB2BA0A08400C94A2D /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731E32BA0A08400C94A2D /* Food+CoreDataProperties.swift */; };
+		B7D731FF2BA0A12400C94A2D /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731FD2BA0A12400C94A2D /* User+CoreDataClass.swift */; };
+		B7D732002BA0A12400C94A2D /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731FE2BA0A12400C94A2D /* User+CoreDataProperties.swift */; };
+		B7D7320D2BA0A3C900C94A2D /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D7320C2BA0A3C900C94A2D /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +70,34 @@
 		B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScreen.swift; sourceTree = "<group>"; };
 		B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSetupScreen.swift; sourceTree = "<group>"; };
 		B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDiaryScreen.swift; sourceTree = "<group>"; };
+		B7D731C52BA09ECD00C94A2D /* NutrexDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutrexDataModel.xcdatamodel; sourceTree = "<group>"; };
+		B7D731C72BA09F9100C94A2D /* Foods.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Foods.json; sourceTree = "<group>"; };
+		B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		B7D731CE2BA0A08300C94A2D /* DailyNutrition+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DailyNutrition+CoreDataClass.swift"; path = "Nutrex/Model/DailyNutrition/DailyNutrition+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731CF2BA0A08300C94A2D /* DailyNutrition+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DailyNutrition+CoreDataProperties.swift"; path = "Nutrex/Model/DailyNutrition/DailyNutrition+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D02BA0A08300C94A2D /* Diary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataClass.swift"; path = "Nutrex/Model/Diary/Diary+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D12BA0A08300C94A2D /* Diary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Diary+CoreDataProperties.swift"; path = "Nutrex/Model/Diary/Diary+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D22BA0A08300C94A2D /* MeasurementUnit+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MeasurementUnit+CoreDataClass.swift"; path = "Nutrex/Model/MeasurementUnit/MeasurementUnit+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D32BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "MeasurementUnit+CoreDataProperties.swift"; path = "Nutrex/Model/MeasurementUnit/MeasurementUnit+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D42BA0A08400C94A2D /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataClass.swift"; path = "Nutrex/Model/Exercise/Exercise+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D52BA0A08400C94A2D /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataProperties.swift"; path = "Nutrex/Model/Exercise/Exercise+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D62BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RoutineMeal+CoreDataClass.swift"; path = "Nutrex/Model/RoutineMeal/RoutineMeal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D72BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "RoutineMeal+CoreDataProperties.swift"; path = "Nutrex/Model/RoutineMeal/RoutineMeal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D82BA0A08400C94A2D /* Meal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Meal+CoreDataClass.swift"; path = "Nutrex/Model/Meal/Meal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731D92BA0A08400C94A2D /* Meal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Meal+CoreDataProperties.swift"; path = "Nutrex/Model/Meal/Meal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DA2BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NutritionalInfo+CoreDataClass.swift"; path = "Nutrex/Model/NutritionalInfo/NutritionalInfo+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DB2BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NutritionalInfo+CoreDataProperties.swift"; path = "Nutrex/Model/NutritionalInfo/NutritionalInfo+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DC2BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryItem+CoreDataClass.swift"; path = "Nutrex/Model/HistoryItem/HistoryItem+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DD2BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HistoryItem+CoreDataProperties.swift"; path = "Nutrex/Model/HistoryItem/HistoryItem+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DE2BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DailyWorkout+CoreDataClass.swift"; path = "Nutrex/Model/DailyWorkout/DailyWorkout+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731DF2BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DailyWorkout+CoreDataProperties.swift"; path = "Nutrex/Model/DailyWorkout/DailyWorkout+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731E02BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WorkoutPlan+CoreDataClass.swift"; path = "Nutrex/Model/WorkoutPlan/WorkoutPlan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731E12BA0A08400C94A2D /* WorkoutPlan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WorkoutPlan+CoreDataProperties.swift"; path = "Nutrex/Model/WorkoutPlan/WorkoutPlan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731E22BA0A08400C94A2D /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Food+CoreDataClass.swift"; path = "Nutrex/Model/Food/Food+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731E32BA0A08400C94A2D /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Food+CoreDataProperties.swift"; path = "Nutrex/Model/Food/Food+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731FD2BA0A12400C94A2D /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		B7D731FE2BA0A12400C94A2D /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		B7D7320C2BA0A3C900C94A2D /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +159,18 @@
 		B7A91D802B9F2214007D493A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B7D7320B2BA0A1B000C94A2D /* Food */,
+				B7D7320A2BA0A1A200C94A2D /* WorkoutPlan */,
+				B7D732092BA0A19400C94A2D /* DailyWorkout */,
+				B7D732082BA0A18600C94A2D /* HistoryItem */,
+				B7D732072BA0A17900C94A2D /* NutritionalInfo */,
+				B7D732062BA0A16E00C94A2D /* Meal */,
+				B7D732052BA0A16300C94A2D /* RoutineMeal */,
+				B7D732042BA0A15800C94A2D /* Exercise */,
+				B7D732032BA0A14200C94A2D /* MeasurementUnit */,
+				B7D732022BA0A13500C94A2D /* Diary */,
+				B7D732012BA0A12800C94A2D /* DailyNutrition */,
+				B7D731FC2BA0A08E00C94A2D /* User */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -110,6 +178,7 @@
 		B7A91D812B9F2220007D493A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B7D731C92BA09FF200C94A2D /* Controllers */,
 				B7D731BE2BA09D2000C94A2D /* Components */,
 				B7D731BB2BA09CF400C94A2D /* Helpers */,
 				B7D731B22BA08C5200C94A2D /* Error */,
@@ -124,7 +193,9 @@
 			children = (
 				B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */,
 				B7A91D892B9F280D007D493A /* Launch Screen.storyboard */,
+				B7D731C72BA09F9100C94A2D /* Foods.json */,
 				B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */,
+				B7D731C42BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -223,6 +294,7 @@
 		B7D731BC2BA09D0200C94A2D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B7D7320C2BA0A3C900C94A2D /* Bundle-Decodable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +319,122 @@
 				B7D731C02BA09D4D00C94A2D /* ProfileSetupScreen.swift */,
 			);
 			path = ProfileSetup;
+			sourceTree = "<group>";
+		};
+		B7D731C92BA09FF200C94A2D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B7D731FC2BA0A08E00C94A2D /* User */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731FD2BA0A12400C94A2D /* User+CoreDataClass.swift */,
+				B7D731FE2BA0A12400C94A2D /* User+CoreDataProperties.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		B7D732012BA0A12800C94A2D /* DailyNutrition */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731CE2BA0A08300C94A2D /* DailyNutrition+CoreDataClass.swift */,
+				B7D731CF2BA0A08300C94A2D /* DailyNutrition+CoreDataProperties.swift */,
+			);
+			path = DailyNutrition;
+			sourceTree = "<group>";
+		};
+		B7D732022BA0A13500C94A2D /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731D02BA0A08300C94A2D /* Diary+CoreDataClass.swift */,
+				B7D731D12BA0A08300C94A2D /* Diary+CoreDataProperties.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		B7D732032BA0A14200C94A2D /* MeasurementUnit */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731D22BA0A08300C94A2D /* MeasurementUnit+CoreDataClass.swift */,
+				B7D731D32BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift */,
+			);
+			path = MeasurementUnit;
+			sourceTree = "<group>";
+		};
+		B7D732042BA0A15800C94A2D /* Exercise */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731D42BA0A08400C94A2D /* Exercise+CoreDataClass.swift */,
+				B7D731D52BA0A08400C94A2D /* Exercise+CoreDataProperties.swift */,
+			);
+			path = Exercise;
+			sourceTree = "<group>";
+		};
+		B7D732052BA0A16300C94A2D /* RoutineMeal */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731D62BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift */,
+				B7D731D72BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift */,
+			);
+			path = RoutineMeal;
+			sourceTree = "<group>";
+		};
+		B7D732062BA0A16E00C94A2D /* Meal */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731D82BA0A08400C94A2D /* Meal+CoreDataClass.swift */,
+				B7D731D92BA0A08400C94A2D /* Meal+CoreDataProperties.swift */,
+			);
+			path = Meal;
+			sourceTree = "<group>";
+		};
+		B7D732072BA0A17900C94A2D /* NutritionalInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731DA2BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift */,
+				B7D731DB2BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift */,
+			);
+			path = NutritionalInfo;
+			sourceTree = "<group>";
+		};
+		B7D732082BA0A18600C94A2D /* HistoryItem */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731DC2BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift */,
+				B7D731DD2BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift */,
+			);
+			path = HistoryItem;
+			sourceTree = "<group>";
+		};
+		B7D732092BA0A19400C94A2D /* DailyWorkout */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731DE2BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift */,
+				B7D731DF2BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift */,
+			);
+			path = DailyWorkout;
+			sourceTree = "<group>";
+		};
+		B7D7320A2BA0A1A200C94A2D /* WorkoutPlan */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731E02BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift */,
+				B7D731E12BA0A08400C94A2D /* WorkoutPlan+CoreDataProperties.swift */,
+			);
+			path = WorkoutPlan;
+			sourceTree = "<group>";
+		};
+		B7D7320B2BA0A1B000C94A2D /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731E22BA0A08400C94A2D /* Food+CoreDataClass.swift */,
+				B7D731E32BA0A08400C94A2D /* Food+CoreDataProperties.swift */,
+			);
+			path = Food;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,6 +509,7 @@
 			files = (
 				B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */,
 				B7A91D8C2B9F2C4A007D493A /* GoogleService-Info.plist in Resources */,
+				B7D731C82BA09F9100C94A2D /* Foods.json in Resources */,
 				B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */,
 				B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */,
 			);
@@ -333,14 +522,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7D731F92BA0A08400C94A2D /* WorkoutPlan+CoreDataProperties.swift in Sources */,
 				B7A91DCE2B9F3839007D493A /* AuthenticationStore.swift in Sources */,
+				B7D731E62BA0A08400C94A2D /* DailyNutrition+CoreDataClass.swift in Sources */,
+				B7D731F12BA0A08400C94A2D /* Meal+CoreDataProperties.swift in Sources */,
+				B7D731F52BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift in Sources */,
+				B7D731EB2BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift in Sources */,
+				B7D731F42BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift in Sources */,
+				B7D731EF2BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift in Sources */,
+				B7D731FF2BA0A12400C94A2D /* User+CoreDataClass.swift in Sources */,
+				B7D731C62BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld in Sources */,
+				B7D731FB2BA0A08400C94A2D /* Food+CoreDataProperties.swift in Sources */,
+				B7D731E82BA0A08400C94A2D /* Diary+CoreDataClass.swift in Sources */,
+				B7D7320D2BA0A3C900C94A2D /* Bundle-Decodable.swift in Sources */,
+				B7D731F62BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift in Sources */,
+				B7D731CB2BA0A00100C94A2D /* CoreDataController.swift in Sources */,
 				B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */,
 				B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */,
 				B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */,
+				B7D731F02BA0A08400C94A2D /* Meal+CoreDataClass.swift in Sources */,
+				B7D731F22BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift in Sources */,
+				B7D731F72BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift in Sources */,
 				B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */,
+				B7D731EC2BA0A08400C94A2D /* Exercise+CoreDataClass.swift in Sources */,
 				B7D731C12BA09D4D00C94A2D /* ProfileSetupScreen.swift in Sources */,
 				B7D731B12BA08B4000C94A2D /* AuthErrors.swift in Sources */,
+				B7D731FA2BA0A08400C94A2D /* Food+CoreDataClass.swift in Sources */,
+				B7D731EE2BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift in Sources */,
+				B7D731E92BA0A08400C94A2D /* Diary+CoreDataProperties.swift in Sources */,
+				B7D731E72BA0A08400C94A2D /* DailyNutrition+CoreDataProperties.swift in Sources */,
+				B7D731ED2BA0A08400C94A2D /* Exercise+CoreDataProperties.swift in Sources */,
+				B7D731F32BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift in Sources */,
+				B7D732002BA0A12400C94A2D /* User+CoreDataProperties.swift in Sources */,
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
+				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,
+				B7D731EA2BA0A08400C94A2D /* MeasurementUnit+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,6 +819,19 @@
 			productName = FirebaseAuth;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		B7D731C42BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7D731C52BA09ECD00C94A2D /* NutrexDataModel.xcdatamodel */,
+			);
+			currentVersion = B7D731C52BA09ECD00C94A2D /* NutrexDataModel.xcdatamodel */;
+			path = NutrexDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B73DE3842B9B8B2A009BFFCD /* Project object */;
 }

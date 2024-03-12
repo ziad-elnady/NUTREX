@@ -1,0 +1,103 @@
+[
+    {
+        "name": "Egg",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "small", "unit_display_name": "Small", "conversion_to_grams": 48},
+            {"unit_name": "medium", "unit_display_name": "Medium", "conversion_to_grams": 56},
+            {"unit_name": "large", "unit_display_name": "Large", "conversion_to_grams": 64},
+            {"unit_name": "jumbo", "unit_display_name": "Jumbo", "conversion_to_grams": 70},
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 1.4,
+            "protein_per_gram": 0.126,
+            "carbs_per_gram": 0.02,
+            "fat_per_gram": 0.009
+        }
+    },
+    {
+        "name": "Milk",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "cup", "unit_display_name": "Cup", "conversion_to_grams": 240},
+            {"unit_name": "ml", "unit_display_name": "Milliliter", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 0.33,
+            "protein_per_gram": 0.33,
+            "carbs_per_gram": 0.46,
+            "fat_per_gram": 0.02
+        }
+    },
+    {
+        "name": "Chicken Breast",
+        "serving": 100.0,
+        "measurement_units": [
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1},
+            {"unit_name": "ounce", "unit_display_name": "Ounce", "conversion_to_grams": 28.35}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 0.73,
+            "protein_per_gram": 0.3,
+            "carbs_per_gram": 0,
+            "fat_per_gram": 0.08
+        }
+    },
+    {
+        "name": "Oat",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "cup", "unit_display_name": "Cup", "conversion_to_grams": 234},
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 3.69,
+            "protein_per_gram": 0.13,
+            "carbs_per_gram": 0.66,
+            "fat_per_gram": 0.07
+        }
+    },
+    {
+        "name": "Watermelon",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "cup", "unit_display_name": "Cup", "conversion_to_grams": 152},
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 0.3,
+            "protein_per_gram": 0.01,
+            "carbs_per_gram": 0.08,
+            "fat_per_gram": 0.003
+        }
+    },
+    {
+        "name": "Egyptian Bread",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "piece", "unit_display_name": "Piece", "conversion_to_grams": 120},
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 2.3,
+            "protein_per_gram": 0.07,
+            "carbs_per_gram": 0.43,
+            "fat_per_gram": 0.03
+        }
+    },
+    {
+        "name": "Peanut Butter",
+        "serving": 1.0,
+        "measurement_units": [
+            {"unit_name": "tablespoon", "unit_display_name": "Tablespoon", "conversion_to_grams": 16},
+            {"unit_name": "gram", "unit_display_name": "Gram", "conversion_to_grams": 1}
+        ],
+        "nutritional_info": {
+            "calories_per_gram": 5.9,
+            "protein_per_gram": 0.25,
+            "carbs_per_gram": 2.6,
+            "fat_per_gram": 4.9
+        }
+    },
+]

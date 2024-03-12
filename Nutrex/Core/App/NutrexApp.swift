@@ -5,7 +5,7 @@
 //  Created by Ziad Ahmed on 08/03/2024.
 //
 
-import Firebase
+import FirebaseCore
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
@@ -18,15 +18,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct NutrexApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    
     @StateObject var authStore = AuthenticationStore()
     
     var body: some Scene {
-        @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-        
         WindowGroup {
+            
             AppCoordinator()
                 .environmentObject(authStore)
         }
+        
     }
     
 }

@@ -24,7 +24,7 @@ class AuthenticationStore: ObservableObject {
         }
     }
             
-    func signUp(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func signUp(email: String, password: String, completion: @escaping (Result<FirebaseAuth.User, Error>) -> Void) {
         auth.createUser(withEmail: email, password: password) { authResult, error in
             if let user = authResult?.user {
                 completion(.success(user))
