@@ -20,6 +20,10 @@ extension MeasurementUnit {
     @NSManaged public var unitName: String?
     @NSManaged public var food: Food?
 
+    public var wrappedUnitName: String {
+        unitName ?? "No Name"
+    }
+    
 }
 
 extension MeasurementUnit : Identifiable {

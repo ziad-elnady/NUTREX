@@ -20,6 +20,43 @@ extension DailyNutrition {
     @NSManaged public var diary: Diary?
     @NSManaged public var foods: NSSet?
 
+    var wrappedDate: Date {
+        date?.onlyDate ?? Date.now.onlyDate
+    }
+    
+    public var wrappedFoods: [Food] {
+        let set = foods as? Set<Food> ?? []
+        
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
+        }
+    }
+
+    public var remainingCalories: Double {
+        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
+        return 3000.0 - Double(foodsCalories.reduce(0, +))
+    }
+    
+    public var eatenCalories: Double {
+        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
+        return Double(foodsCalories.reduce(0, +))
+    }
+    
+    public var totalProteinEaten: Double {
+        let foodsProteins = wrappedFoods.map { $0.calculatedNutritionalInfo.protein }
+        return Double(foodsProteins.reduce(0, +))
+    }
+    
+    public var totalCarbohydratesEaten: Double {
+        let foodsCarbohydrates = wrappedFoods.map { $0.calculatedNutritionalInfo.carbs }
+        return Double(foodsCarbohydrates.reduce(0, +))
+    }
+    
+    public var totalFatsEaten: Double {
+        let foodsFats = wrappedFoods.map { $0.calculatedNutritionalInfo.fat }
+        return Double(foodsFats.reduce(0, +))
+    }
+    
 }
 
 // MARK: Generated accessors for foods

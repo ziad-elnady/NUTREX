@@ -27,6 +27,8 @@ struct NutrexApp: App {
             
             AppCoordinator()
                 .environmentObject(authStore)
+                .tint(.nxAccent)
+            
         }
         
     }

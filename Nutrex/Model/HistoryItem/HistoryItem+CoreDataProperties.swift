@@ -23,6 +23,19 @@ extension HistoryItem {
     @NSManaged public var unit: String?
     @NSManaged public var food: Food?
     @NSManaged public var meal: Meal?
+    
+    public var wrappedFood: Food {
+        let context = CoreDataController.shared.viewContext
+        return food ?? Food(context: context)
+    }
+    
+    static func foodExists(_ food: Food) -> Bool {
+        let context = CoreDataController.shared.viewContext
+        let request = self.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "serving == %@ AND unit == %@", NSNumber(value: food.serving), food.wrappedUnitName)
+        return ((try? context.fetch(request)) ?? []).count > 0
+    }
 
 }
 

@@ -9,6 +9,34 @@
 import Foundation
 import CoreData
 
+enum Goal: String, CaseIterable, Codable {
+    case maintain = "Maintain"
+    case weightLoss = "Weight Loss"
+    case weightGain = "Weight Gain"
+}
+
+enum Gender: String, CaseIterable, Codable {
+    case male = "Male"
+    case female = "Female"
+}
+
+enum BodyType: String, CaseIterable, Codable {
+    case ectomorph = "Ectomorph"
+    case endomorph = "Endomorph"
+    case mesomorph = "Mesomorph"
+}
+
+enum ActivityLevel: String, CaseIterable, Codable {
+    case sedentary = "Sedentary"
+    case lightlyActive = "Lightly Active"
+    case moderatelyActive = "Moderately Active"
+    case veryActive = "Very Active"
+}
+
+enum DefaultUserProfileValues: Double {
+    case height = 175.0
+    case weight = 70.0
+}
 
 extension User {
 
@@ -28,6 +56,38 @@ extension User {
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
 
+    var wrappedUid: String {
+        uid ?? "No Uid"
+    }
+    
+    var wrappedName: String {
+        username ?? "No username"
+    }
+    
+    var wrappedEmail: String {
+        email ?? "No email"
+    }
+
+    var wrappedGoal: String {
+        goal ?? "No Goal"
+    }
+    
+    var wrappedGender: String {
+        gender ?? "No Gender"
+    }
+    
+    var isProfileCompleted: Bool {
+        return bodyType != nil &&
+        dateOfBirth != nil &&
+        gender != nil &&
+        goal != nil &&
+        height != DefaultUserProfileValues.height.rawValue &&
+        weight != DefaultUserProfileValues.weight.rawValue &&
+        username != nil &&
+        uid != nil &&
+        email != nil
+    }
+    
 }
 
 // MARK: Generated accessors for diaries

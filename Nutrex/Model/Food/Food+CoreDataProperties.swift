@@ -26,6 +26,43 @@ extension Food {
     @NSManaged public var nutrition: DailyNutrition?
     @NSManaged public var nutritionalInfo: NutritionalInfo?
 
+    var measurmentUnitsList: [MeasurementUnit] {
+        let set = measurementUnits as? Set<MeasurementUnit> ?? []
+        
+        return set.sorted {
+            $0.wrappedUnitName < $1.wrappedUnitName
+        }
+    }
+    
+    var wrappedNutritionalInfo: (caloriesPerGram: Double, proteinPerGram: Double, carbsPerGram: Double, fatPerGram: Double) {
+        let caloriesPerGram = nutritionalInfo?.caloriesPerGram ?? 0.0
+        let proteinPerGram = nutritionalInfo?.proteinPerGram ?? 0.0
+        let carbsPerGram = nutritionalInfo?.carbsPerGram ?? 0.0
+        let fatPerGram = nutritionalInfo?.fatPerGram ?? 0.0
+        
+        return (caloriesPerGram, proteinPerGram, carbsPerGram, fatPerGram)
+    }
+    
+    var wrappedName: String {
+        name ?? "No Food Name"
+    }
+    
+    var wrappedMealName: String {
+        meal ?? "No Meal Name"
+    }
+    
+    var wrappedUnit: Int {
+        Int(unit)
+    }
+    
+    var wrappedUnitName: String {
+        measurmentUnitsList[Int(unit)].unitName ?? "No Unit"
+    }
+
+    var calculatedNutritionalInfo: (calories: Double, protein: Double, carbs: Double, fat: Double) {
+        NutritionCalculator.shared.calculateNutrition(food: self, unitIndex: Int(unit), servings: serving)
+    }
+    
 }
 
 // MARK: Generated accessors for measurementUnits

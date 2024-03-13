@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ATSApplicationFontsPath</key>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Orbitron-Black.ttf</string>
+		<string>Orbitron-Bold.ttf</string>
+		<string>Orbitron-Medium.ttf</string>
+		<string>Orbitron-Regular.ttf</string>
+		<string>Orbitron-SemiBold.ttf</string>
+		<string>Orbitron-ExtraBold.ttf</string>
+		<string>Audiowide-Regular.ttf</string>
+		<string>Ubuntu-Regular.tff</string>
+		<string>Ubuntu-Bold.tff</string>
+		<string>Ubuntu-Italic.tff</string>
+		<string>Ubuntu-LightItalic.tff</string>
+		<string>Ubuntu-Medium.tff</string>
+		<string>Ubuntu-MediumItalic.tff</string>
+		<string>Ubuntu-BoldItalic.tff</string>
+		<string>BlackOpsOne-Regular.ttf</string>
+	</array>
+</dict>
+</plist>

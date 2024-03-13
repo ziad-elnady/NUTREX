@@ -20,6 +20,28 @@ extension RoutineMeal {
     @NSManaged public var name: String?
     @NSManaged public var user: User?
 
+    var wrappedName: String {
+        name ?? "No Routine Meal Name"
+    }
+    
+    static func defaultMeals() -> [RoutineMeal] {
+        let context = CoreDataController.shared.viewContext
+        
+        let meal1 = RoutineMeal(context: context)
+        meal1.name = "Breakfast"
+        meal1.index = 0
+        
+        let meal2 = RoutineMeal(context: context)
+        meal2.name = "Lunch"
+        meal2.index = 1
+        
+        let meal3 = RoutineMeal(context: context)
+        meal3.name = "Dinner"
+        meal3.index = 2
+        
+        return [meal1, meal2, meal3]
+    }
+    
 }
 
 extension RoutineMeal : Identifiable {

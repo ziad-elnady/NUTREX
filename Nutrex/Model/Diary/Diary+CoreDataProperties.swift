@@ -21,6 +21,10 @@ extension Diary {
     @NSManaged public var dailyWorkout: NSSet?
     @NSManaged public var user: User?
 
+    var wrappedDate: Date {
+        date?.onlyDate ?? Date.now.onlyDate
+    }
+    
 }
 
 // MARK: Generated accessors for dailyNutrition

@@ -22,6 +22,22 @@ extension Meal {
     @NSManaged public var foods: NSSet?
     @NSManaged public var historyItem: HistoryItem?
 
+    public var wrappedName: String {
+        name ?? "No Meal Name"
+    }
+    
+    public var wrappedInstructions: String {
+        instructions ?? "No Instrtuctions"
+    }
+    
+    public var wrappedFoods: [Food] {
+        let set = foods as? Set<Food> ?? []
+        
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
+        }
+    }
+    
 }
 
 // MARK: Generated accessors for foods
