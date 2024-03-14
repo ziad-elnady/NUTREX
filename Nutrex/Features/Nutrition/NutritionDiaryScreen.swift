@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct NutritionDiaryScreen: View {
+    let user: User
+    
     var body: some View {
-        Text("Nutrition Diary Screen")
+        Text(user.wrappedName)
     }
 }
 
 #Preview {
-    NutritionDiaryScreen()
+    NutritionDiaryScreen(user: User.empty)
 }

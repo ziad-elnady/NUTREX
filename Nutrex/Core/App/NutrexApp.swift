@@ -21,12 +21,17 @@ struct NutrexApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     @StateObject var authStore = AuthenticationStore()
+    @StateObject var userStore = UserStore()
+    
+    let dataStore = CoreDataController.shared
     
     var body: some Scene {
         WindowGroup {
             
             AppCoordinator()
+                .environment(\.managedObjectContext, dataStore.viewContext)
                 .environmentObject(authStore)
+                .environmentObject(userStore)
                 .tint(.nxAccent)
             
         }

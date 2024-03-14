@@ -55,6 +55,22 @@ extension User {
     @NSManaged public var email: String?
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
+    
+    static func filteredUsersForID(_ id: String) -> NSFetchRequest<User> {
+        let request = User.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "id == %@", id)
+        return request
+    }
+    
+    static var empty: User {
+        let newUser = User(context: CoreDataController.shared.container.viewContext)
+        return newUser
+    }
+    
+    public var isNotEmpty: Bool {
+        return !(uid == nil && username == nil)
+    }
 
     var wrappedUid: String {
         uid ?? "No Uid"

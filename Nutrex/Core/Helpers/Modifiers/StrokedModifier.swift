@@ -17,7 +17,11 @@ struct StrokedModifier: ViewModifier {
             .background(
                 RoundedRectangle(cornerRadius: 16.0)
                     .strokeBorder(strokeColor, lineWidth: borderWidth)
-                    .background(backgroundColor)
+                    .background(RoundedRectangle(cornerRadius: 16.0).fill(backgroundColor))
             )
     }
 }
+
+
+
+

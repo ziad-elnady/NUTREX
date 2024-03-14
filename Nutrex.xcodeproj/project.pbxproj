@@ -12,12 +12,6 @@
 		B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */; };
 		B74223EE2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74223ED2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf */; };
 		B742240C2BA1E4AD00A9C0FC /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742240B2BA1E4AD00A9C0FC /* FontExt.swift */; };
-		B74224132BA1F08F00A9C0FC /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742240D2BA1F08F00A9C0FC /* Ubuntu-Regular.ttf */; };
-		B74224142BA1F08F00A9C0FC /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742240E2BA1F08F00A9C0FC /* Ubuntu-Medium.ttf */; };
-		B74224152BA1F08F00A9C0FC /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742240F2BA1F08F00A9C0FC /* Ubuntu-LightItalic.ttf */; };
-		B74224162BA1F08F00A9C0FC /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74224102BA1F08F00A9C0FC /* Ubuntu-Light.ttf */; };
-		B74224172BA1F08F00A9C0FC /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74224112BA1F08F00A9C0FC /* Ubuntu-Bold.ttf */; };
-		B74224182BA1F08F00A9C0FC /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74224122BA1F08F00A9C0FC /* Ubuntu-Italic.ttf */; };
 		B742241A2BA1F0E400A9C0FC /* Neuropolitical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74224192BA1F0E400A9C0FC /* Neuropolitical.ttf */; };
 		B74224212BA1F14D00A9C0FC /* Orbitron-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742241B2BA1F14C00A9C0FC /* Orbitron-Bold.ttf */; };
 		B74224222BA1F14D00A9C0FC /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742241C2BA1F14D00A9C0FC /* Orbitron-Medium.ttf */; };
@@ -34,7 +28,6 @@
 		B769A08F2BA2559B00878070 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A08E2BA2559B00878070 /* Separator.swift */; };
 		B769A0922BA2563B00878070 /* NXIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A0912BA2563B00878070 /* NXIcon.swift */; };
 		B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D892B9F280D007D493A /* Launch Screen.storyboard */; };
-		B7A91D8C2B9F2C4A007D493A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */; };
 		B7A91DC32B9F35A9007D493A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC22B9F35A9007D493A /* FirebaseAnalytics */; };
 		B7A91DC52B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC42B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion */; };
 		B7A91DC72B9F35A9007D493A /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC62B9F35A9007D493A /* FirebaseAnalyticsSwift */; };
@@ -44,6 +37,8 @@
 		B7A91DD32B9F3DFC007D493A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD22B9F3DFC007D493A /* FirebaseFirestoreSwift */; };
 		B7A91DD52B9F3E11007D493A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD42B9F3E11007D493A /* FirebaseAuth */; };
 		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
+		B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C89B742BA38846001B7B46 /* UserStore.swift */; };
+		B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */; };
 		B7D731B12BA08B4000C94A2D /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B02BA08B4000C94A2D /* AuthErrors.swift */; };
 		B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */; };
 		B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */; };
@@ -80,6 +75,14 @@
 		B7D732112BA0A7FA00C94A2D /* NutritionCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732102BA0A7FA00C94A2D /* NutritionCalc.swift */; };
 		B7D732132BA0A86F00C94A2D /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732122BA0A86F00C94A2D /* DateExt.swift */; };
 		B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732442BA0B2F800C94A2D /* Fonts.swift */; };
+		B7E2DE142BA329EE0084FD23 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0C2BA329EE0084FD23 /* Ubuntu-Light.ttf */; };
+		B7E2DE152BA329EE0084FD23 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0D2BA329EE0084FD23 /* Ubuntu-LightItalic.ttf */; };
+		B7E2DE172BA329EE0084FD23 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0F2BA329EE0084FD23 /* Ubuntu-Italic.ttf */; };
+		B7E2DE182BA329EE0084FD23 /* Ubuntu-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE102BA329EE0084FD23 /* Ubuntu-MediumItalic.ttf */; };
+		B7E2DE192BA329EE0084FD23 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE112BA329EE0084FD23 /* Ubuntu-BoldItalic.ttf */; };
+		B7E2DE1A2BA329EE0084FD23 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE122BA329EE0084FD23 /* Ubuntu-Medium.ttf */; };
+		B7E2DE1B2BA329EE0084FD23 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE132BA329EE0084FD23 /* Ubuntu-Bold.ttf */; };
+		B7E2DE1D2BA350080084FD23 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,12 +92,6 @@
 		B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B74223ED2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audiowide-Regular.ttf"; sourceTree = "<group>"; };
 		B742240B2BA1E4AD00A9C0FC /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
-		B742240D2BA1F08F00A9C0FC /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Regular.ttf"; sourceTree = "<group>"; };
-		B742240E2BA1F08F00A9C0FC /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
-		B742240F2BA1F08F00A9C0FC /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
-		B74224102BA1F08F00A9C0FC /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Light.ttf"; sourceTree = "<group>"; };
-		B74224112BA1F08F00A9C0FC /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
-		B74224122BA1F08F00A9C0FC /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
 		B74224192BA1F0E400A9C0FC /* Neuropolitical.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Neuropolitical.ttf; sourceTree = "<group>"; };
 		B742241B2BA1F14C00A9C0FC /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Bold.ttf"; sourceTree = "<group>"; };
 		B742241C2BA1F14D00A9C0FC /* Orbitron-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Medium.ttf"; sourceTree = "<group>"; };
@@ -111,9 +108,10 @@
 		B769A08E2BA2559B00878070 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		B769A0912BA2563B00878070 /* NXIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXIcon.swift; sourceTree = "<group>"; };
 		B7A91D892B9F280D007D493A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
+		B7C89B742BA38846001B7B46 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
+		B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7D731B02BA08B4000C94A2D /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScreen.swift; sourceTree = "<group>"; };
@@ -151,6 +149,14 @@
 		B7D732122BA0A86F00C94A2D /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		B7D732412BA0AEDA00C94A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7D732442BA0B2F800C94A2D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		B7E2DE0C2BA329EE0084FD23 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Light.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Light.ttf"; sourceTree = "<group>"; };
+		B7E2DE0D2BA329EE0084FD23 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-LightItalic.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
+		B7E2DE0F2BA329EE0084FD23 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Italic.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
+		B7E2DE102BA329EE0084FD23 /* Ubuntu-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-MediumItalic.ttf"; sourceTree = "<group>"; };
+		B7E2DE112BA329EE0084FD23 /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; };
+		B7E2DE122BA329EE0084FD23 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Medium.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
+		B7E2DE132BA329EE0084FD23 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Bold.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
+		B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,12 +258,13 @@
 		B742240A2BA1E2A600A9C0FC /* Ubuntu */ = {
 			isa = PBXGroup;
 			children = (
-				B74224112BA1F08F00A9C0FC /* Ubuntu-Bold.ttf */,
-				B74224122BA1F08F00A9C0FC /* Ubuntu-Italic.ttf */,
-				B74224102BA1F08F00A9C0FC /* Ubuntu-Light.ttf */,
-				B742240F2BA1F08F00A9C0FC /* Ubuntu-LightItalic.ttf */,
-				B742240E2BA1F08F00A9C0FC /* Ubuntu-Medium.ttf */,
-				B742240D2BA1F08F00A9C0FC /* Ubuntu-Regular.ttf */,
+				B7E2DE132BA329EE0084FD23 /* Ubuntu-Bold.ttf */,
+				B7E2DE112BA329EE0084FD23 /* Ubuntu-BoldItalic.ttf */,
+				B7E2DE0F2BA329EE0084FD23 /* Ubuntu-Italic.ttf */,
+				B7E2DE0C2BA329EE0084FD23 /* Ubuntu-Light.ttf */,
+				B7E2DE0D2BA329EE0084FD23 /* Ubuntu-LightItalic.ttf */,
+				B7E2DE122BA329EE0084FD23 /* Ubuntu-Medium.ttf */,
+				B7E2DE102BA329EE0084FD23 /* Ubuntu-MediumItalic.ttf */,
 			);
 			path = Ubuntu;
 			sourceTree = "<group>";
@@ -283,6 +290,7 @@
 			children = (
 				B742242B2BA1FAB200A9C0FC /* AppLogo.swift */,
 				B769A08E2BA2559B00878070 /* Separator.swift */,
+				B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -317,7 +325,7 @@
 		B7A91D812B9F2220007D493A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				B7D731C92BA09FF200C94A2D /* Controllers */,
+				B7D731C92BA09FF200C94A2D /* Stores */,
 				B7D731BE2BA09D2000C94A2D /* Components */,
 				B7D731BB2BA09CF400C94A2D /* Helpers */,
 				B7D731B22BA08C5200C94A2D /* Error */,
@@ -336,7 +344,7 @@
 				B7A91D892B9F280D007D493A /* Launch Screen.storyboard */,
 				B7D731C72BA09F9100C94A2D /* Foods.json */,
 				B7D732412BA0AEDA00C94A2D /* Info.plist */,
-				B7A91D8B2B9F2C49007D493A /* GoogleService-Info.plist */,
+				B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */,
 				B7D731C42BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld */,
 			);
 			path = Source;
@@ -473,12 +481,13 @@
 			path = ProfileSetup;
 			sourceTree = "<group>";
 		};
-		B7D731C92BA09FF200C94A2D /* Controllers */ = {
+		B7D731C92BA09FF200C94A2D /* Stores */ = {
 			isa = PBXGroup;
 			children = (
 				B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */,
+				B7C89B742BA38846001B7B46 /* UserStore.swift */,
 			);
-			path = Controllers;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		B7D731FC2BA0A08E00C94A2D /* User */ = {
@@ -677,24 +686,25 @@
 			files = (
 				B74224242BA1F14D00A9C0FC /* Orbitron-Regular.ttf in Resources */,
 				B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */,
-				B74224142BA1F08F00A9C0FC /* Ubuntu-Medium.ttf in Resources */,
+				B7E2DE182BA329EE0084FD23 /* Ubuntu-MediumItalic.ttf in Resources */,
+				B7E2DE152BA329EE0084FD23 /* Ubuntu-LightItalic.ttf in Resources */,
+				B7E2DE1B2BA329EE0084FD23 /* Ubuntu-Bold.ttf in Resources */,
 				B74224212BA1F14D00A9C0FC /* Orbitron-Bold.ttf in Resources */,
-				B74224162BA1F08F00A9C0FC /* Ubuntu-Light.ttf in Resources */,
-				B7A91D8C2B9F2C4A007D493A /* GoogleService-Info.plist in Resources */,
-				B74224172BA1F08F00A9C0FC /* Ubuntu-Bold.ttf in Resources */,
 				B7D731C82BA09F9100C94A2D /* Foods.json in Resources */,
 				B742241A2BA1F0E400A9C0FC /* Neuropolitical.ttf in Resources */,
 				B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */,
-				B74224152BA1F08F00A9C0FC /* Ubuntu-LightItalic.ttf in Resources */,
-				B74224182BA1F08F00A9C0FC /* Ubuntu-Italic.ttf in Resources */,
 				B74224232BA1F14D00A9C0FC /* Orbitron-ExtraBold.ttf in Resources */,
 				B74224222BA1F14D00A9C0FC /* Orbitron-Medium.ttf in Resources */,
 				B74224252BA1F14D00A9C0FC /* Orbitron-Black.ttf in Resources */,
 				B74224282BA1F1A100A9C0FC /* BlackOpsOne-Regular.ttf in Resources */,
+				B7E2DE142BA329EE0084FD23 /* Ubuntu-Light.ttf in Resources */,
 				B74224262BA1F14D00A9C0FC /* Orbitron-SemiBold.ttf in Resources */,
+				B7E2DE1A2BA329EE0084FD23 /* Ubuntu-Medium.ttf in Resources */,
+				B7E2DE172BA329EE0084FD23 /* Ubuntu-Italic.ttf in Resources */,
 				B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */,
+				B7E2DE192BA329EE0084FD23 /* Ubuntu-BoldItalic.ttf in Resources */,
 				B74223EE2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf in Resources */,
-				B74224132BA1F08F00A9C0FC /* Ubuntu-Regular.ttf in Resources */,
+				B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +721,7 @@
 				B769A08C2BA23F5000878070 /* NXButton.swift in Sources */,
 				B7D732132BA0A86F00C94A2D /* DateExt.swift in Sources */,
 				B74224332BA203E900A9C0FC /* ViewExt.swift in Sources */,
+				B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */,
 				B7D731F12BA0A08400C94A2D /* Meal+CoreDataProperties.swift in Sources */,
 				B742240C2BA1E4AD00A9C0FC /* FontExt.swift in Sources */,
 				B7D731F52BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift in Sources */,
@@ -751,6 +762,7 @@
 				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,
 				B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */,
 				B7D731EA2BA0A08400C94A2D /* MeasurementUnit+CoreDataClass.swift in Sources */,
+				B7E2DE1D2BA350080084FD23 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

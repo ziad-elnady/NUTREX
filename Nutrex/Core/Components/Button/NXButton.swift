@@ -14,6 +14,8 @@ enum NXButtonVariant {
 }
 
 struct NXButton<Content: View>: View {
+    @Environment(\.isEnabled) private var isEnabled
+    
     var variant: NXButtonVariant
     var action: () -> Void
     var label: () -> Content
@@ -29,12 +31,13 @@ struct NXButton<Content: View>: View {
     var body: some View {
         Button(action: action) {
             label()
-                .font(.customFont(font: .orbitron, weight: .black, size: .subheadline))
+                .font(.customFont(font: .orbitron, weight: .black, size: .body, relativeTo: .body))
                 .foregroundColor(foregroundColorForVariant())
-                .padding()
+                .frame(height: 55.0)
+                .padding(.horizontal)
                 .background(backgroundForVariant())
+                .opacity(isEnabled ? 1.0 : 0.25)
         }
-        .frame(height: 55.0)
     }
     
 }

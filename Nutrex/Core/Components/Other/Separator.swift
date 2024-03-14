@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Separator: View {
     var body: some View {
-        Divider()
-            .frame(maxWidth: .infinity, maxHeight: 0.5)
-            .background(.nxStroke)
+        Rectangle()
+            .frame(height: 0.5)
+            .overlay(.nxStroke)
     }
 }
 
