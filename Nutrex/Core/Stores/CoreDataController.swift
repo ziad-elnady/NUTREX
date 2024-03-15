@@ -59,6 +59,10 @@ class CoreDataController: ObservableObject {
                 print("Core Data failed to load: \(error.localizedDescription)")
                 return
             }
+            
+            let decoder = JSONDecoder()
+            decoder.userInfo[CodingUserInfoKey.managedObjectContext] = self.viewContext
+            
             self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         }
         

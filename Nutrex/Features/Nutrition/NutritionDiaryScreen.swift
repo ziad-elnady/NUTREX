@@ -11,7 +11,13 @@ struct NutritionDiaryScreen: View {
     let user: User
     
     var body: some View {
-        Text(user.wrappedName)
+        VStack {
+            Text(user.wrappedName)
+            Text(user.wrappedGoal)
+            Text(user.wrappedEmail)
+            Text(user.wrappedGender)
+            Text(user.wrappedUid)
+        }
     }
 }
 

@@ -9,8 +9,7 @@ import FirebaseCore
 import SwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication,
-                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         FirebaseApp.configure()
         return true
     }
@@ -27,13 +26,17 @@ struct NutrexApp: App {
     
     var body: some Scene {
         WindowGroup {
-            
-            AppCoordinator()
-                .environment(\.managedObjectContext, dataStore.viewContext)
-                .environmentObject(authStore)
-                .environmentObject(userStore)
-                .tint(.nxAccent)
-            
+            Group {
+                if let userSession = authStore.userSession {
+                    AppCoordinator(uid: userSession.uid)
+                } else {
+                    AuthenticationScreen()
+                }
+            }
+            .environment(\.managedObjectContext, dataStore.viewContext)
+            .environmentObject(authStore)
+            .environmentObject(userStore)
+            .tint(.nxAccent)
         }
         
     }

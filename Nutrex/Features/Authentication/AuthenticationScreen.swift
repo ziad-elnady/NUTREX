@@ -249,6 +249,8 @@ extension AuthenticationScreen {
                 newUser.username = config.username
                 newUser.email = config.email
                 
+                CoreDataController.shared.saveContext()
+                
                 await userStore.saveUser(newUser)
                 config.isLoading = false
             }

@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct AppCoordinator: View {
-    @EnvironmentObject var authStore: AuthenticationStore
-    @EnvironmentObject var userStore: UserStore
+    @Environment(\.managedObjectContext) private var context
+    @EnvironmentObject private var userStore: UserStore
     
+    @FetchRequest private var users: FetchedResults<User>
     @State private var isSignInPresented = false
+        
+    let uid: String
+    
+    init(uid: String) {
+        self.uid = uid
+        self._users = FetchRequest(fetchRequest: User.filteredUsersForID(uid))
+    }
         
     var body: some View {
         Group {
-            if authStore.isAuthenticated && userStore.currentUser.isProfileCompleted {
-                UserNutritionDiaryScreen(uid: authStore.userSession?.uid ?? "")
-            } else if !authStore.isAuthenticated {
+            if let user = users.first {
+                MainApp(user: user)
+            } else {
                 AuthenticationScreen()
-            } else if !userStore.currentUser.isProfileCompleted {
-                ProfileSetupScreen()
             }
         }
         .fullScreenCover(isPresented: $isSignInPresented) {
@@ -29,43 +35,26 @@ struct AppCoordinator: View {
     }
 }
 
-struct UserNutritionDiaryScreen: View {
-    @Environment(\.managedObjectContext) private var context
+
+// MARK: - VIEWS -
+extension AppCoordinator {
     
-    @EnvironmentObject private var userStore: UserStore
-    
-    @FetchRequest private var users: FetchedResults<User>
-        
-    let uid: String
-    
-    init(uid: String) {
-        self.uid = uid
-        self._users = FetchRequest(fetchRequest: User.filteredUsersForID(uid))
-    }
-    
-    var body: some View {
-        if users.first == nil {
-            VStack {
-                Text("First Launch")
-                
-                Button("Create a user") {
-                    let user = User(context: context)
-                    
-                    user.uid = uid
-                    user.username = "Karim"
-                    
-                    try? context.save()
-                }
+    @ViewBuilder
+    private func MainApp(user: User) -> some View {
+        Group {
+            if user.isProfileCompleted {
+                NutritionDiaryScreen(user: user)
+            } else {
+                ProfileSetupScreen()
             }
-        } else {
-            NutritionDiaryScreen(user: users.first!)
-                .task {
-                    userStore.currentUser = users.first!
-                }
+        }
+        .onAppear {
+            userStore.currentUser = user
         }
     }
+    
 }
 
 #Preview {
-    AppCoordinator()
+    AppCoordinator(uid: "123")
 }

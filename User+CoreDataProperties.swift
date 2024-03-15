@@ -56,10 +56,10 @@ extension User {
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
     
-    static func filteredUsersForID(_ id: String) -> NSFetchRequest<User> {
+    static func filteredUsersForID(_ uid: String) -> NSFetchRequest<User> {
         let request = User.fetchRequest()
         request.sortDescriptors = []
-        request.predicate = NSPredicate(format: "id == %@", id)
+        request.predicate = NSPredicate(format: "uid == %@", uid)
         return request
     }
     
