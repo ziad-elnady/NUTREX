@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B71DC3062BA4F35500F423AC /* NXRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71DC3052BA4F35500F423AC /* NXRadioButton.swift */; };
 		B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */; };
 		B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */; };
 		B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */; };
@@ -86,6 +87,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B71DC3052BA4F35500F423AC /* NXRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXRadioButton.swift; sourceTree = "<group>"; };
 		B73DE38C2B9B8B2B009BFFCD /* Nutrex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrexApp.swift; sourceTree = "<group>"; };
 		B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				B769A08B2BA23F5000878070 /* NXButton.swift */,
+				B71DC3052BA4F35500F423AC /* NXRadioButton.swift */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				B7D731F32BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift in Sources */,
 				B742242C2BA1FAB200A9C0FC /* AppLogo.swift in Sources */,
 				B7D732002BA0A12400C94A2D /* User+CoreDataProperties.swift in Sources */,
+				B71DC3062BA4F35500F423AC /* NXRadioButton.swift in Sources */,
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
 				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,
 				B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */,

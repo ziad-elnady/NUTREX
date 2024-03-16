@@ -35,8 +35,15 @@ struct NXButton<Content: View>: View {
                 .foregroundColor(foregroundColorForVariant())
                 .frame(height: 55.0)
                 .padding(.horizontal)
-                .background(backgroundForVariant())
-                .opacity(isEnabled ? 1.0 : 0.25)
+                .background {
+                    if isEnabled {
+                        backgroundForVariant()
+                    }
+                    else  {
+                        disabledBackground()
+                    }
+                }
+            
         }
     }
     
@@ -69,6 +76,12 @@ extension NXButton {
             RoundedRectangle(cornerRadius: 16.0)
                 .fill(variant == .primary ? .nxAccent : .primary)
         }
+    }
+    
+    @ViewBuilder
+    private func disabledBackground() -> some View {
+        RoundedRectangle(cornerRadius: 16.0)
+            .fill(.nxSecondaryText)
     }
     
 }

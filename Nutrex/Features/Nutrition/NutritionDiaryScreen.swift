@@ -5,6 +5,7 @@
 //  Created by Ziad Ahmed on 12/03/2024.
 //
 
+import FirebaseAuth
 import SwiftUI
 
 struct NutritionDiaryScreen: View {
@@ -17,6 +18,12 @@ struct NutritionDiaryScreen: View {
             Text(user.wrappedEmail)
             Text(user.wrappedGender)
             Text(user.wrappedUid)
+            
+            Button("Sign Out") {
+                try? Auth.auth().signOut()
+            }
+            .buttonStyle(.bordered)
+            .padding()
         }
     }
 }
