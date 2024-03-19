@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Nutrex
 //
-//  Created by Ziad Ahmed on 12/03/2024.
+//  Created by Ziad Ahmed on 18/03/2024.
 //
 //
 
@@ -46,28 +46,30 @@ extension User {
 
     @NSManaged public var bodyType: String?
     @NSManaged public var dateOfBirth: Date?
+    @NSManaged public var email: String?
     @NSManaged public var gender: String?
     @NSManaged public var goal: String?
     @NSManaged public var height: Double
+    @NSManaged public var uid: String?
     @NSManaged public var username: String?
     @NSManaged public var weight: Double
-    @NSManaged public var uid: String?
-    @NSManaged public var email: String?
+    @NSManaged public var createdAt: Date?
+    @NSManaged public var updatedAt: Date?
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
-    
+
     static func filteredUsersForID(_ uid: String) -> NSFetchRequest<User> {
         let request = User.fetchRequest()
         request.sortDescriptors = []
         request.predicate = NSPredicate(format: "uid == %@", uid)
         return request
     }
-    
+
     static var empty: User {
         let newUser = User(context: CoreDataController.shared.container.viewContext)
         return newUser
     }
-    
+
     public var isNotEmpty: Bool {
         return !(uid == nil && username == nil)
     }
@@ -75,11 +77,11 @@ extension User {
     var wrappedUid: String {
         uid ?? "No Uid"
     }
-    
+
     var wrappedName: String {
         username ?? "No username"
     }
-    
+
     var wrappedEmail: String {
         email ?? "No email"
     }
@@ -87,11 +89,11 @@ extension User {
     var wrappedGoal: String {
         goal ?? "No Goal"
     }
-    
+
     var wrappedGender: String {
         gender ?? "No Gender"
     }
-    
+
     var isProfileCompleted: Bool {
         return bodyType != nil &&
         dateOfBirth != nil &&

@@ -60,10 +60,10 @@ class CoreDataController: ObservableObject {
                 return
             }
             
+            self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+            
             let decoder = JSONDecoder()
             decoder.userInfo[CodingUserInfoKey.managedObjectContext] = self.viewContext
-            
-            self.container.viewContext.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
         }
         
     }

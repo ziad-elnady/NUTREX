@@ -23,11 +23,15 @@ struct AppCoordinator: View {
         
     var body: some View {
         Group {
-            if let user = users.first {
-                MainApp(user: user)
+            if userStore.currentUser.isNotEmpty {
+                MainApp(user: userStore.currentUser)
             } else {
-                AuthenticationScreen()
+                AppLogo()
+                    .frame(width: 220, height: 35)
             }
+        }
+        .task {
+            await userStore.fetchUser(forId: uid)
         }
         .fullScreenCover(isPresented: $isSignInPresented) {
             AuthenticationScreen()

@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B71DC3062BA4F35500F423AC /* NXRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71DC3052BA4F35500F423AC /* NXRadioButton.swift */; };
+		B7338FD32BAA420500332486 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FD22BAA420500332486 /* ToastView.swift */; };
+		B7338FD62BAA42AC00332486 /* ToastEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FD52BAA42AC00332486 /* ToastEnv.swift */; };
+		B7338FD82BAA434F00332486 /* ErrorEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FD72BAA434F00332486 /* ErrorEnv.swift */; };
+		B7338FDA2BAA471300332486 /* ErrorWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FD92BAA471300332486 /* ErrorWrapper.swift */; };
+		B7338FDF2BAA4A0100332486 /* NXSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FDE2BAA4A0100332486 /* NXSegmentedPicker.swift */; };
+		B7338FE12BAA4A4E00332486 /* AnimationEffectModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FE02BAA4A4E00332486 /* AnimationEffectModifier.swift */; };
+		B7338FE32BAA4AC800332486 /* PickerStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FE22BAA4AC800332486 /* PickerStyleModifier.swift */; };
+		B7338FE52BAA4C2600332486 /* MessageSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7338FE42BAA4C2600332486 /* MessageSheetView.swift */; };
+		B7384B2D2BA5E9BC00A0BDB0 /* AnimatedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7384B2C2BA5E9BC00A0BDB0 /* AnimatedText.swift */; };
+		B7384B312BA5F71800A0BDB0 /* WheelPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7384B302BA5F71800A0BDB0 /* WheelPicker.swift */; };
 		B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */; };
 		B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */; };
 		B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */; };
@@ -28,6 +38,7 @@
 		B769A08C2BA23F5000878070 /* NXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A08B2BA23F5000878070 /* NXButton.swift */; };
 		B769A08F2BA2559B00878070 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A08E2BA2559B00878070 /* Separator.swift */; };
 		B769A0922BA2563B00878070 /* NXIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A0912BA2563B00878070 /* NXIcon.swift */; };
+		B7868C8C2BA77C7C00362341 /* DateEnv.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7868C8B2BA77C7C00362341 /* DateEnv.swift */; };
 		B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D892B9F280D007D493A /* Launch Screen.storyboard */; };
 		B7A91DC32B9F35A9007D493A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC22B9F35A9007D493A /* FirebaseAnalytics */; };
 		B7A91DC52B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC42B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -40,6 +51,7 @@
 		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
 		B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C89B742BA38846001B7B46 /* UserStore.swift */; };
 		B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */; };
+		B7D50E752BA7BC9800DF0E51 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */; };
 		B7D731B12BA08B4000C94A2D /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B02BA08B4000C94A2D /* AuthErrors.swift */; };
 		B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */; };
 		B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */; };
@@ -88,6 +100,16 @@
 
 /* Begin PBXFileReference section */
 		B71DC3052BA4F35500F423AC /* NXRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXRadioButton.swift; sourceTree = "<group>"; };
+		B7338FD22BAA420500332486 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
+		B7338FD52BAA42AC00332486 /* ToastEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastEnv.swift; sourceTree = "<group>"; };
+		B7338FD72BAA434F00332486 /* ErrorEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorEnv.swift; sourceTree = "<group>"; };
+		B7338FD92BAA471300332486 /* ErrorWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorWrapper.swift; sourceTree = "<group>"; };
+		B7338FDE2BAA4A0100332486 /* NXSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXSegmentedPicker.swift; sourceTree = "<group>"; };
+		B7338FE02BAA4A4E00332486 /* AnimationEffectModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationEffectModifier.swift; sourceTree = "<group>"; };
+		B7338FE22BAA4AC800332486 /* PickerStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerStyleModifier.swift; sourceTree = "<group>"; };
+		B7338FE42BAA4C2600332486 /* MessageSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSheetView.swift; sourceTree = "<group>"; };
+		B7384B2C2BA5E9BC00A0BDB0 /* AnimatedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedText.swift; sourceTree = "<group>"; };
+		B7384B302BA5F71800A0BDB0 /* WheelPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheelPicker.swift; sourceTree = "<group>"; };
 		B73DE38C2B9B8B2B009BFFCD /* Nutrex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nutrex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73DE38F2B9B8B2B009BFFCD /* NutrexApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrexApp.swift; sourceTree = "<group>"; };
 		B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,11 +131,13 @@
 		B769A08B2BA23F5000878070 /* NXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXButton.swift; sourceTree = "<group>"; };
 		B769A08E2BA2559B00878070 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		B769A0912BA2563B00878070 /* NXIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXIcon.swift; sourceTree = "<group>"; };
+		B7868C8B2BA77C7C00362341 /* DateEnv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateEnv.swift; sourceTree = "<group>"; };
 		B7A91D892B9F280D007D493A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
 		B7C89B742BA38846001B7B46 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
 		B7D731B02BA08B4000C94A2D /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScreen.swift; sourceTree = "<group>"; };
@@ -179,6 +203,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B7338FD12BAA41F100332486 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				B7338FD22BAA420500332486 /* ToastView.swift */,
+				B7338FE42BAA4C2600332486 /* MessageSheetView.swift */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		B7338FD42BAA429800332486 /* Popups */ = {
+			isa = PBXGroup;
+			children = (
+				B7338FD52BAA42AC00332486 /* ToastEnv.swift */,
+			);
+			path = Popups;
+			sourceTree = "<group>";
+		};
+		B7338FDB2BAA497600332486 /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				B7338FDE2BAA4A0100332486 /* NXSegmentedPicker.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
+		B7384B2B2BA5E9A800A0BDB0 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				B7384B2C2BA5E9BC00A0BDB0 /* AnimatedText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		B73DE3832B9B8B2A009BFFCD = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +351,7 @@
 				B742242B2BA1FAB200A9C0FC /* AppLogo.swift */,
 				B769A08E2BA2559B00878070 /* Separator.swift */,
 				B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */,
+				B7384B302BA5F71800A0BDB0 /* WheelPicker.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -341,11 +399,11 @@
 		B7A91D822B9F2228007D493A /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				B7D731C72BA09F9100C94A2D /* Foods.json */,
 				B74223EB2BA1E1C700A9C0FC /* Fonts */,
 				B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */,
 				B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */,
 				B7A91D892B9F280D007D493A /* Launch Screen.storyboard */,
-				B7D731C72BA09F9100C94A2D /* Foods.json */,
 				B7D732412BA0AEDA00C94A2D /* Info.plist */,
 				B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */,
 				B7D731C42BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld */,
@@ -399,6 +457,7 @@
 		B7A91DD62B9F52A3007D493A /* Environment */ = {
 			isa = PBXGroup;
 			children = (
+				B7338FD42BAA429800332486 /* Popups */,
 				B7A91DD82B9F52B7007D493A /* Date */,
 				B7A91DD72B9F52AB007D493A /* Error */,
 			);
@@ -408,6 +467,8 @@
 		B7A91DD72B9F52AB007D493A /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				B7338FD72BAA434F00332486 /* ErrorEnv.swift */,
+				B7338FD92BAA471300332486 /* ErrorWrapper.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -415,6 +476,7 @@
 		B7A91DD82B9F52B7007D493A /* Date */ = {
 			isa = PBXGroup;
 			children = (
+				B7868C8B2BA77C7C00362341 /* DateEnv.swift */,
 			);
 			path = Date;
 			sourceTree = "<group>";
@@ -461,6 +523,8 @@
 			isa = PBXGroup;
 			children = (
 				B74224342BA2040D00A9C0FC /* StrokedModifier.swift */,
+				B7338FE02BAA4A4E00332486 /* AnimationEffectModifier.swift */,
+				B7338FE22BAA4AC800332486 /* PickerStyleModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -469,6 +533,9 @@
 			isa = PBXGroup;
 			children = (
 				B769A08D2BA2558800878070 /* Other */,
+				B7338FDB2BAA497600332486 /* Picker */,
+				B7338FD12BAA41F100332486 /* Popups */,
+				B7384B2B2BA5E9A800A0BDB0 /* Text */,
 				B769A0902BA2562400878070 /* Image */,
 				B769A08A2BA23F2B00878070 /* Button */,
 				B742242F2BA1FDBE00A9C0FC /* Input */,
@@ -489,6 +556,7 @@
 			children = (
 				B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */,
 				B7C89B742BA38846001B7B46 /* UserStore.swift */,
+				B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -725,12 +793,19 @@
 				B7D732132BA0A86F00C94A2D /* DateExt.swift in Sources */,
 				B74224332BA203E900A9C0FC /* ViewExt.swift in Sources */,
 				B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */,
+				B7868C8C2BA77C7C00362341 /* DateEnv.swift in Sources */,
 				B7D731F12BA0A08400C94A2D /* Meal+CoreDataProperties.swift in Sources */,
+				B7D50E752BA7BC9800DF0E51 /* FirebaseStore.swift in Sources */,
 				B742240C2BA1E4AD00A9C0FC /* FontExt.swift in Sources */,
+				B7338FE52BAA4C2600332486 /* MessageSheetView.swift in Sources */,
 				B7D731F52BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift in Sources */,
+				B7338FD82BAA434F00332486 /* ErrorEnv.swift in Sources */,
 				B7D731EB2BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift in Sources */,
+				B7384B312BA5F71800A0BDB0 /* WheelPicker.swift in Sources */,
 				B7D731F42BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift in Sources */,
 				B7D731EF2BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift in Sources */,
+				B7338FD32BAA420500332486 /* ToastView.swift in Sources */,
+				B7338FDF2BAA4A0100332486 /* NXSegmentedPicker.swift in Sources */,
 				B7D731FF2BA0A12400C94A2D /* User+CoreDataClass.swift in Sources */,
 				B7D731C62BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld in Sources */,
 				B7D731FB2BA0A08400C94A2D /* Food+CoreDataProperties.swift in Sources */,
@@ -742,6 +817,7 @@
 				B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */,
 				B74224352BA2040D00A9C0FC /* StrokedModifier.swift in Sources */,
 				B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */,
+				B7338FE32BAA4AC800332486 /* PickerStyleModifier.swift in Sources */,
 				B74224312BA1FDF100A9C0FC /* NXFormField.swift in Sources */,
 				B769A0922BA2563B00878070 /* NXIcon.swift in Sources */,
 				B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */,
@@ -749,6 +825,7 @@
 				B7D731F22BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift in Sources */,
 				B7D731F72BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift in Sources */,
 				B7D732112BA0A7FA00C94A2D /* NutritionCalc.swift in Sources */,
+				B7384B2D2BA5E9BC00A0BDB0 /* AnimatedText.swift in Sources */,
 				B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */,
 				B7D731EC2BA0A08400C94A2D /* Exercise+CoreDataClass.swift in Sources */,
 				B7D731C12BA09D4D00C94A2D /* ProfileSetupScreen.swift in Sources */,
@@ -760,12 +837,15 @@
 				B7D731ED2BA0A08400C94A2D /* Exercise+CoreDataProperties.swift in Sources */,
 				B7D731F32BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift in Sources */,
 				B742242C2BA1FAB200A9C0FC /* AppLogo.swift in Sources */,
+				B7338FDA2BAA471300332486 /* ErrorWrapper.swift in Sources */,
 				B7D732002BA0A12400C94A2D /* User+CoreDataProperties.swift in Sources */,
 				B71DC3062BA4F35500F423AC /* NXRadioButton.swift in Sources */,
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
+				B7338FD62BAA42AC00332486 /* ToastEnv.swift in Sources */,
 				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,
 				B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */,
 				B7D731EA2BA0A08400C94A2D /* MeasurementUnit+CoreDataClass.swift in Sources */,
+				B7338FE12BAA4A4E00332486 /* AnimationEffectModifier.swift in Sources */,
 				B7E2DE1D2BA350080084FD23 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

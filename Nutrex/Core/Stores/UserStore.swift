@@ -12,6 +12,11 @@ import Foundation
 
 @MainActor
 class UserStore: ObservableObject {
+    
+    enum UserError: Error {
+        case errorFethchingUser
+    }
+    
     @Published var currentUser: User = User.empty
     
     @Published var hasError: Bool = false
@@ -21,7 +26,6 @@ class UserStore: ObservableObject {
     
     func saveUser(_ user: User) async {
         do {
-            print(user.wrappedUid)
             let userRef = db.collection("users").document(user.wrappedUid)
             try userRef.setData(from: user)
             
@@ -40,9 +44,8 @@ class UserStore: ObservableObject {
     func fetchUser(forId uid: String) async {
         do {
             let snapshot = try await db.collection("users").document(uid).getDocument()
-            if let user = try? snapshot.data(as: User.self) {
-                currentUser = user
-            }
+            let user = try snapshot.data(as: User.self, decoder: FirestoreStore.shared.decoder)
+            self.currentUser = user
         } catch {
             print("Error fetching user data:", error)
             errorMessage = error.localizedDescription

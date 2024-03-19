@@ -8,24 +8,46 @@
 import FirebaseAuth
 import SwiftUI
 
-fileprivate struct ProfileSetupScreenConfig {
-    var setupProgress = 0
-    
-    var selectedGender: Gender          = .male
-    var dateOfBirth: Date               = Date.now.onlyDate
-    var activityLevel: ActivityLevel    = .sedentary
-}
-
 struct ProfileSetupScreen: View {
+    
+    enum MetricType: String, CaseIterable {
+        case cm = "cm"
+        case inch = "inch"
+    }
+    
+    enum WeightType: String, CaseIterable {
+        case lb = "lb"
+        case kg = "kg"
+    }
+    
+    struct ProfileSetupScreenConfig {
+        var setupProgress = 2
+        
+        var selectedGender: Gender          = .male
+        var dateOfBirth: Date               = Date.now.onlyDate
+        var bodyType: BodyType              = .ectomorph
+        var activityLevel: ActivityLevel    = .sedentary
+                
+        var metricType: MetricType          = .cm
+        var weightType: WeightType          = .kg
+        
+        var heightValue: CGFloat = 170
+        var heightWheelConfig: WheelPicker.Config = .init(count: 250, startValue: 170, multiplier: 1)
+        
+        var weightValue: CGFloat = 70
+        var weightWheelConfig: WheelPicker.Config = .init(count: 180, startValue: 70, multiplier: 1)
+        
+        var xOffset: CGFloat = 500
+    }
+    
     @Environment(\.managedObjectContext) private var context
     @EnvironmentObject private var userStore: UserStore
     
-    @State private var xOffset: CGFloat = 500
     @State private var config = ProfileSetupScreenConfig()
-    
-    let horizontalTransition: AnyTransition = .asymmetric(
-        insertion: .move(edge: .trailing),
-        removal: .move(edge: .leading)).animation(.smooth(duration: 2.0))
+        
+//    let horizontalTransition: AnyTransition = .asymmetric(
+//        insertion: .move(edge: .trailing),
+//        removal: .move(edge: .leading))
     
     var body: some View {
         VStack {
@@ -38,19 +60,23 @@ struct ProfileSetupScreen: View {
                 switch config.setupProgress {
                 case 0:
                     GenderTab()
-                        .transition(horizontalTransition)
                 case 1:
                     DateOfBirthTab()
-                        .transition(horizontalTransition)
                 case 2:
-                    GenderTab()
-                        .transition(horizontalTransition)
+                    HeightTab()
+                case 3:
+                    WeightTab()
+                case 4:
+                    AlmostThereTab()
+                case 5:
+                    GoalAndActivityTab()
                 default:
-                    Text("end...")
+                    Button("Sign Out") {
+                        try? Auth.auth().signOut()
+                    }
+                    .frame(maxWidth: .infinity)
                 }
             }
-            .frame(maxWidth: .infinity)
-            .padding(.horizontal)
             
             Spacer()
             ActionButton()
@@ -64,10 +90,10 @@ extension ProfileSetupScreen {
     @ViewBuilder
     private func ProgressIndicator() -> some View {
         HStack(spacing: 6.0) {
-            ForEach(0..<3) { index in
+            ForEach(0..<6) { index in
                 Capsule()
-                    .fill(index == config.setupProgress ? .nxAccent : .secondary)
-                    .frame(width: index == config.setupProgress ? 32.0 : 6.0, height: 6.0)
+                    .fill(index == config.setupProgress ? .nxAccent : .primary)
+                    .frame(width: index == config.setupProgress ? 32.0 : 4.0, height: 4.0)
             }
             
             Spacer()
@@ -78,52 +104,55 @@ extension ProfileSetupScreen {
     
     @ViewBuilder
     private func GenderTab() -> some View {
-        ZStack(alignment: .center) {
-            Image(.manExercise1)
-                .resizable()
-                .scaledToFit()
-                .opacity(0.6)
-                .frame(width: 630)
-                .offset(x: xOffset, y: -120)
+//        ZStack(alignment: .trailing) {
+//            Image(.manExercise1)
+//                .resizable()
+//                .aspectRatio(contentMode: .fit)
+//                .opacity(0.6)
+//                .frame(width: 320)
+//                .offset(x: xOffset, y: -120)
             
-            VStack(alignment: .leading, spacing: 8.0) {
-                Text("Your gender")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
-                    .padding(.bottom, 8.0)
-                
-                Text("To estimate your body's")
-                    .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
-                    .foregroundStyle(.secondary)
-                Text("metabolic rate.")
-                    .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
-                    .foregroundStyle(.nxAccent)
-                
-                VStack(alignment: .leading, spacing: 12.0) {
-                    ForEach(Gender.allCases, id: \.self) { gender in
-                        NXRadioButton(gender.rawValue, selected: gender == config.selectedGender) {
-                            if config.selectedGender != gender {
-                                config.selectedGender = gender
+            HStack {
+                VStack(alignment: .leading, spacing: 8.0) {
+                    Spacer()
+                    
+                    AnimatedText("Your gender")
+                        .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                        .padding(.bottom, 8.0)
+                    
+                    Text("To estimate your body's\nmetabolic rate.")
+                        .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
+                        .foregroundStyle(.secondary)
+                    
+                    VStack(alignment: .leading, spacing: 12.0) {
+                        ForEach(Gender.allCases, id: \.self) { gender in
+                            NXRadioButton(gender.rawValue, selected: gender == config.selectedGender) {
+                                if config.selectedGender != gender {
+                                    config.selectedGender = gender
+                                }
                             }
                         }
                     }
+                    .padding(.vertical, 32.0)
                 }
-                .padding(.vertical, 32.0)
+                
+                Spacer()
             }
+            .padding(32.0)
         }
-        .onAppear {
-            withAnimation(.smooth(duration: 1.0)) {
-                xOffset = 200
-            }
-        }
-        .frame(maxWidth: .infinity)
-    }
+//        .onAppear {
+//            withAnimation(.smooth(duration: 1.0)) {
+//                xOffset = 200
+//            }
+//        }
+//    }
     
     @ViewBuilder
     private func DateOfBirthTab() -> some View {
         VStack(alignment: .leading) {
             Spacer()
             
-            Text("Your birthday")
+            AnimatedText("Your birthday")
                 .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
                 .padding(.bottom, 8.0)
             
@@ -139,13 +168,84 @@ extension ProfileSetupScreen {
                 .font(.customFont(font: .ubuntu, weight: .bold))
                 .foregroundStyle(.secondary)
             
-            DatePicker(selection: $config.dateOfBirth, displayedComponents: .date) {
-                
-            }
-            .datePickerStyle(.wheel)
-            .padding(.vertical, 32.0)
+            DatePicker(selection: $config.dateOfBirth, displayedComponents: .date) { }
+                .datePickerStyle(.wheel)
+                .padding(.vertical)
         }
-        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 24.0)
+    }
+    
+    @ViewBuilder
+    private func HeightTab() -> some View {
+            VStack(alignment: .leading, spacing: 32.0) {
+                Spacer()
+                
+                VStack(alignment: .leading) {
+                    AnimatedText("Your height")
+                        .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                        .padding(.bottom, 8.0)
+                    
+                    Text("This helps with the bmi\ncalculation")
+                        .font(.customFont(font: .ubuntu, weight: .bold))
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.horizontal, 24.0)
+                
+                VStack {
+                    Picker("Measurement Unit", selection: $config.metricType) {
+                        ForEach(MetricType.allCases, id: \.self) { unit in
+                            Text(unit.rawValue)
+                                .tag(unit)
+                                .foregroundColor(config.metricType == unit ? .black : .white)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .background(Color.gray.opacity(0.5))
+                    .frame(width: 200.0)
+                    
+                    HStack(alignment: .lastTextBaseline, spacing: 4.0) {
+                        Text(verbatim: "\(config.heightValue)")
+                            .font(.customFont(font: .audiowide, size: .largeTitle))
+                            .contentTransition(.numericText(value: config.heightValue))
+                            .animation(.snappy, value: config.heightValue)
+                        
+                        Text(config.metricType.rawValue)
+                            .textScale(.secondary)
+                            .foregroundStyle(.gray)
+                    }
+                    .padding(.horizontal, 24.0)
+                    
+                    WheelPicker(config: config.heightWheelConfig, value: $config.heightValue)
+                        .frame(height: 60)
+                }
+            }
+            .padding(.vertical, 64.0)
+    }
+    
+    @ViewBuilder
+    private func WeightTab() -> some View {
+        VStack(spacing: 32.0) {
+            VStack {
+                Text("Weight")
+                    .font(.customFont(font: .audiowide, size: .body, relativeTo: .body))
+                    .foregroundStyle(.secondary)
+                
+                HStack(alignment: .lastTextBaseline, spacing: 4.0) {
+                    Text(verbatim: "\(config.weightValue)")
+                        .font(.customFont(font: .audiowide, size: .largeTitle))
+                        .contentTransition(.numericText(value: config.weightValue))
+                        .animation(.snappy, value: config.weightValue)
+                    
+                    Text(config.weightType.rawValue)
+                        .textScale(.secondary)
+                        .foregroundStyle(.gray)
+                }
+                .padding(.bottom, 12.0)
+                
+                WheelPicker(config: config.weightWheelConfig, value: $config.weightValue)
+                    .frame(height: 60)
+            }
+        }
     }
     
     @ViewBuilder
@@ -169,16 +269,31 @@ extension ProfileSetupScreen {
         }
         .padding(.vertical)
     }
+    
+    @ViewBuilder
+    private func AlmostThereTab() -> some View {
+        AnimatedText("Almost there", animationDuration: 2.0, delayBetweenWords: 1.0)
+            .font(.customFont(font: .audiowide, size: .title, relativeTo: .title))
+    }
+    
+    @ViewBuilder
+    private func GoalAndActivityTab() -> some View {
+        VStack {
+            Text("Goal")
+            Text("Activity")
+        }
+    }
+    
 }
 
 // MARK: - ACTIONS -
 extension ProfileSetupScreen {
     
     private func nextStep() {
-        if config.setupProgress < 3 {
+        if config.setupProgress < 6 {
             withAnimation(.spring) {
                 config.setupProgress += 1
-                xOffset = 500
+                config.xOffset = 500
             }
         } else {
             withAnimation(.spring) {

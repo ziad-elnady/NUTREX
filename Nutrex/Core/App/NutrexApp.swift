@@ -19,23 +19,35 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct NutrexApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
+    let dataStore = CoreDataController.shared
+    let firebaseStore = FirestoreStore.shared
+    
     @StateObject var authStore = AuthenticationStore()
     @StateObject var userStore = UserStore()
     
-    let dataStore = CoreDataController.shared
+    @State private var selectedDate = Date.now.onlyDate
+    @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
-            Group {
-                if let userSession = authStore.userSession {
-                    AppCoordinator(uid: userSession.uid)
-                } else {
-                    AuthenticationScreen()
+            RootView {
+                Group {
+                    if let userSession = authStore.userSession {
+                        AppCoordinator(uid: userSession.uid)
+                    } else {
+                        AuthenticationScreen()
+                    }
                 }
             }
             .environment(\.managedObjectContext, dataStore.viewContext)
             .environmentObject(authStore)
             .environmentObject(userStore)
+            .environment(\.showError) { error, message in
+                errorWrapper = ErrorWrapper(error: error, message: message)
+            }
+            .sheet(item: $errorWrapper) { errorWrapper in
+                Text(errorWrapper.error.localizedDescription)
+            }
             .tint(.nxAccent)
         }
         

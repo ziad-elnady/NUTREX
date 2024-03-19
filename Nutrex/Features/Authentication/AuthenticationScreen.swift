@@ -231,7 +231,9 @@ extension AuthenticationScreen {
         config.isLoading = true
         
         Task {
-            await authStore.signIn(withEmail: config.email, password: config.password)
+            await authStore.signIn(withEmail: config.email,
+                                   password: config.password)
+            
             config.isLoading = false
         }
     }
@@ -261,4 +263,6 @@ extension AuthenticationScreen {
 
 #Preview {
     AuthenticationScreen()
+        .environmentObject(AuthenticationStore())
+        .environmentObject(UserStore())
 }
