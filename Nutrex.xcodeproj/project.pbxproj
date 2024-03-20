@@ -49,6 +49,8 @@
 		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
 		B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C89B742BA38846001B7B46 /* UserStore.swift */; };
 		B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */; };
+		B7CB029F2BAB83A8006ACB1A /* LoadingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */; };
+		B7CB02A12BAB9402006ACB1A /* HealthCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CB02A02BAB9402006ACB1A /* HealthCalculator.swift */; };
 		B7D50E752BA7BC9800DF0E51 /* FirebaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */; };
 		B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */; };
 		B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */; };
@@ -88,7 +90,7 @@
 		B7D86C352BAB0F600006FAB5 /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C342BAB0F600006FAB5 /* BindingExt.swift */; };
 		B7D86C392BAB117C0006FAB5 /* NXAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C382BAB117C0006FAB5 /* NXAlert.swift */; };
 		B7D86C3B2BAB11890006FAB5 /* NXAuthAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C3A2BAB11890006FAB5 /* NXAuthAlert.swift */; };
-		B7D86C3E2BAB14870006FAB5 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C3D2BAB14870006FAB5 /* FirebaseManager.swift */; };
+		B7D86C402BAB15900006FAB5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C3F2BAB15900006FAB5 /* AuthenticationManager.swift */; };
 		B7E2DE142BA329EE0084FD23 /* Ubuntu-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0C2BA329EE0084FD23 /* Ubuntu-Light.ttf */; };
 		B7E2DE152BA329EE0084FD23 /* Ubuntu-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0D2BA329EE0084FD23 /* Ubuntu-LightItalic.ttf */; };
 		B7E2DE172BA329EE0084FD23 /* Ubuntu-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE0F2BA329EE0084FD23 /* Ubuntu-Italic.ttf */; };
@@ -136,6 +138,8 @@
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
 		B7C89B742BA38846001B7B46 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModifier.swift; sourceTree = "<group>"; };
+		B7CB02A02BAB9402006ACB1A /* HealthCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthCalculator.swift; sourceTree = "<group>"; };
 		B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseStore.swift; sourceTree = "<group>"; };
 		B7D731B32BA09B9600C94A2D /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B7D731B52BA09C0200C94A2D /* AuthenticationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationScreen.swift; sourceTree = "<group>"; };
@@ -176,7 +180,7 @@
 		B7D86C342BAB0F600006FAB5 /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
 		B7D86C382BAB117C0006FAB5 /* NXAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAlert.swift; sourceTree = "<group>"; };
 		B7D86C3A2BAB11890006FAB5 /* NXAuthAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAuthAlert.swift; sourceTree = "<group>"; };
-		B7D86C3D2BAB14870006FAB5 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		B7D86C3F2BAB15900006FAB5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		B7E2DE0C2BA329EE0084FD23 /* Ubuntu-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Light.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Light.ttf"; sourceTree = "<group>"; };
 		B7E2DE0D2BA329EE0084FD23 /* Ubuntu-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-LightItalic.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-LightItalic.ttf"; sourceTree = "<group>"; };
 		B7E2DE0F2BA329EE0084FD23 /* Ubuntu-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Italic.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Italic.ttf"; sourceTree = "<group>"; };
@@ -510,6 +514,7 @@
 				B74224342BA2040D00A9C0FC /* StrokedModifier.swift */,
 				B7338FE02BAA4A4E00332486 /* AnimationEffectModifier.swift */,
 				B7338FE22BAA4AC800332486 /* PickerStyleModifier.swift */,
+				B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				B7D732102BA0A7FA00C94A2D /* NutritionCalc.swift */,
 				B7D86C382BAB117C0006FAB5 /* NXAlert.swift */,
 				B7D86C3A2BAB11890006FAB5 /* NXAuthAlert.swift */,
+				B7CB02A02BAB9402006ACB1A /* HealthCalculator.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -675,7 +681,7 @@
 		B7D86C3C2BAB14730006FAB5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				B7D86C3D2BAB14870006FAB5 /* FirebaseManager.swift */,
+				B7D86C3F2BAB15900006FAB5 /* AuthenticationManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -798,6 +804,7 @@
 				B7384B312BA5F71800A0BDB0 /* WheelPicker.swift in Sources */,
 				B7D731F42BA0A08400C94A2D /* HistoryItem+CoreDataClass.swift in Sources */,
 				B7D731EF2BA0A08400C94A2D /* RoutineMeal+CoreDataProperties.swift in Sources */,
+				B7CB02A12BAB9402006ACB1A /* HealthCalculator.swift in Sources */,
 				B7338FD32BAA420500332486 /* ToastView.swift in Sources */,
 				B7D86C3B2BAB11890006FAB5 /* NXAuthAlert.swift in Sources */,
 				B7338FDF2BAA4A0100332486 /* NXSegmentedPicker.swift in Sources */,
@@ -810,7 +817,9 @@
 				B769A08F2BA2559B00878070 /* Separator.swift in Sources */,
 				B7D731F62BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift in Sources */,
 				B7D731CB2BA0A00100C94A2D /* CoreDataController.swift in Sources */,
+				B7CB029F2BAB83A8006ACB1A /* LoadingModifier.swift in Sources */,
 				B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */,
+				B7D86C402BAB15900006FAB5 /* AuthenticationManager.swift in Sources */,
 				B74224352BA2040D00A9C0FC /* StrokedModifier.swift in Sources */,
 				B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */,
 				B7338FE32BAA4AC800332486 /* PickerStyleModifier.swift in Sources */,
@@ -821,7 +830,6 @@
 				B7D731F22BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift in Sources */,
 				B7D731F72BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift in Sources */,
 				B7D732112BA0A7FA00C94A2D /* NutritionCalc.swift in Sources */,
-				B7D86C3E2BAB14870006FAB5 /* FirebaseManager.swift in Sources */,
 				B7384B2D2BA5E9BC00A0BDB0 /* AnimatedText.swift in Sources */,
 				B7D731B42BA09B9600C94A2D /* AppCoordinator.swift in Sources */,
 				B7D731EC2BA0A08400C94A2D /* Exercise+CoreDataClass.swift in Sources */,

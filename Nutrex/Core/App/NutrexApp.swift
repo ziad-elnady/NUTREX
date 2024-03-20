@@ -22,11 +22,10 @@ struct NutrexApp: App {
     let dataStore = CoreDataController.shared
     let firebaseStore = FirestoreStore.shared
     
-    @StateObject var authStore = AuthenticationStore()
+    @StateObject var authStore = AuthenticationStore.shared
     @StateObject var userStore = UserStore()
     
     @State private var selectedDate = Date.now.onlyDate
-    @State private var errorWrapper: ErrorWrapper?
     
     var body: some Scene {
         WindowGroup {
@@ -40,14 +39,9 @@ struct NutrexApp: App {
                 }
             }
             .environment(\.managedObjectContext, dataStore.viewContext)
+            .environment(\.selectedDate, $selectedDate)
             .environmentObject(authStore)
             .environmentObject(userStore)
-            .environment(\.showError) { error, message in
-                errorWrapper = ErrorWrapper(error: error, message: message)
-            }
-            .sheet(item: $errorWrapper) { errorWrapper in
-                Text(errorWrapper.error.localizedDescription)
-            }
             .tint(.nxAccent)
         }
         

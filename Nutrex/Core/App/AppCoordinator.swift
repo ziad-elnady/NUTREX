@@ -47,7 +47,10 @@ extension AppCoordinator {
     private func MainApp(user: User) -> some View {
         Group {
             if user.isProfileCompleted {
-                NutritionDiaryScreen(user: user)
+                NutritionDiaryScreen()
+                    .task {
+                        await userStore.syncUser()
+                    }
             } else {
                 ProfileSetupScreen()
             }

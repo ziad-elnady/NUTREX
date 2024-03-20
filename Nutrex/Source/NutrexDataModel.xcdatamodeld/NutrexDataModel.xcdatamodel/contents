@@ -87,6 +87,7 @@
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="mealRoutines" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="activityLevel" optional="YES" attributeType="String"/>
         <attribute name="bodyType" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>

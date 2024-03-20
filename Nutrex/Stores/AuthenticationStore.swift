@@ -12,6 +12,7 @@ import FirebaseAuth
 
 @MainActor
 class AuthenticationStore: ObservableObject {
+    static let shared = AuthenticationStore()
     let auth = Auth.auth()
     
     @Published var userSession: FirebaseAuth.User?
@@ -25,10 +26,10 @@ class AuthenticationStore: ObservableObject {
     }
     
     func signUp(withEmail email: String, password: String) async throws -> FirebaseAuth.User? {
-            let authResult = try await auth.createUser(withEmail: email, password: password)
-            self.userSession = authResult.user
-            
-            return authResult.user
+        let authResult = try await auth.createUser(withEmail: email, password: password)
+        self.userSession = authResult.user
+        
+        return authResult.user
     }
     
     func signIn(withEmail email: String, password: String) async throws {
@@ -36,4 +37,7 @@ class AuthenticationStore: ObservableObject {
         self.userSession = authResult.user
     }
     
+    func signOut() async throws {
+        try auth.signOut()
+    }
 }

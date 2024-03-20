@@ -32,4 +32,8 @@ extension View {
             }
     }
     
+    func loadingView(_ title: String = "Loading...", isLoading: Bool) -> some View {
+        self.modifier(LoadingViewModifier(title, isLoading: isLoading))
+    }
+    
 }

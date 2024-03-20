@@ -8,21 +8,15 @@
 import FirebaseFirestore
 import Foundation
 
-@MainActor
-class FireStore: ObservableObject {
+class FireStore {
     private let db = Firestore.firestore()
     
-    func createUserDocument(uid: String, username: String, email: String, completion: @escaping (Error?) -> Void) {
+    func createUserDocument(uid: String, username: String, email: String, completion: @escaping (Error?) -> Void) async throws {
         let userData = [
             "username": username,
             "email": email
-            // Add other user data fields as needed
         ]
         
-        db.collection("users").document(uid).setData(userData) { error in
-            completion(error)
-        }
+        try await db.collection("users").document(uid).setData(userData)
     }
-    
-    // Implement other Firestore-related operations and error handling here
 }

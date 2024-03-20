@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct LoadingScreen: View {
+    var title: String = "Loading..."
+    
     var body: some View {
         ZStack(alignment: .center) {
             Color(.black.opacity(0.5))
@@ -15,9 +17,8 @@ struct LoadingScreen: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .ignoresSafeArea()
             
-            
             ProgressView {
-                Text("signing in...")
+                Text(title)
                     .font(.customFont(font: .orbitron, weight: .semiBold))
             }
             .padding()

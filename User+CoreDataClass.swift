@@ -17,6 +17,7 @@ public class User: NSManagedObject, Codable {
         case updatedAt
         case bodyType
         case dateOfBirth
+        case activityLevel
         case gender
         case goal
         case height
@@ -39,6 +40,7 @@ public class User: NSManagedObject, Codable {
         self.updatedAt      = try container.decodeIfPresent(Date.self, forKey: .updatedAt)
         self.bodyType       = try container.decodeIfPresent(String.self, forKey: .bodyType)
         self.dateOfBirth    = try container.decodeIfPresent(Date.self, forKey: .dateOfBirth)
+        self.activityLevel  = try container.decodeIfPresent(String.self, forKey: .activityLevel)
         self.gender         = try container.decodeIfPresent(String.self, forKey: .gender)
         self.goal           = try container.decodeIfPresent(String.self, forKey: .goal)
         self.height         = try container.decode(Double.self, forKey: .height)
@@ -53,6 +55,7 @@ public class User: NSManagedObject, Codable {
         try container.encodeIfPresent(createdAt, forKey: .createdAt)
         try container.encodeIfPresent(updatedAt, forKey: .updatedAt)
         try container.encodeIfPresent(dateOfBirth, forKey: .dateOfBirth)
+        try container.encodeIfPresent(activityLevel, forKey: .activityLevel)
         try container.encodeIfPresent(gender, forKey: .gender)
         try container.encodeIfPresent(goal, forKey: .goal)
         try container.encode(height, forKey: .height)

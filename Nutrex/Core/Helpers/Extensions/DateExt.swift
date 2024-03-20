@@ -13,6 +13,27 @@ extension Date {
         let components = calendar.dateComponents([.year, .month, .day], from: self)
         return calendar.date(from: components) ?? self
     }
+    
+    static func createDate(day: Int, month: Int, year: Int) -> Date? {
+        let calendar = Calendar.current
+        var components = DateComponents()
+        components.year = year
+        components.month = month
+        components.day = day
+        return calendar.date(from: components)
+    }
+    
+    func age() -> Int {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        
+        let ageComponents = calendar.dateComponents([.year], from: self, to: currentDate)
+        if let ageYears = ageComponents.year {
+            return ageYears
+        } else {
+            return 0
+        }
+    }
 }
 
 extension DateFormatter {

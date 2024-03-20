@@ -23,12 +23,6 @@ fileprivate struct AuthenticationScreenConfig {
     }
     
     var isRegistering = false
-    
-    mutating func resetFields() {
-        email = ""
-        username = ""
-        password = ""
-    }
 }
 
 fileprivate enum Field {
@@ -43,6 +37,7 @@ struct AuthenticationScreen: View {
     @EnvironmentObject private var userStore: UserStore
     
     @State private var config = AuthenticationScreenConfig()
+    @State private var alert: NXAuthAlert? = nil
     @FocusState private var focusedField: Field?
     
     let varticalTransition: AnyTransition = .asymmetric(
@@ -60,22 +55,12 @@ struct AuthenticationScreen: View {
             RightsReserved()
         }
         .padding()
-        .alert(isPresented: $authStore.hasError) {
-            Alert(
-                title: Text("Error"),
-                message: Text(authStore.errorMessage ?? "An error occurred"),
-                dismissButton: .default(Text("OK")) {
-                    config.resetFields()
-                    authStore.errorMessage = nil
-                }
-            )
-        }
         .overlay {
             if config.isLoading {
                 LoadingScreen()
             }
         }
-        
+        .showAlert(alert: $alert)
     }
 }
 
@@ -231,8 +216,13 @@ extension AuthenticationScreen {
         config.isLoading = true
         
         Task {
-            await authStore.signIn(withEmail: config.email,
-                                   password: config.password)
+           do {
+               try  await authStore.signIn(withEmail: config.email,
+                                       password: config.password)
+                
+           } catch {
+               alert = .error(error)
+           }
             
             config.isLoading = false
         }
@@ -243,19 +233,24 @@ extension AuthenticationScreen {
         config.isLoading = true
         
         Task {
-            if let user = await authStore.signUp(withEmail: config.email,
-                                                 password: config.password) {
+            do {
+                let user = try await authStore.signUp(withEmail: config.email,
+                                           password: config.password)
                 
                 let newUser = User(context: context)
-                newUser.uid = user.uid
+                newUser.uid = user?.uid
                 newUser.username = config.username
                 newUser.email = config.email
                 
                 CoreDataController.shared.saveContext()
                 
-                await userStore.saveUser(newUser)
-                config.isLoading = false
+                try await userStore.saveUser(newUser)
+                
+            } catch {
+                alert = .error(error)
             }
+            
+            config.isLoading = false
         }
     }
     

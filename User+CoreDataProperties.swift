@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Nutrex
 //
-//  Created by Ziad Ahmed on 18/03/2024.
+//  Created by Ziad Ahmed on 21/03/2024.
 //
 //
 
@@ -33,11 +33,6 @@ enum ActivityLevel: String, CaseIterable, Codable {
     case veryActive = "Very Active"
 }
 
-enum DefaultUserProfileValues: Double {
-    case height = 175.0
-    case weight = 70.0
-}
-
 extension User {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<User> {
@@ -45,16 +40,17 @@ extension User {
     }
 
     @NSManaged public var bodyType: String?
+    @NSManaged public var createdAt: Date?
     @NSManaged public var dateOfBirth: Date?
     @NSManaged public var email: String?
     @NSManaged public var gender: String?
     @NSManaged public var goal: String?
     @NSManaged public var height: Double
     @NSManaged public var uid: String?
+    @NSManaged public var updatedAt: Date?
     @NSManaged public var username: String?
     @NSManaged public var weight: Double
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var updatedAt: Date?
+    @NSManaged public var activityLevel: String?
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
 
@@ -93,19 +89,49 @@ extension User {
     var wrappedGender: String {
         gender ?? "No Gender"
     }
+    
+    var wrappedCreatedAt: Date {
+        createdAt ?? Date.now
+    }
+    
+    var wrappedUpdatedAt: Date {
+        createdAt ?? Date.now
+    }
 
     var isProfileCompleted: Bool {
         return bodyType != nil &&
         dateOfBirth != nil &&
         gender != nil &&
         goal != nil &&
-        height != DefaultUserProfileValues.height.rawValue &&
-        weight != DefaultUserProfileValues.weight.rawValue &&
+        height != 0.0 &&
+        weight != 0.0 &&
         username != nil &&
         uid != nil &&
+        activityLevel != nil &&
         email != nil
     }
+
+    var neededCalories: Double {
+        HealthCalculator.shared.calculateCaloricGoal(user: self)
+    }
+
+    var age: Int {
+        dateOfBirth?.age() ?? Date.distantPast.age()
+    }
     
+    func migrate(withUser user: User) {
+        bodyType        = user.bodyType
+        dateOfBirth     = user.dateOfBirth
+        gender          = user.gender
+        goal            = user.goal
+        height          = user.height
+        weight          = user.weight
+        username        = user.username
+        uid             = user.uid
+        activityLevel   = user.activityLevel
+        email           = user.email
+        updatedAt       = Date.now
+    }
 }
 
 // MARK: Generated accessors for diaries
