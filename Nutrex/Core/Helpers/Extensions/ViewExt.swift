@@ -19,4 +19,17 @@ extension View {
     func pickerTextStyle(isSelected: Bool) -> some View {
         self.modifier(PickerStyleModifier(isSelected: isSelected))
     }
+    
+    
+    func showAlert<T: NXAlert>(alert: Binding<T?>) -> some View {
+        self
+            .alert(alert.wrappedValue?.title ?? "Error", isPresented: Binding(value: alert)) {
+                alert.wrappedValue?.actions
+            } message: {
+                if let description = alert.wrappedValue?.description {
+                    Text(description)
+                }
+            }
+    }
+    
 }

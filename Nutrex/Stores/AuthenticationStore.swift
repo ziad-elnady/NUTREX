@@ -17,9 +17,6 @@ class AuthenticationStore: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var isAuthenticated = false
     
-    @Published var errorMessage: String? = nil
-    @Published var hasError = false
-    
     init() {
         Auth.auth().addStateDidChangeListener { auth, user in
             self.userSession = user
@@ -27,32 +24,16 @@ class AuthenticationStore: ObservableObject {
         }
     }
     
-    func signUp(withEmail email: String, password: String) async -> FirebaseAuth.User? {
-        do {
+    func signUp(withEmail email: String, password: String) async throws -> FirebaseAuth.User? {
             let authResult = try await auth.createUser(withEmail: email, password: password)
             self.userSession = authResult.user
-            self.isAuthenticated = true
-            self.errorMessage = nil
             
             return authResult.user
-        } catch {
-            self.hasError = true
-            self.errorMessage = error.localizedDescription
-            
-            return nil
-        }
     }
     
-    func signIn(withEmail email: String, password: String) async {
-        do {
-            let authResult = try await auth.signIn(withEmail: email, password: password)
-            self.userSession = authResult.user
-            self.isAuthenticated = true
-            self.errorMessage = nil
-        } catch {
-            self.hasError = true
-            self.errorMessage = error.localizedDescription
-        }
+    func signIn(withEmail email: String, password: String) async throws {
+        let authResult = try await auth.signIn(withEmail: email, password: password)
+        self.userSession = authResult.user
     }
     
 }
