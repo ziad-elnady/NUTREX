@@ -8,60 +8,39 @@
 import SwiftUI
 
 struct AppCoordinator: View {
-    @Environment(\.managedObjectContext) private var context
+    @FetchRequest private var users: FetchedResults<User>
     @EnvironmentObject private var userStore: UserStore
     
-    @FetchRequest private var users: FetchedResults<User>
-    @State private var isSignInPresented = false
+    @Binding var isShowingSplashScreen: Bool
         
     let uid: String
     
-    init(uid: String) {
+    init(uid: String, isShowingSplashScreen: Binding<Bool>) {
         self.uid = uid
+        self._isShowingSplashScreen = isShowingSplashScreen
         self._users = FetchRequest(fetchRequest: User.filteredUsersForID(uid))
     }
-        
-    var body: some View {
-        Group {
-            if userStore.currentUser.isNotEmpty {
-                MainApp(user: userStore.currentUser)
-            } else {
-                AppLogo()
-                    .frame(width: 220, height: 35)
-            }
-        }
-        .task {
-            await userStore.fetchUser(forId: uid)
-        }
-        .fullScreenCover(isPresented: $isSignInPresented) {
-            AuthenticationScreen()
-        }
-    }
-}
-
-
-// MARK: - VIEWS -
-extension AppCoordinator {
     
-    @ViewBuilder
-    private func MainApp(user: User) -> some View {
-        Group {
-            if user.isProfileCompleted {
-                NutritionDiaryScreen()
-                    .task {
-                        await userStore.syncUser()
-                    }
+    var body: some View {
+        ZStack {
+            if userStore.currentUser.isProfileCompleted {
+                NutritionTabView()
             } else {
                 ProfileSetupScreen()
             }
         }
-        .onAppear {
-            userStore.currentUser = user
+        .task(priority: .low) {
+            if let user = users.first {
+                userStore.currentUser = user
+            }
+            
+            try? await userStore.fetchUser(forId: uid)
+            
+            isShowingSplashScreen = false
         }
     }
-    
 }
 
 #Preview {
-    AppCoordinator(uid: "123")
+    AppCoordinator(uid: "empty", isShowingSplashScreen: .constant(false))
 }

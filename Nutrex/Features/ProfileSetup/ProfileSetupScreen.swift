@@ -7,21 +7,21 @@
 
 import SwiftUI
 
+enum MetricType: String, CaseIterable {
+    case cm = "cm"
+    case inch = "inch"
+}
+
+enum WeightType: String, CaseIterable {
+    case lb = "lb"
+    case kg = "kg"
+}
+
+
+
 struct ProfileSetupScreen: View {
     
-    enum MetricType: String, CaseIterable {
-        case cm = "cm"
-        case inch = "inch"
-    }
-    
-    enum WeightType: String, CaseIterable {
-        case lb = "lb"
-        case kg = "kg"
-    }
-    
-    struct ProfileSetupScreenConfig {
-        var setupProgress   = 0
-        var isLoading       = false
+    struct UserProfileSetupConfig {
         
         var selectedGender: Gender          = .male
         var dateOfBirth: Date               =  Date.createDate(day: 1, month: 1, year: 1999)?.onlyDate ?? Date.now.onlyDate
@@ -33,31 +33,51 @@ struct ProfileSetupScreen: View {
         var weightType: WeightType          = .kg
         
         var heightValue: CGFloat = 170
-        var heightWheelConfig: WheelPicker.Config = .init(count: 250, startValue: 170, multiplier: 1)
-        
         var weightValue: CGFloat = 70
+    }
+    
+    struct ProfileSetupScreenConfig {
+        var setupProgress   = 0
+        var isTextShown     = false
+        var isLoading       = false
+        
+        var heightWheelConfig: WheelPicker.Config = .init(count: 250, startValue: 170, multiplier: 1)
         var weightWheelConfig: WheelPicker.Config = .init(count: 180, startValue: 70, multiplier: 1)
         
         var xOffset: CGFloat = 500
         
         var isProfileComplete: Bool {
-            setupProgress == 5
+            setupProgress == 6
         }
     }
     
     @Environment(\.managedObjectContext) private var context
     @EnvironmentObject private var userStore: UserStore
     
-    @State private var config = ProfileSetupScreenConfig()
+    @State private var screenConfig     = ProfileSetupScreenConfig()
+    @State private var userDataConfig   = UserProfileSetupConfig()
     @State private var alert: NXGenericAlert? = nil
         
-//    let horizontalTransition: AnyTransition = .asymmetric(
-//        insertion: .move(edge: .trailing),
-//        removal: .move(edge: .leading))
+    let titleTransition: AnyTransition = .asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing))
+        .combined(with: .opacity)
+    
+    let descTransition: AnyTransition = .asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading))
+        .combined(with: .opacity)
+    
+    let contentTransition: AnyTransition = .asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .top))
+        .combined(with: .opacity)
+        .combined(with: .scale(scale: 2, anchor: .bottom))
+    
+    private let titles: [String] = ["Your gender", "Your Weight", "Your Age"]
+    private let descriptions: [String] = [
+        "To estimate your body's\nmetabolic rate",
+        "Second tab descripition for the user",
+        "Last but not least"
+    ]
     
     var body: some View {
         VStack {
-            if config.setupProgress < 4 {
+            if screenConfig.setupProgress < 4 {
                 ProgressIndicator()
             }
             Spacer()
@@ -65,31 +85,38 @@ struct ProfileSetupScreen: View {
             ZStack(alignment: .leading) {
                 Spacer(minLength: 290)
                 
-                switch config.setupProgress {
+                switch screenConfig.setupProgress {
                 case 0:
                     GenderTab()
+                        .transition(contentTransition)
                 case 1:
                     DateOfBirthTab()
+                        .transition(contentTransition)
                 case 2:
                     HeightTab()
+                        .transition(contentTransition)
                 case 3:
                     WeightTab()
+                        .transition(contentTransition)
                 case 4:
                     AlmostThereTab()
+                        .transition(contentTransition)
                 case 5:
                     GoalTab()
+                        .transition(contentTransition)
                 default:
                     ActivityTab()
+                        .transition(contentTransition)
                 }
             }
             
             Spacer()
-            if config.setupProgress != 4 {
+            if screenConfig.setupProgress != 4 {
                 ActionButton()
             }
         }
         .showAlert(alert: $alert)
-        .loadingView(isLoading: config.isLoading)
+        .loadingView(isLoading: screenConfig.isLoading)
     }
 }
 
@@ -101,11 +128,33 @@ extension ProfileSetupScreen {
         HStack(spacing: 6.0) {
             ForEach(0..<4) { index in
                 Capsule()
-                    .fill(index == config.setupProgress ? .nxAccent : .primary)
-                    .frame(width: index == config.setupProgress ? 32.0 : 4.0, height: 4.0)
+                    .fill(index == screenConfig.setupProgress ? .nxAccent : .primary)
+                    .frame(width: index == screenConfig.setupProgress ? 32.0 : 4.0, height: 4.0)
             }
             
             Spacer()
+        }
+        .padding(.horizontal, 32.0)
+        .padding(.vertical)
+    }
+    
+    @ViewBuilder
+    private func TitleAndDescription() -> some View {
+        VStack {
+            if screenConfig.isTextShown {
+                Text(titles[screenConfig.setupProgress])
+                    .font(.title.bold())
+                    .transition(titleTransition)
+                    .animation(.smooth(duration: 0.1, extraBounce: 2.0).delay(0.1), value: screenConfig.isTextShown)
+            }
+            
+            if screenConfig.isTextShown {
+                Text(descriptions[screenConfig.setupProgress])
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .transition(descTransition)
+                    .animation(.bouncy(duration: 0.2, extraBounce: 3.0), value: screenConfig.isTextShown)
+            }
         }
         .padding(.horizontal, 32.0)
         .padding(.vertical)
@@ -135,9 +184,9 @@ extension ProfileSetupScreen {
                 
                 VStack(alignment: .leading, spacing: 12.0) {
                     ForEach(Gender.allCases, id: \.self) { gender in
-                        NXRadioButton(gender.rawValue, selected: gender == config.selectedGender) {
-                            if config.selectedGender != gender {
-                                config.selectedGender = gender
+                        NXRadioButton(gender.rawValue, selected: gender == userDataConfig.selectedGender) {
+                            if userDataConfig.selectedGender != gender {
+                                userDataConfig.selectedGender = gender
                             }
                         }
                     }
@@ -177,7 +226,7 @@ extension ProfileSetupScreen {
                 .font(.customFont(font: .ubuntu, weight: .bold))
                 .foregroundStyle(.secondary)
             
-            DatePicker(selection: $config.dateOfBirth, displayedComponents: .date) { }
+            DatePicker(selection: $userDataConfig.dateOfBirth, displayedComponents: .date) { }
                 .datePickerStyle(.wheel)
                 .padding(.vertical)
         }
@@ -201,11 +250,11 @@ extension ProfileSetupScreen {
             .padding(.horizontal, 24.0)
             
             VStack {
-                Picker("Measurement Unit", selection: $config.metricType) {
+                Picker("Measurement Unit", selection: $userDataConfig.metricType) {
                     ForEach(MetricType.allCases, id: \.self) { unit in
                         Text(unit.rawValue)
                             .tag(unit)
-                            .foregroundColor(config.metricType == unit ? .black : .white)
+                            .foregroundColor(userDataConfig.metricType == unit ? .black : .white)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -213,18 +262,18 @@ extension ProfileSetupScreen {
                 .padding(.bottom)
                 
                 HStack(alignment: .lastTextBaseline, spacing: 4.0) {
-                    Text(verbatim: "\(config.heightValue)")
+                    Text(verbatim: "\(userDataConfig.heightValue)")
                         .font(.customFont(font: .audiowide, size: .largeTitle))
-                        .contentTransition(.numericText(value: config.heightValue))
-                        .animation(.snappy, value: config.heightValue)
+                        .contentTransition(.numericText(value: userDataConfig.heightValue))
+                        .animation(.snappy, value: userDataConfig.heightValue)
                     
-                    Text(config.metricType.rawValue)
+                    Text(userDataConfig.metricType.rawValue)
                         .textScale(.secondary)
                         .foregroundStyle(.gray)
                 }
                 .padding(.horizontal, 24.0)
                 
-                WheelPicker(config: config.heightWheelConfig, value: $config.heightValue)
+                WheelPicker(config: screenConfig.heightWheelConfig, value: $userDataConfig.heightValue)
                     .frame(height: 60)
             }
         }
@@ -248,11 +297,11 @@ extension ProfileSetupScreen {
             .padding(.horizontal, 24.0)
             
             VStack {
-                Picker("Measurement Unit", selection: $config.weightType) {
+                Picker("Measurement Unit", selection: $userDataConfig.weightType) {
                     ForEach(WeightType.allCases, id: \.self) { unit in
                         Text(unit.rawValue)
                             .tag(unit)
-                            .foregroundColor(config.weightType == unit ? .black : .white)
+                            .foregroundColor(userDataConfig.weightType == unit ? .black : .white)
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
@@ -260,18 +309,18 @@ extension ProfileSetupScreen {
                 .padding(.bottom)
                 
                 HStack(alignment: .lastTextBaseline, spacing: 4.0) {
-                    Text(verbatim: "\(config.weightValue)")
+                    Text(verbatim: "\(userDataConfig.weightValue)")
                         .font(.customFont(font: .audiowide, size: .largeTitle))
-                        .contentTransition(.numericText(value: config.weightValue))
-                        .animation(.snappy, value: config.weightValue)
+                        .contentTransition(.numericText(value: userDataConfig.weightValue))
+                        .animation(.snappy, value: userDataConfig.weightValue)
                     
-                    Text(config.weightType.rawValue)
+                    Text(userDataConfig.weightType.rawValue)
                         .textScale(.secondary)
                         .foregroundStyle(.gray)
                 }
                 .padding(.horizontal, 24.0)
                 
-                WheelPicker(config: config.weightWheelConfig, value: $config.weightValue)
+                WheelPicker(config: screenConfig.weightWheelConfig, value: $userDataConfig.weightValue)
                     .frame(height: 60)
             }
         }
@@ -284,7 +333,7 @@ extension ProfileSetupScreen {
             .font(.customFont(font: .audiowide, size: .title, relativeTo: .title))
             .task {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    config.setupProgress += 1
+                    screenConfig.setupProgress += 1
                 }
             }
     }
@@ -306,9 +355,9 @@ extension ProfileSetupScreen {
                 
                 VStack(alignment: .leading, spacing: 12.0) {
                     ForEach(Goal.allCases, id: \.self) { goal in
-                        NXRadioButton(goal.rawValue, selected: goal == config.selectedGoal) {
-                            if config.selectedGoal != goal {
-                                config.selectedGoal = goal
+                        NXRadioButton(goal.rawValue, selected: goal == userDataConfig.selectedGoal) {
+                            if userDataConfig.selectedGoal != goal {
+                                userDataConfig.selectedGoal = goal
                             }
                         }
                     }
@@ -338,9 +387,9 @@ extension ProfileSetupScreen {
                 
                 VStack(alignment: .leading, spacing: 12.0) {
                     ForEach(ActivityLevel.allCases, id: \.self) { activity in
-                        NXRadioButton(activity.rawValue, selected: activity == config.activityLevel) {
-                            if config.activityLevel != activity {
-                                config.activityLevel = activity
+                        NXRadioButton(activity.rawValue, selected: activity == userDataConfig.activityLevel) {
+                            if userDataConfig.activityLevel != activity {
+                                userDataConfig.activityLevel = activity
                             }
                         }
                     }
@@ -359,9 +408,9 @@ extension ProfileSetupScreen {
             nextStep()
         } label: {
             HStack {
-                Text(config.isProfileComplete ? "Finish" : "NEXT")
+                Text(screenConfig.isProfileComplete ? "Finish" : "NEXT")
                 
-                if config.isProfileComplete {
+                if !screenConfig.isProfileComplete {
                     Image(systemName: "arrow.right")
                         .font(.caption)
                         .fontWeight(.heavy)
@@ -383,23 +432,17 @@ extension ProfileSetupScreen {
 extension ProfileSetupScreen {
     
     private func nextStep() {
-        if config.setupProgress < 6 {
-            withAnimation(.spring) {
-                config.setupProgress += 1
-                config.xOffset = 500
+        if screenConfig.setupProgress < 6 {
+            withAnimation(.smooth(duration: 0.8)) {
+                screenConfig.setupProgress += 1
+                screenConfig.xOffset = 500
             }
-        } else if config.setupProgress == 6 {
-            config.isLoading = true
+        } else if screenConfig.isProfileComplete {
+            screenConfig.isLoading = true
             
             Task {
                 do {
-                    try await userStore.completeUserProfile(gender: config.selectedGender,
-                                                            birthDay: config.dateOfBirth,
-                                                            weight: config.weightValue,
-                                                            height: config.heightValue,
-                                                            goal: config.selectedGoal,
-                                                            activity: config.activityLevel,
-                                                            bodyType: config.bodyType)
+                    try await userStore.completeUserProfile(config: userDataConfig)
                 } catch {
                     alert = .noInternetConnection(onOkPressed: {
                         
@@ -408,7 +451,7 @@ extension ProfileSetupScreen {
                     })
                 }
                 
-                config.isLoading = false
+                screenConfig.isLoading = false
             }
             
         }

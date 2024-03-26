@@ -8,6 +8,7 @@
 import SwiftUI
 
 extension View {
+    
     func stroked() -> some View {
         self.modifier(StrokedModifier())
     }
@@ -19,7 +20,6 @@ extension View {
     func pickerTextStyle(isSelected: Bool) -> some View {
         self.modifier(PickerStyleModifier(isSelected: isSelected))
     }
-    
     
     func showAlert<T: NXAlert>(alert: Binding<T?>) -> some View {
         self
@@ -34,6 +34,20 @@ extension View {
     
     func loadingView(_ title: String = "Loading...", isLoading: Bool) -> some View {
         self.modifier(LoadingViewModifier(title, isLoading: isLoading))
+    }
+
+    @ViewBuilder
+    func hSpacing(_ alignment: Alignment) -> some View {
+        self.frame(maxWidth: .infinity, alignment: alignment)
+    }
+    
+    @ViewBuilder
+    func vSpacing(_ alignment: Alignment) -> some View {
+        self.frame(maxHeight: .infinity, alignment: alignment)
+    }
+    
+    func isSameDate(_ date1: Date, _ date2: Date) -> Bool {
+        return Calendar.current.isDate(date1, inSameDayAs: date2)
     }
     
 }

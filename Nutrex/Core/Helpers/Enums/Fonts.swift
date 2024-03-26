@@ -28,6 +28,7 @@ enum NXFontStyles: String {
 enum NXFontSizes: CGFloat {
     case caption        = 13
     case caption2       = 11.0
+    case callout        = 14.0
     case body           = 16.0
     case subheadline    = 18.0
     case headline       = 20.0

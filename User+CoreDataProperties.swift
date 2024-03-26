@@ -6,7 +6,7 @@
 //
 //
 
-import Foundation
+import FirebaseFirestore
 import CoreData
 
 enum Goal: String, CaseIterable, Codable {
@@ -54,6 +54,19 @@ extension User {
     @NSManaged public var diaries: NSSet?
     @NSManaged public var mealRoutines: NSSet?
 
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.bodyType        == rhs.bodyType &&
+        lhs.dateOfBirth     == rhs.dateOfBirth &&
+        lhs.gender          == rhs.gender &&
+        lhs.goal            == rhs.goal &&
+        lhs.height          == rhs.height &&
+        lhs.weight          == rhs.weight &&
+        lhs.username        == rhs.username &&
+        lhs.uid             == rhs.uid &&
+        lhs.activityLevel   == rhs.activityLevel &&
+        lhs.email           == rhs.email
+    }
+    
     static func filteredUsersForID(_ uid: String) -> NSFetchRequest<User> {
         let request = User.fetchRequest()
         request.sortDescriptors = []
@@ -62,12 +75,16 @@ extension User {
     }
 
     static var empty: User {
-        let newUser = User(context: CoreDataController.shared.container.viewContext)
+        let newUser = User(context: CoreDataController.shared.viewContext)
         return newUser
     }
 
     public var isNotEmpty: Bool {
-        return !(uid == nil && username == nil)
+        return !(uid == nil || username == nil)
+    }
+    
+    public var isEmpty: Bool {
+        return uid == nil || username == nil
     }
 
     var wrappedUid: String {
@@ -95,7 +112,7 @@ extension User {
     }
     
     var wrappedUpdatedAt: Date {
-        createdAt ?? Date.now
+        updatedAt ?? Date.now
     }
 
     var isProfileCompleted: Bool {
@@ -105,10 +122,7 @@ extension User {
         goal != nil &&
         height != 0.0 &&
         weight != 0.0 &&
-        username != nil &&
-        uid != nil &&
-        activityLevel != nil &&
-        email != nil
+        activityLevel != nil
     }
 
     var neededCalories: Double {
@@ -119,19 +133,33 @@ extension User {
         dateOfBirth?.age() ?? Date.distantPast.age()
     }
     
-    func migrate(withUser user: User) {
-        bodyType        = user.bodyType
-        dateOfBirth     = user.dateOfBirth
-        gender          = user.gender
-        goal            = user.goal
-        height          = user.height
-        weight          = user.weight
-        username        = user.username
-        uid             = user.uid
-        activityLevel   = user.activityLevel
-        email           = user.email
-        updatedAt       = Date.now
+    func migrate(toUser user: User) {
+        self.bodyType        = user.bodyType
+        self.dateOfBirth     = user.dateOfBirth
+        self.gender          = user.gender
+        self.goal            = user.goal
+        self.height          = user.height
+        self.weight          = user.weight
+        self.username        = user.username
+        self.uid             = user.uid
+        self.activityLevel   = user.activityLevel
+        self.email           = user.email
+        self.createdAt       = user.createdAt
+        self.updatedAt       = Timestamp().dateValue()
     }
+    
+    func completeProfile(withConfig config: ProfileSetupScreen.UserProfileSetupConfig) {
+        self.bodyType        = config.bodyType.rawValue
+        self.dateOfBirth     = config.dateOfBirth
+        self.gender          = config.selectedGender.rawValue
+        self.goal            = config.selectedGoal.rawValue
+        self.height          = config.heightValue
+        self.weight          = config.weightValue
+        self.activityLevel   = config.activityLevel.rawValue
+        self.createdAt       = Timestamp().dateValue()
+        self.updatedAt       = Timestamp().dateValue()
+    }
+    
 }
 
 // MARK: Generated accessors for diaries

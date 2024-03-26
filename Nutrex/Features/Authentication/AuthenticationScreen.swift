@@ -10,9 +10,9 @@ import SwiftUI
 fileprivate struct AuthenticationScreenConfig {
     var isLoading = false
     
-    var email: String = ""
-    var username: String = ""
-    var password: String = ""
+    var email: String = "ziad@gmail.com"
+    var username: String = "ziad"
+    var password: String = "111111"
     
     var isFormValid: Bool {
         if isRegistering {

@@ -26,17 +26,30 @@ struct NutrexApp: App {
     @StateObject var userStore = UserStore()
     
     @State private var selectedDate = Date.now.onlyDate
+    @State private var isShowingSplashScreen = true
     
     var body: some Scene {
         WindowGroup {
             RootView {
-                Group {
+                ZStack {
                     if let userSession = authStore.userSession {
-                        AppCoordinator(uid: userSession.uid)
+                        AppCoordinator(uid: userSession.uid,
+                                       isShowingSplashScreen: $isShowingSplashScreen)
                     } else {
                         AuthenticationScreen()
+                            .task(priority: .userInitiated) {
+                                if authStore.userSession == nil {
+                                    isShowingSplashScreen = false
+                                }
+                            }
                     }
                 }
+                .overlay {
+                    if isShowingSplashScreen {
+                        SplashLoadingScreen()
+                    }
+                }
+                .transition(.slide)
             }
             .environment(\.managedObjectContext, dataStore.viewContext)
             .environment(\.selectedDate, $selectedDate)

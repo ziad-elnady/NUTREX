@@ -101,6 +101,11 @@
         <attribute name="weight" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <relationship name="diaries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Diary" inverseName="user" inverseEntity="Diary"/>
         <relationship name="mealRoutines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoutineMeal" inverseName="user" inverseEntity="RoutineMeal"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="uid"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
     </entity>
     <entity name="WorkoutPlan" representedClassName="WorkoutPlan" syncable="YES">
         <attribute name="category" optional="YES" attributeType="String"/>
