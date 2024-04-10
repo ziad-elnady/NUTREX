@@ -32,7 +32,7 @@ struct NXFormField: View {
                 suffix
             }
         }
-        .font(.customFont(font: .ubuntu))
+        .bodyFontStyle()
         .textInputAutocapitalization(.never)
         .autocorrectionDisabled(true)
         .padding()
@@ -48,12 +48,12 @@ extension NXFormField {
         if isSecure {
             SecureField(text: $text) {
                 Text(label)
-                    .foregroundStyle(.nxStroke)
+                    .foregroundStyle(.nxCard)
             }
         } else {
             TextField(text: $text) {
                 Text(label)
-                    .foregroundStyle(.nxStroke)
+                    .foregroundStyle(.nxCard)
             }
         }
     }

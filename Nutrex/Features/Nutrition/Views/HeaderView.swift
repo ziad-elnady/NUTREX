@@ -18,16 +18,23 @@ extension NutritionDiaryScreen {
         
         @Namespace private var animation
         
+        let logButtonPressed: () -> Void
+        
         var body: some View {
-            VStack(alignment: .leading, spacing: 8.0) {
-                
-                Text("DIARY")
-                    .font(.customFont(font: .audiowide, size: .largeTitle, relativeTo: .largeTitle))
-                
-                Text(date.formatted(date: .complete, time: .omitted))
-                    .font(.customFont(font: .audiowide, size: .caption, relativeTo: .caption))
-                    .textScale(.secondary)
-                    .foregroundStyle(.secondary)
+            VStack {
+                VStack(alignment: .leading) {
+                    Text("DIARY")
+                        .impactFontHeaderStyle(letterSpacing: 2)
+                    
+                    Text(date.formatted(date: .complete, time: .omitted))
+                        .bodyFontStyle()
+                        .textScale(.secondary)
+                        .foregroundStyle(.secondary)
+                }
+                .hSpacing(.leading)
+                .overlay(alignment: .trailing) {
+                   ProfileButton()
+                }
                 
                 TabView(selection: $currentWeekIndex) {
                     ForEach(weekSlider.indices, id: \.self) { index in
@@ -76,8 +83,45 @@ extension NutritionDiaryScreen {
     
 }
 
+// MARK: - VIEW -
+extension NutritionDiaryScreen.HeaderView {
+    
+    @ViewBuilder
+    private func ProfileButton() -> some View {
+        Button {
+            logButtonPressed()
+        } label: {
+            HStack(spacing: 12.0) {
+//                Image(systemName: "fork.knife.circle")
+//                    .resizable()
+//                    .scaledToFit()
+//                    .frame(width: 24.0, height: 24.0)
+//                    .background {
+//                        Capsule()
+//                        .fill(.blue.gradient)
+//                        .frame(width: 32.0, height: 32.0)
+//                    }
+                
+                Text("log")
+                    .font(.customFont(font: .audiowide))
+                    .padding(.horizontal)
+            }
+            .padding(8.0)
+            .background {
+                Capsule()
+                    .stroke(.gray.opacity(0.35))
+    //                                .fill(.white)
+            }
+        }
+        .foregroundStyle(.primary)
+    }
+    
+}
+
 #Preview {
-    NutritionDiaryScreen.HeaderView(date: .constant(Date()))
+    NutritionDiaryScreen.HeaderView(date: .constant(Date())) {
+        
+    }
 }
 
 

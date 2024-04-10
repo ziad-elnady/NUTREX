@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct StrokedModifier: ViewModifier {
-    var strokeColor: Color = .nxStroke
+    var strokeColor: Color = .nxCard
     var borderWidth: CGFloat = 0.5
-    var backgroundColor: Color = .nxMaterial
+    var backgroundColor: Color = .nxCard
 
     func body(content: Content) -> some View {
         content

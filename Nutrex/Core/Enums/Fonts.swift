@@ -10,9 +10,6 @@ import SwiftUI
 enum NXFonts: String {
     case audiowide      = "Audiowide"
     case blackOpsOne    = "BlackOpsOne"
-    case neuropolitical = "Neuropolitical"
-    case orbitron       = "Orbitron"
-    case ubuntu         = "Ubuntu"
 }
 
 enum NXFontStyles: String {
@@ -26,6 +23,7 @@ enum NXFontStyles: String {
 }
 
 enum NXFontSizes: CGFloat {
+    case tiny           = 8.0
     case caption        = 13
     case caption2       = 11.0
     case callout        = 14.0

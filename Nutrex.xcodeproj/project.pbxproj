@@ -20,7 +20,6 @@
 		B73DE3942B9B8B2D009BFFCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */; };
 		B73DE3972B9B8B2D009BFFCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */; };
 		B74223EE2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74223ED2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf */; };
-		B742240C2BA1E4AD00A9C0FC /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B742240B2BA1E4AD00A9C0FC /* FontExt.swift */; };
 		B742241A2BA1F0E400A9C0FC /* Neuropolitical.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B74224192BA1F0E400A9C0FC /* Neuropolitical.ttf */; };
 		B74224212BA1F14D00A9C0FC /* Orbitron-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742241B2BA1F14C00A9C0FC /* Orbitron-Bold.ttf */; };
 		B74224222BA1F14D00A9C0FC /* Orbitron-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B742241C2BA1F14D00A9C0FC /* Orbitron-Medium.ttf */; };
@@ -33,6 +32,10 @@
 		B74224312BA1FDF100A9C0FC /* NXFormField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74224302BA1FDF100A9C0FC /* NXFormField.swift */; };
 		B74224332BA203E900A9C0FC /* ViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74224322BA203E900A9C0FC /* ViewExt.swift */; };
 		B74224352BA2040D00A9C0FC /* StrokedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74224342BA2040D00A9C0FC /* StrokedModifier.swift */; };
+		B76019C52BC19C49007473E2 /* FontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76019C42BC19C49007473E2 /* FontModifier.swift */; };
+		B76019CF2BC1A7C1007473E2 /* FontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76019CD2BC1A7C1007473E2 /* FontExt.swift */; };
+		B76019D02BC1A7C1007473E2 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76019CE2BC1A7C1007473E2 /* Fonts.swift */; };
+		B76019DA2BC1BC9F007473E2 /* GlassEffectModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B76019D92BC1BC9F007473E2 /* GlassEffectModifier.swift */; };
 		B769A08C2BA23F5000878070 /* NXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A08B2BA23F5000878070 /* NXButton.swift */; };
 		B769A08F2BA2559B00878070 /* Separator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A08E2BA2559B00878070 /* Separator.swift */; };
 		B769A0922BA2563B00878070 /* NXIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B769A0912BA2563B00878070 /* NXIcon.swift */; };
@@ -42,7 +45,10 @@
 		B78BD8E02BB1D79E00812F9C /* DayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BD8DF2BB1D79E00812F9C /* DayView.swift */; };
 		B78BD8E22BB22E9000812F9C /* NutritionTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BD8E12BB22E9000812F9C /* NutritionTabView.swift */; };
 		B78BD8E52BB22F2400812F9C /* SplashLoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78BD8E42BB22F2400812F9C /* SplashLoadingScreen.swift */; };
+		B78CC1F92BB3792C00C0C3A2 /* FoodSearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78CC1F82BB3792C00C0C3A2 /* FoodSearchScreen.swift */; };
 		B78E8B192BB13E66008F4B04 /* OffsetKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = B78E8B182BB13E66008F4B04 /* OffsetKey.swift */; };
+		B7A462662BC59C3E00B72B4D /* DoubleExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A462652BC59C3E00B72B4D /* DoubleExt.swift */; };
+		B7A462682BC5A17300B72B4D /* NutritionDiaryStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A462672BC5A17300B72B4D /* NutritionDiaryStore.swift */; };
 		B7A91D8A2B9F280D007D493A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A91D892B9F280D007D493A /* Launch Screen.storyboard */; };
 		B7A91DC32B9F35A9007D493A /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC22B9F35A9007D493A /* FirebaseAnalytics */; };
 		B7A91DC52B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DC42B9F35A9007D493A /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -93,7 +99,6 @@
 		B7D7320D2BA0A3C900C94A2D /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D7320C2BA0A3C900C94A2D /* Bundle-Decodable.swift */; };
 		B7D732112BA0A7FA00C94A2D /* NutritionCalc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732102BA0A7FA00C94A2D /* NutritionCalc.swift */; };
 		B7D732132BA0A86F00C94A2D /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732122BA0A86F00C94A2D /* DateExt.swift */; };
-		B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D732442BA0B2F800C94A2D /* Fonts.swift */; };
 		B7D86C352BAB0F600006FAB5 /* BindingExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C342BAB0F600006FAB5 /* BindingExt.swift */; };
 		B7D86C392BAB117C0006FAB5 /* NXAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C382BAB117C0006FAB5 /* NXAlert.swift */; };
 		B7D86C3B2BAB11890006FAB5 /* NXAuthAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D86C3A2BAB11890006FAB5 /* NXAuthAlert.swift */; };
@@ -123,7 +128,6 @@
 		B73DE3932B9B8B2D009BFFCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B73DE3962B9B8B2D009BFFCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B74223ED2BA1E1FA00A9C0FC /* Audiowide-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Audiowide-Regular.ttf"; sourceTree = "<group>"; };
-		B742240B2BA1E4AD00A9C0FC /* FontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
 		B74224192BA1F0E400A9C0FC /* Neuropolitical.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Neuropolitical.ttf; sourceTree = "<group>"; };
 		B742241B2BA1F14C00A9C0FC /* Orbitron-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Bold.ttf"; sourceTree = "<group>"; };
 		B742241C2BA1F14D00A9C0FC /* Orbitron-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Orbitron-Medium.ttf"; sourceTree = "<group>"; };
@@ -136,6 +140,10 @@
 		B74224302BA1FDF100A9C0FC /* NXFormField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXFormField.swift; sourceTree = "<group>"; };
 		B74224322BA203E900A9C0FC /* ViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExt.swift; sourceTree = "<group>"; };
 		B74224342BA2040D00A9C0FC /* StrokedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokedModifier.swift; sourceTree = "<group>"; };
+		B76019C42BC19C49007473E2 /* FontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontModifier.swift; sourceTree = "<group>"; };
+		B76019CD2BC1A7C1007473E2 /* FontExt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontExt.swift; sourceTree = "<group>"; };
+		B76019CE2BC1A7C1007473E2 /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		B76019D92BC1BC9F007473E2 /* GlassEffectModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassEffectModifier.swift; sourceTree = "<group>"; };
 		B769A08B2BA23F5000878070 /* NXButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXButton.swift; sourceTree = "<group>"; };
 		B769A08E2BA2559B00878070 /* Separator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Separator.swift; sourceTree = "<group>"; };
 		B769A0912BA2563B00878070 /* NXIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXIcon.swift; sourceTree = "<group>"; };
@@ -145,7 +153,10 @@
 		B78BD8DF2BB1D79E00812F9C /* DayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayView.swift; sourceTree = "<group>"; };
 		B78BD8E12BB22E9000812F9C /* NutritionTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionTabView.swift; sourceTree = "<group>"; };
 		B78BD8E42BB22F2400812F9C /* SplashLoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashLoadingScreen.swift; sourceTree = "<group>"; };
+		B78CC1F82BB3792C00C0C3A2 /* FoodSearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSearchScreen.swift; sourceTree = "<group>"; };
 		B78E8B182BB13E66008F4B04 /* OffsetKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetKey.swift; sourceTree = "<group>"; };
+		B7A462652BC59C3E00B72B4D /* DoubleExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoubleExt.swift; sourceTree = "<group>"; };
+		B7A462672BC5A17300B72B4D /* NutritionDiaryStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionDiaryStore.swift; sourceTree = "<group>"; };
 		B7A91D892B9F280D007D493A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
@@ -191,7 +202,6 @@
 		B7D732102BA0A7FA00C94A2D /* NutritionCalc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCalc.swift; sourceTree = "<group>"; };
 		B7D732122BA0A86F00C94A2D /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		B7D732412BA0AEDA00C94A2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7D732442BA0B2F800C94A2D /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		B7D86C342BAB0F600006FAB5 /* BindingExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingExt.swift; sourceTree = "<group>"; };
 		B7D86C382BAB117C0006FAB5 /* NXAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAlert.swift; sourceTree = "<group>"; };
 		B7D86C3A2BAB11890006FAB5 /* NXAuthAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAuthAlert.swift; sourceTree = "<group>"; };
@@ -357,6 +367,31 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
+		B76019CC2BC1A7AA007473E2 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				B76019CD2BC1A7C1007473E2 /* FontExt.swift */,
+				B76019CE2BC1A7C1007473E2 /* Fonts.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		B76319F52BB314EA00EF5D1D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		B76319F62BB3151100EF5D1D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */,
+				B78BD8E12BB22E9000812F9C /* NutritionTabView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		B769A08A2BA23F2B00878070 /* Button */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +431,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		B78CC1F72BB3789200C0C3A2 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				B78CC1F82BB3792C00C0C3A2 /* FoodSearchScreen.swift */,
+			);
+			path = Food;
+			sourceTree = "<group>";
+		};
 		B78E8B152BB11631008F4B04 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +476,7 @@
 		B7A91D812B9F2220007D493A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B76019CC2BC1A7AA007473E2 /* Enums */,
 				B7D731C92BA09FF200C94A2D /* Stores */,
 				B7D731BE2BA09D2000C94A2D /* Components */,
 				B7D731BB2BA09CF400C94A2D /* Helpers */,
@@ -461,9 +505,10 @@
 		B7A91D832B9F227A007D493A /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B7A91D862B9F22D0007D493A /* Authentication */,
 				B7D731BF2BA09D3700C94A2D /* ProfileSetup */,
 				B7D731B82BA09C3D00C94A2D /* Nutrition */,
-				B7A91D862B9F22D0007D493A /* Authentication */,
+				B76319F52BB314EA00EF5D1D /* Profile */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -521,9 +566,9 @@
 		B7D731B82BA09C3D00C94A2D /* Nutrition */ = {
 			isa = PBXGroup;
 			children = (
+				B78CC1F72BB3789200C0C3A2 /* Food */,
+				B76319F62BB3151100EF5D1D /* Main */,
 				B78BD8D92BB1B5C600812F9C /* Views */,
-				B7D731C22BA09D6100C94A2D /* NutritionDiaryScreen.swift */,
-				B78BD8E12BB22E9000812F9C /* NutritionTabView.swift */,
 			);
 			path = Nutrition;
 			sourceTree = "<group>";
@@ -531,7 +576,6 @@
 		B7D731BB2BA09CF400C94A2D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B7D732432BA0B2EA00C94A2D /* Enums */,
 				B7D731BC2BA09D0200C94A2D /* Extensions */,
 				B7D731BD2BA09D0700C94A2D /* Modifiers */,
 				B7D7320F2BA0A7E100C94A2D /* Utilities */,
@@ -544,10 +588,10 @@
 			children = (
 				B7D7320C2BA0A3C900C94A2D /* Bundle-Decodable.swift */,
 				B7D732122BA0A86F00C94A2D /* DateExt.swift */,
-				B742240B2BA1E4AD00A9C0FC /* FontExt.swift */,
 				B74224322BA203E900A9C0FC /* ViewExt.swift */,
 				B7D86C342BAB0F600006FAB5 /* BindingExt.swift */,
 				B7CB5CDC2BAC86B900192E98 /* TransitionExt.swift */,
+				B7A462652BC59C3E00B72B4D /* DoubleExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -560,6 +604,8 @@
 				B7338FE22BAA4AC800332486 /* PickerStyleModifier.swift */,
 				B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */,
 				B7CB5CDA2BAC869600192E98 /* TransitionModifier.swift */,
+				B76019C42BC19C49007473E2 /* FontModifier.swift */,
+				B76019D92BC1BC9F007473E2 /* GlassEffectModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -593,6 +639,7 @@
 				B7D731CA2BA0A00100C94A2D /* CoreDataController.swift */,
 				B7C89B742BA38846001B7B46 /* UserStore.swift */,
 				B7D50E742BA7BC9800DF0E51 /* FirebaseStore.swift */,
+				B7A462672BC5A17300B72B4D /* NutritionDiaryStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -716,14 +763,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		B7D732432BA0B2EA00C94A2D /* Enums */ = {
-			isa = PBXGroup;
-			children = (
-				B7D732442BA0B2F800C94A2D /* Fonts.swift */,
-			);
-			path = Enums;
-			sourceTree = "<group>";
-		};
 		B7D86C3C2BAB14730006FAB5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -843,7 +882,7 @@
 				B7868C8C2BA77C7C00362341 /* DateEnv.swift in Sources */,
 				B7D731F12BA0A08400C94A2D /* Meal+CoreDataProperties.swift in Sources */,
 				B7D50E752BA7BC9800DF0E51 /* FirebaseStore.swift in Sources */,
-				B742240C2BA1E4AD00A9C0FC /* FontExt.swift in Sources */,
+				B76019C52BC19C49007473E2 /* FontModifier.swift in Sources */,
 				B7338FE52BAA4C2600332486 /* MessageSheetView.swift in Sources */,
 				B7D731F52BA0A08400C94A2D /* HistoryItem+CoreDataProperties.swift in Sources */,
 				B7D731EB2BA0A08400C94A2D /* MeasurementUnit+CoreDataProperties.swift in Sources */,
@@ -854,13 +893,16 @@
 				B7CB5CDD2BAC86B900192E98 /* TransitionExt.swift in Sources */,
 				B7338FD32BAA420500332486 /* ToastView.swift in Sources */,
 				B78BD8E02BB1D79E00812F9C /* DayView.swift in Sources */,
+				B7A462682BC5A17300B72B4D /* NutritionDiaryStore.swift in Sources */,
 				B7D86C3B2BAB11890006FAB5 /* NXAuthAlert.swift in Sources */,
 				B7338FDF2BAA4A0100332486 /* NXSegmentedPicker.swift in Sources */,
 				B78BD8DB2BB1B5D400812F9C /* HeaderView.swift in Sources */,
 				B7D731FF2BA0A12400C94A2D /* User+CoreDataClass.swift in Sources */,
 				B7D731C62BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld in Sources */,
 				B7D731FB2BA0A08400C94A2D /* Food+CoreDataProperties.swift in Sources */,
+				B76019DA2BC1BC9F007473E2 /* GlassEffectModifier.swift in Sources */,
 				B7D86C392BAB117C0006FAB5 /* NXAlert.swift in Sources */,
+				B7A462662BC59C3E00B72B4D /* DoubleExt.swift in Sources */,
 				B7D731E82BA0A08400C94A2D /* Diary+CoreDataClass.swift in Sources */,
 				B7D7320D2BA0A3C900C94A2D /* Bundle-Decodable.swift in Sources */,
 				B769A08F2BA2559B00878070 /* Separator.swift in Sources */,
@@ -871,6 +913,7 @@
 				B7D86C402BAB15900006FAB5 /* AuthenticationManager.swift in Sources */,
 				B74224352BA2040D00A9C0FC /* StrokedModifier.swift in Sources */,
 				B78BD8E22BB22E9000812F9C /* NutritionTabView.swift in Sources */,
+				B76019CF2BC1A7C1007473E2 /* FontExt.swift in Sources */,
 				B7D731C32BA09D6100C94A2D /* NutritionDiaryScreen.swift in Sources */,
 				B7338FE32BAA4AC800332486 /* PickerStyleModifier.swift in Sources */,
 				B78BD8DE2BB1B67200812F9C /* WeekView.swift in Sources */,
@@ -879,6 +922,7 @@
 				B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */,
 				B7D731F02BA0A08400C94A2D /* Meal+CoreDataClass.swift in Sources */,
 				B7D731F22BA0A08400C94A2D /* NutritionalInfo+CoreDataClass.swift in Sources */,
+				B78CC1F92BB3792C00C0C3A2 /* FoodSearchScreen.swift in Sources */,
 				B7D731F72BA0A08400C94A2D /* DailyWorkout+CoreDataProperties.swift in Sources */,
 				B7D732112BA0A7FA00C94A2D /* NutritionCalc.swift in Sources */,
 				B7384B2D2BA5E9BC00A0BDB0 /* AnimatedText.swift in Sources */,
@@ -900,9 +944,9 @@
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
 				B7338FD62BAA42AC00332486 /* ToastEnv.swift in Sources */,
 				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,
-				B7D732452BA0B2F800C94A2D /* Fonts.swift in Sources */,
 				B7D731EA2BA0A08400C94A2D /* MeasurementUnit+CoreDataClass.swift in Sources */,
 				B7338FE12BAA4A4E00332486 /* AnimationEffectModifier.swift in Sources */,
+				B76019D02BC1A7C1007473E2 /* Fonts.swift in Sources */,
 				B7E2DE1D2BA350080084FD23 /* LoadingScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

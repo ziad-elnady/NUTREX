@@ -9,8 +9,28 @@ import SwiftUI
 
 extension View {
     
+    // MARK: - LAYOUT -
+    @ViewBuilder
+    func hSpacing(_ alignment: Alignment) -> some View {
+        self.frame(maxWidth: .infinity, alignment: alignment)
+    }
+    
+    @ViewBuilder
+    func vSpacing(_ alignment: Alignment) -> some View {
+        self.frame(maxHeight: .infinity, alignment: alignment)
+    }
+    
+    // MARK: - BACKGROUNDS -
+    func glassmorphed(_ cornerRadius: CGFloat = 25.0) -> some View {
+        self.modifier(GlassEffectModifier(cornerRadius))
+    }
+    
     func stroked() -> some View {
         self.modifier(StrokedModifier())
+    }
+    
+    func isSameDate(_ date1: Date, _ date2: Date) -> Bool {
+        return Calendar.current.isDate(date1, inSameDayAs: date2)
     }
     
     func animationEffect(isSelected: Bool, id: String, in namespace: Namespace.ID) -> some View {
@@ -21,6 +41,7 @@ extension View {
         self.modifier(PickerStyleModifier(isSelected: isSelected))
     }
     
+    // MARK: - VIEWS -
     func showAlert<T: NXAlert>(alert: Binding<T?>) -> some View {
         self
             .alert(alert.wrappedValue?.title ?? "Error", isPresented: Binding(value: alert)) {
@@ -35,19 +56,38 @@ extension View {
     func loadingView(_ title: String = "Loading...", isLoading: Bool) -> some View {
         self.modifier(LoadingViewModifier(title, isLoading: isLoading))
     }
-
-    @ViewBuilder
-    func hSpacing(_ alignment: Alignment) -> some View {
-        self.frame(maxWidth: .infinity, alignment: alignment)
+    
+    // MARK: - FONTS -
+    func impactFontHeaderStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+    self.modifier(ImpactHeaderFontStyle(letterSpacing: letterSpacing, fontWidth: fontWidth))
+}
+    
+    func headerFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(HeaderFontStyle(letterSpacing: letterSpacing, fontWidth: fontWidth))
     }
     
-    @ViewBuilder
-    func vSpacing(_ alignment: Alignment) -> some View {
-        self.frame(maxHeight: .infinity, alignment: alignment)
+    func bodyFontStyle(letterSpacing: CGFloat = 0) -> some View {
+        self.modifier(BodyFontStyle(letterSpacing: letterSpacing))
     }
     
-    func isSameDate(_ date1: Date, _ date2: Date) -> Bool {
-        return Calendar.current.isDate(date1, inSameDayAs: date2)
+    func headlineFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(HeadlineFontStyle(letterSpacing: letterSpacing, fontWidth: fontWidth))
+    }
+    
+    func thinBodyFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(ThinBodyFontStyle())
+    }
+    
+    func captionFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(CaptionFontStyle())
+    }
+    
+    func caption2FontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(Caption2FontStyle())
+    }
+    
+    func thinCaptionFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
+        self.modifier(ThinCaptionFontStyle())
     }
     
 }

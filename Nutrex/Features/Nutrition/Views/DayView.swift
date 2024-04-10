@@ -17,7 +17,7 @@ extension NutritionDiaryScreen.HeaderView {
         var body: some View {
             VStack(spacing: 8.0) {
                 Text(day.date.format("E"))
-                    .font(.customFont(font: .audiowide, size: .callout, relativeTo: .callout))
+                    .font(.customFont(font: .audiowide, size: .caption2, relativeTo: .caption2))
                     .foregroundStyle(.secondary)
                     .textScale(.secondary)
                 
@@ -29,16 +29,17 @@ extension NutritionDiaryScreen.HeaderView {
                     .background {
                         if isSameDate(day.date, date) {
                             Circle()
-                                .fill(.primary)
+                                .fill(.nxAccent)
                                 .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
                         } else {
                             Circle()
-                                .stroke(.secondary, lineWidth: 0.5)
+//                                .stroke(.secondary, lineWidth: 0.4)
+                                .fill(.nxCard)
                         }
                         
                         if day.date.isToday {
                             Circle()
-                                .fill(.white)
+                                .fill(.nxAccent)
                                 .frame(width: 5.0, height: 5.0)
                                 .vSpacing(.bottom)
                                 .offset(y: 16)

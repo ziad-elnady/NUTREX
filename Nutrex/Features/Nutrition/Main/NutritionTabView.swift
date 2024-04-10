@@ -50,20 +50,22 @@ struct NutritionTabView: View {
         var isAnimating: Bool?
     }
     
+    //TODO: Complete the tabbar animation with geometry effect
+    @Namespace private var animation
+    
     @State private var selectedTab: TabItem = .diary
     @State private var allTabs: [AnimatedTab] = TabItem.allCases.compactMap { tab -> AnimatedTab? in
         return .init(tab: tab)
     }
     
     var body: some View {
-        VStack (spacing: 0){
-            TabView(selection: $selectedTab) {
-                ForEach(TabItem.allCases, id: \.self) { tab in
-                    getTabView(for: tab)
-                        .setUpTab(tab)
-                }
+        TabView(selection: $selectedTab) {
+            ForEach(TabItem.allCases, id: \.self) { tab in
+                getTabView(for: tab)
+                    .setUpTab(tab)
             }
-            
+        }
+        .overlay(alignment: .bottom) {
             NXTabBarView()
         }
     }
@@ -93,17 +95,24 @@ struct NutritionTabView: View {
                         .font(.title3)
                         .symbolEffect(.bounce.down.byLayer, value: animatedTab.isAnimating)
                     
-                    Text(tab.title)
-                        .font(.customFont(font: .audiowide, size: .caption2, relativeTo: .caption2))
-                        .textScale(.secondary)
+                    if selectedTab == tab {
+                        Text(tab.title)
+                            .font(.customFont(font: .audiowide, size: .caption2, relativeTo: .caption2))
+                            .textScale(.secondary)
+                            .frame(minWidth: 90)
+                            .matchedGeometryEffect(id: "SSS", in: animation)
+                    }
                         
                 }
-                .frame(maxWidth: .infinity)
-                .foregroundStyle(selectedTab == tab ? Color.primary : Color.gray.opacity(0.5))
-                .padding(.vertical)
+                .foregroundStyle(selectedTab == tab ? .primary : Color.gray.opacity(0.5))
+//                .padding(.horizontal, selectedTab == tab ? 12 : 24)
+//                .padding(.vertical, 16.0)
+//                .background(selectedTab == tab ? Color.primary : .black)
                 .contentShape(.rect)
+                .frame(maxWidth: .infinity)
+                .padding([.top, .horizontal])
                 .onTapGesture {
-                    withAnimation(.bouncy, completionCriteria: .logicallyComplete) {
+                    withAnimation(.smooth, completionCriteria: .logicallyComplete) {
                         selectedTab = tab
                         animatedTab.isAnimating = true
                     } completion: {
@@ -113,17 +122,10 @@ struct NutritionTabView: View {
                             animatedTab.isAnimating = nil
                         }
                     }
-                    
                 }
             }
         }
-        .background(.background)
-        .clipShape(RoundedRectangle(cornerRadius: 20.0))
-        .overlay {
-            RoundedRectangle(cornerRadius: 20.0)
-                .stroke(.gray.opacity(0.3), lineWidth: 0.5)
-        }
-        .padding(.horizontal, 24.0)
+        .background(.bar)
     }
 }
 

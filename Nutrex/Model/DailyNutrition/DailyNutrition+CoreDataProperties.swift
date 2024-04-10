@@ -19,6 +19,23 @@ extension DailyNutrition {
     @NSManaged public var date: Date?
     @NSManaged public var diary: Diary?
     @NSManaged public var foods: NSSet?
+    
+    static func userDiariesForDate(_ user: User, date: Date) -> NSFetchRequest<DailyNutrition> {
+        let request = DailyNutrition.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "user == %@ AND date == %@", argumentArray: [user, date])
+        return request
+    }
+    
+    static var empty: DailyNutrition {
+        let newDiary = DailyNutrition(context: CoreDataController.shared.viewContext)
+        return newDiary
+    }
+    
+    public func remainingCalories(userGoal: Double) ->  Double {
+        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
+        return userGoal - eatenCalories
+    }
 
     var wrappedDate: Date {
         date?.onlyDate ?? Date.now.onlyDate
@@ -30,11 +47,6 @@ extension DailyNutrition {
         return set.sorted {
             $0.wrappedName < $1.wrappedName
         }
-    }
-
-    public var remainingCalories: Double {
-        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
-        return 3000.0 - Double(foodsCalories.reduce(0, +))
     }
     
     public var eatenCalories: Double {

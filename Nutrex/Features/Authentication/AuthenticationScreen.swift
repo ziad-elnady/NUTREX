@@ -25,11 +25,13 @@ fileprivate struct AuthenticationScreenConfig {
     var isRegistering = false
 }
 
-fileprivate enum Field {
-    case username, email, password
-}
+
 
 struct AuthenticationScreen: View {
+    enum Field {
+        case username, email, password
+    }
+    
     @Environment(\.managedObjectContext) private var context
     @Environment(\.dismiss) private var dismiss
     
@@ -79,7 +81,7 @@ extension AuthenticationScreen {
             Text("where your journy\n begins")
                 .font(.customFont(font: .audiowide, size: .body, relativeTo: .body))
                 .fixedSize()
-                .foregroundStyle(.nxSecondaryText)
+                .foregroundStyle(.nxLightGray)
                 .multilineTextAlignment(.center)
                 .padding(.top)
         }
@@ -132,13 +134,13 @@ extension AuthenticationScreen {
     
     @ViewBuilder
     private func AuthStateText() -> some View {
-        Group {
+        HStack(spacing: 4.0) {
             Text((config.isRegistering ? "Already have and account?" : "Don't have an account?") + " ")
-                .font(.customFont(font: .ubuntu, weight: .medium, size: .caption, relativeTo: .caption))
-                .foregroundStyle(.nxSecondaryText)
-            +
+                .captionFontStyle()
+                .foregroundStyle(.nxLightGray)
+            
             Text(config.isRegistering ? "Login" : "Register")
-                .font(.customFont(font: .ubuntu, weight: .bold, size: .caption, relativeTo: .caption))
+                .captionFontStyle()
         }
         .onTapGesture {
             flipAuthState()
@@ -152,8 +154,8 @@ extension AuthenticationScreen {
             Separator()
             
             Text("or")
-                .font(.customFont(font: .orbitron, size: .caption, relativeTo: .caption))
-                .foregroundStyle(.nxStroke)
+                .captionFontStyle()
+                .foregroundStyle(.nxLightGray)
             
             Separator()
         }
@@ -171,7 +173,7 @@ extension AuthenticationScreen {
                     Text("Google")
                         .foregroundStyle(.white)
                 }
-                .font(.customFont(font: .ubuntu))
+                .bodyFontStyle()
                 .foregroundStyle(.primary)
                 .frame(width: 100)
             }
@@ -184,7 +186,7 @@ extension AuthenticationScreen {
                     Text("Apple")
                         .foregroundStyle(.white)
                 }
-                .font(.customFont(font: .ubuntu))
+                .bodyFontStyle()
                 .foregroundStyle(.primary)
                 .frame(width: 100)
             }
@@ -196,8 +198,8 @@ extension AuthenticationScreen {
     @ViewBuilder
     private func RightsReserved() -> some View {
         Text("All rights reserved ©")
-            .font(.customFont(font: .ubuntu, size: .caption2, relativeTo: .caption2))
-            .foregroundStyle(.nxSecondaryText)
+            .caption2FontStyle()
+            .foregroundStyle(.nxLightGray)
             .padding()
     }
 }

@@ -19,7 +19,7 @@ struct LoadingScreen: View {
             
             ProgressView {
                 Text(title)
-                    .font(.customFont(font: .orbitron, weight: .semiBold))
+                    .bodyFontStyle()
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 18.0).fill(.thinMaterial))

@@ -11,7 +11,7 @@ struct Separator: View {
     var body: some View {
         Rectangle()
             .frame(height: 0.5)
-            .overlay(.nxStroke)
+            .overlay(.nxCard)
     }
 }
 

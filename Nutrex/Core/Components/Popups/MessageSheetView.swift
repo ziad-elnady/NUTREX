@@ -26,11 +26,11 @@ struct MessageSheetView: View {
             
             VStack(alignment: .leading, spacing: 0.0) {
                 Text(content.title)
-                    .font(.customFont(font: .audiowide, weight: .regular, size: .largeTitle, relativeTo: .largeTitle))
+                    .headerFontStyle()
                     .frame(maxWidth: .infinity, alignment: .leading)
                 
                 Text(content.message)
-                    .font(.customFont(font: .ubuntu))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.top)

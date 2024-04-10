@@ -20,11 +20,25 @@ extension Diary {
     @NSManaged public var dailyNutrition: NSSet?
     @NSManaged public var dailyWorkout: NSSet?
     @NSManaged public var user: User?
+    
+    static func userDiariesForDate(_ user: User, date: Date) -> NSFetchRequest<Diary> {
+        let request = Diary.fetchRequest()
+        request.sortDescriptors = []
+        request.predicate = NSPredicate(format: "user == %@ AND date == %@", argumentArray: [user, date])
+        return request
+    }
 
     var wrappedDate: Date {
         date?.onlyDate ?? Date.now.onlyDate
     }
     
+    public var wrappedDailyNutritionList: [DailyNutrition] {
+        let set = dailyNutrition as? Set<DailyNutrition> ?? []
+        
+        return set.sorted {
+            $0.wrappedDate > $1.wrappedDate
+        }
+    }
 }
 
 // MARK: Generated accessors for dailyNutrition

@@ -11,7 +11,7 @@ import SwiftUI
 
 extension Font {
     static func customFont(
-        font: NXFonts = .orbitron,
+        font: NXFonts = .audiowide,
         weight: NXFontStyles = .regular,
         size: NXFontSizes = .body,
         relativeTo: Font.TextStyle = .body,

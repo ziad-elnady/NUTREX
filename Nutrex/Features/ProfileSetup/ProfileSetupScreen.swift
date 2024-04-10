@@ -17,8 +17,6 @@ enum WeightType: String, CaseIterable {
     case kg = "kg"
 }
 
-
-
 struct ProfileSetupScreen: View {
     
     struct UserProfileSetupConfig {
@@ -175,11 +173,11 @@ extension ProfileSetupScreen {
                 Spacer()
                 
                 AnimatedText("Your gender")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                    .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)
                     .padding(.bottom, 8.0)
                 
                 Text("To estimate your body's\nmetabolic rate.")
-                    .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
                 
                 VStack(alignment: .leading, spacing: 12.0) {
@@ -211,20 +209,21 @@ extension ProfileSetupScreen {
             Spacer()
             
             AnimatedText("Your birthday")
-                .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
-                .padding(.bottom, 8.0)
+                .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)                .padding(.bottom, 8.0)
             
-            Text("To help ")
-                .font(.customFont(font: .ubuntu, weight: .bold))
-                .foregroundStyle(.secondary)
-            +
-            Text("personalize ")
-                .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
-                .foregroundStyle(.nxAccent)
-            +
-            Text("NUTREX\nfor you")
-                .font(.customFont(font: .ubuntu, weight: .bold))
-                .foregroundStyle(.secondary)
+            HStack(spacing: 4) {
+                Text("To help ")
+                    .bodyFontStyle()
+                    .foregroundStyle(.secondary)
+               
+                Text("personalize ")
+                    .bodyFontStyle()
+                    .foregroundStyle(.nxAccent)
+               
+                Text("NUTREX\nfor you")
+                    .bodyFontStyle()
+                    .foregroundStyle(.secondary)
+            }
             
             DatePicker(selection: $userDataConfig.dateOfBirth, displayedComponents: .date) { }
                 .datePickerStyle(.wheel)
@@ -240,11 +239,12 @@ extension ProfileSetupScreen {
             
             VStack(alignment: .leading) {
                 AnimatedText("Your height")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                    .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)      
+                //                    .font(.customFont(font: .audiowide, size: .title))
                     .padding(.bottom, 8.0)
                 
                 Text("This helps with the bmi\ncalculation")
-                    .font(.customFont(font: .ubuntu, weight: .bold))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
             }
             .padding(.horizontal, 24.0)
@@ -263,7 +263,7 @@ extension ProfileSetupScreen {
                 
                 HStack(alignment: .lastTextBaseline, spacing: 4.0) {
                     Text(verbatim: "\(userDataConfig.heightValue)")
-                        .font(.customFont(font: .audiowide, size: .largeTitle))
+                        .headerFontStyle()
                         .contentTransition(.numericText(value: userDataConfig.heightValue))
                         .animation(.snappy, value: userDataConfig.heightValue)
                     
@@ -287,11 +287,12 @@ extension ProfileSetupScreen {
             
             VStack(alignment: .leading) {
                 AnimatedText("Your weight")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                    .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)   
+//                    .font(.customFont(font: .audiowide, size: .title))
                     .padding(.bottom, 8.0)
                 
                 Text("This helps with the bmi\ncalculation")
-                    .font(.customFont(font: .ubuntu, weight: .bold))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
             }
             .padding(.horizontal, 24.0)
@@ -310,7 +311,7 @@ extension ProfileSetupScreen {
                 
                 HStack(alignment: .lastTextBaseline, spacing: 4.0) {
                     Text(verbatim: "\(userDataConfig.weightValue)")
-                        .font(.customFont(font: .audiowide, size: .largeTitle))
+                        .headerFontStyle(letterSpacing: 2, fontWidth: .expanded)
                         .contentTransition(.numericText(value: userDataConfig.weightValue))
                         .animation(.snappy, value: userDataConfig.weightValue)
                     
@@ -330,7 +331,7 @@ extension ProfileSetupScreen {
     @ViewBuilder
     private func AlmostThereTab() -> some View {
         AnimatedText("Almost there", animationDuration: 1.0, delayBetweenWords: 0.5)
-            .font(.customFont(font: .audiowide, size: .title, relativeTo: .title))
+            .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)
             .task {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
                     screenConfig.setupProgress += 1
@@ -346,11 +347,11 @@ extension ProfileSetupScreen {
                 Spacer()
                 
                 AnimatedText("Your goal")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                    .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)
                     .padding(.bottom, 8.0)
                 
                 Text("This helps on calculations.")
-                    .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
                 
                 VStack(alignment: .leading, spacing: 12.0) {
@@ -378,11 +379,11 @@ extension ProfileSetupScreen {
                 Spacer()
                 
                 AnimatedText("Your activity level")
-                    .font(.customFont(font: .orbitron, weight: .bold, size: .headline, relativeTo: .headline))
+                    .headlineFontStyle(letterSpacing: 2, fontWidth: .expanded)
                     .padding(.bottom, 8.0)
                 
                 Text("This helps on calculations.")
-                    .font(.customFont(font: .ubuntu, weight: .bold, size: .body, relativeTo: .body))
+                    .bodyFontStyle()
                     .foregroundStyle(.secondary)
                 
                 VStack(alignment: .leading, spacing: 12.0) {

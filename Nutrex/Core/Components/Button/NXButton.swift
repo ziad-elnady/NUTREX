@@ -31,7 +31,8 @@ struct NXButton<Content: View>: View {
     var body: some View {
         Button(action: action) {
             label()
-                .font(.customFont(font: .orbitron, weight: .black, size: .body, relativeTo: .body))
+                .bodyFontStyle()
+                .fontWeight(.semibold)
                 .foregroundColor(foregroundColorForVariant())
                 .frame(height: 55.0)
                 .padding(.horizontal)
@@ -62,7 +63,7 @@ extension NXButton {
         case .secondary:
                 .black
         case .outline:
-                .nxStroke
+                .nxCard
         }
         
     }
@@ -71,7 +72,7 @@ extension NXButton {
     private func backgroundForVariant() -> some View {
         if variant == .outline {
             RoundedRectangle(cornerRadius: 16.0)
-                .stroke(Color.nxStroke, lineWidth: 0.5)
+                .stroke(Color.nxCard, lineWidth: 0.5)
         } else {
             RoundedRectangle(cornerRadius: 16.0)
                 .fill(variant == .primary ? .nxAccent : .primary)
@@ -81,7 +82,7 @@ extension NXButton {
     @ViewBuilder
     private func disabledBackground() -> some View {
         RoundedRectangle(cornerRadius: 16.0)
-            .fill(.nxSecondaryText)
+            .fill(.nxLightGray)
     }
     
 }

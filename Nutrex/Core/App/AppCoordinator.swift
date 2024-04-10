@@ -11,6 +11,8 @@ struct AppCoordinator: View {
     @FetchRequest private var users: FetchedResults<User>
     @EnvironmentObject private var userStore: UserStore
     
+    @StateObject var nutritionStore = NutritionDiaryStore()
+    
     @Binding var isShowingSplashScreen: Bool
         
     let uid: String
@@ -25,6 +27,7 @@ struct AppCoordinator: View {
         ZStack {
             if userStore.currentUser.isProfileCompleted {
                 NutritionTabView()
+                    .environmentObject(nutritionStore)
             } else {
                 ProfileSetupScreen()
             }
