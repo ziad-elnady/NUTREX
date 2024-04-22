@@ -12,7 +12,7 @@ extension NutritionDiaryScreen.HeaderView {
     struct WeekView: View {
         let week: [Date.WeekDay]
         let index: Int
-        let animation: Namespace.ID
+//        let animation: Namespace.ID
         
         @Binding var weekSlider: [[Date.WeekDay]]
         @Binding var currentWeekIndex: Int
@@ -23,7 +23,7 @@ extension NutritionDiaryScreen.HeaderView {
         var body: some View {
             HStack {
                 ForEach(week) { day in
-                    DayView(day: day, animation: animation, date: $date)
+                    DayView(day: day, date: $date)
                 }
             }
             .background {

@@ -16,7 +16,7 @@ extension NutritionDiaryScreen {
         @State private var currentWeekIndex: Int = 1
         @State private var createWeek = false
         
-        @Namespace private var animation
+//        @Namespace private var animation
         
         let logButtonPressed: () -> Void
         
@@ -42,7 +42,7 @@ extension NutritionDiaryScreen {
                         
                         WeekView(week: week,
                                  index: index,
-                                 animation: animation,
+//                                 animation: animation,
                                  weekSlider: $weekSlider,
                                  currentWeekIndex: $currentWeekIndex,
                                  createWeek: $createWeek,

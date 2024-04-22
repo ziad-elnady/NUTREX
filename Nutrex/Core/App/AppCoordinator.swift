@@ -47,3 +47,5 @@ struct AppCoordinator: View {
 #Preview {
     AppCoordinator(uid: "empty", isShowingSplashScreen: .constant(false))
 }
+
+

@@ -25,12 +25,24 @@ class UserStore: ObservableObject {
     func fetchUser(forId uid: String) async throws {
         let snapshot = try await db.collection("users").document(uid).getDocument()
         let user = try snapshot.data(as: User.self, decoder: FirestoreStore.shared.decoder)
-        currentUser = user
+        
+        currentUser.migrate(toUser: user)
         
         try await syncUser(withUser: user)
     }
     
-    func syncUser(withUser fbUser: User) async throws {
+    func completeUserProfile(config: ProfileSetupScreen.UserProfileSetupConfig) async throws {
+        
+        currentUser.completeProfile(withConfig: config)
+        try await saveUser(currentUser)
+        
+        let localUser = User(context: context)
+        localUser.migrate(toUser: currentUser)
+        
+        CoreDataController.shared.saveContext()
+    }
+    
+    private func syncUser(withUser fbUser: User) async throws {
        
         let localUser = getLocalUser(forId: fbUser.wrappedUid) ?? User(context: context)
         guard !(localUser == fbUser) else { return }
@@ -54,18 +66,7 @@ class UserStore: ObservableObject {
         }
     }
     
-    func completeUserProfile(config: ProfileSetupScreen.UserProfileSetupConfig) async throws {
-        
-        currentUser.completeProfile(withConfig: config)
-        try await saveUser(currentUser)
-        
-        let localUser = User(context: context)
-        localUser.migrate(toUser: currentUser)
-        
-        CoreDataController.shared.saveContext()
-    }
-    
-    func getLocalUser(forId uid: String) -> User? {
+    private func getLocalUser(forId uid: String) -> User? {
         let fetchRequest = User.filteredUsersForID(uid)
         do {
             let user = try context.fetch(fetchRequest).first

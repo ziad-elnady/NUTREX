@@ -8,25 +8,60 @@
 import CoreData
 import Foundation
 
+@MainActor
 class NutritionDiaryStore: ObservableObject {
     private let context = CoreDataController.shared.viewContext
     
-    var currentDiary: DailyNutrition = DailyNutrition.empty
+    @Published var currentDiary: DailyNutrition = DailyNutrition.empty
     
     func getCurrentDiary(user: User, date: Date) {
-        let diariesRequest = Diary.userDiariesForDate(user, date: date.onlyDate)
+        let diariesRequest = Diary.userDiariesForDate(user.wrappedUid, date: date)
         
         guard let fetchedDiaries = try? context.fetch(diariesRequest) else { return }
-        
+                
         if let fetchedDiary = fetchedDiaries.first {
             
             if let currentNutritionDiary = fetchedDiary.wrappedDailyNutritionList.first {
                 currentDiary = currentNutritionDiary
-            } else {
-                let newNutritionDiary = DailyNutrition(context: context)
-                newNutritionDiary.date = date
             }
             
+        } else {
+            createNewDiary(withUser: user, forDate: date)
         }
+        
+    }
+    
+    func logFood(foods: [Food]) {
+        var newFood = Food(context: context)
+        newFood = foods.randomElement() ?? Food(context: context)
+        currentDiary.addToFoods(newFood)
+        
+        CoreDataController.shared.saveContext()
+    }
+    
+    func removeFoodFromDiary(food: Food) {
+        //        for index in offsets {
+        //            let food = currentDiary.wrappedFoods[index]
+        currentDiary.removeFromFoods(food)
+        context.delete(food)
+        CoreDataController.shared.saveContext()
+        //        }
+    }
+    
+    private func createNewDiary(withUser user: User, forDate date: Date) {
+        let newDiary = Diary(context: context)
+        newDiary.date = date.onlyDate
+        newDiary.user = user
+        
+        createNewNutritionDiary(forDiary: newDiary, withDate: date.onlyDate)
+    }
+    
+    private func createNewNutritionDiary(forDiary diary: Diary, withDate date: Date) {
+        let newNutritionDiary = DailyNutrition(context: context)
+        newNutritionDiary.date = date.onlyDate
+        newNutritionDiary.diary = diary
+        
+        diary.addToDailyNutrition(newNutritionDiary)
+        currentDiary = newNutritionDiary
     }
 }

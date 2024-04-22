@@ -22,7 +22,7 @@ struct NutrexApp: App {
     let dataStore = CoreDataController.shared
     let firebaseStore = FirestoreStore.shared
     
-    @StateObject var authStore = AuthenticationStore.shared
+    @StateObject var authStore = AuthenticationStore()
     @StateObject var userStore = UserStore()
     
     @State private var selectedDate = Date.now.onlyDate

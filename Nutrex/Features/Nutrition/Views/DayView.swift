@@ -11,7 +11,7 @@ extension NutritionDiaryScreen.HeaderView {
     
     struct DayView: View {
         let day: Date.WeekDay
-        let animation: Namespace.ID
+//        let animation: Namespace.ID
         @Binding var date: Date
         
         var body: some View {
@@ -30,7 +30,7 @@ extension NutritionDiaryScreen.HeaderView {
                         if isSameDate(day.date, date) {
                             Circle()
                                 .fill(.nxAccent)
-                                .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
+//                                .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
                         } else {
                             Circle()
 //                                .stroke(.secondary, lineWidth: 0.4)
@@ -59,10 +59,10 @@ extension NutritionDiaryScreen.HeaderView {
 }
 
 #Preview {
-    @Namespace var animation
+//    @Namespace var animation
     
     return NutritionDiaryScreen
         .HeaderView
-        .DayView(day: Date.WeekDay(date: .now), animation: animation,
+        .DayView(day: Date.WeekDay(date: .now),
                  date: .constant(Date()))
 }

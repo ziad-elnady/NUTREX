@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct NutritionDiaryScreen: View {
-    @Environment(\.managedObjectContext) private var context
     @Environment(\.selectedDate) private var selectedDate
     
     @EnvironmentObject private var userStore: UserStore
@@ -33,9 +32,15 @@ struct NutritionDiaryScreen: View {
                         }
                     }
                     
-                    VStack {
-                        NutritionSection(currentUser: userStore.currentUser,
-                                         diary: nutritionStore.currentDiary)
+                    VStack(alignment: .leading) {
+                        NutritionSection(dailyNutrition: nutritionStore.currentDiary)
+                        
+                        Text("Foods")
+                            .bodyFontStyle()
+                            .padding([.top, .leading], 16.0)
+                            .padding(.bottom, 8.0)
+                        
+                        FoodsSection(currentDiary: nutritionStore.currentDiary)
                     }
                     .padding(.horizontal)
                 }
@@ -54,6 +59,10 @@ struct NutritionDiaryScreen: View {
             nutritionStore.getCurrentDiary(user: userStore.currentUser,
                                            date: selectedDate.wrappedValue)
         }
+        .onChange(of: selectedDate.wrappedValue) { _, newValue in
+            nutritionStore.getCurrentDiary(user: userStore.currentUser,
+                                           date: newValue.onlyDate)
+        }
     }
 }
 
@@ -62,8 +71,8 @@ extension NutritionDiaryScreen {
     
     struct NutritionSection: View {
         
-        let currentUser: User
-        let diary: DailyNutrition
+        @EnvironmentObject private var userStore: UserStore
+        @ObservedObject var dailyNutrition: DailyNutrition
         
         var body: some View {
             VStack {
@@ -77,11 +86,11 @@ extension NutritionDiaryScreen {
                                 .foregroundStyle(.nxAccent)
                             
                             VStack(alignment: .leading) {
-                                Text("Goal")
+                                Text("Remaining")
                                     .captionFontStyle()
                                     .fontWeight(.semibold)
                                     .foregroundStyle(.secondary)
-                                Text("\(currentUser.neededCalories.formatCalories()) kcal")
+                                Text("\(dailyNutrition.remainingCalories(userGoal: userStore.currentUser.neededCalories).formatCalories()) kcal")
                                     .headlineFontStyle()
                             }
                         }
@@ -89,17 +98,17 @@ extension NutritionDiaryScreen {
                         HStack {
                             Group {
                                 VStack(alignment: .leading) {
-                                    Text("Remaining")
+                                    Text("Goal")
                                         .captionFontStyle()
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.secondary)
-                                    Text("\(diary.remainingCalories(userGoal: currentUser.neededCalories).formatCalories()) kcal")
+                                    Text("\(userStore.currentUser.neededCalories.formatCalories()) kcal")
                                         .captionFontStyle()
                                         .fontWeight(.heavy)
                                 }
                                 
                                 VStack(alignment: .leading) {
-                                    Text("last")
+                                    Text("Last")
                                         .captionFontStyle()
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.secondary)
@@ -109,11 +118,11 @@ extension NutritionDiaryScreen {
                                 }
                                 
                                 VStack(alignment: .leading) {
-                                    Text("any")
+                                    Text("status")
                                         .captionFontStyle()
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.secondary)
-                                    Text("something")
+                                    Text("almost")
                                         .captionFontStyle()
                                         .fontWeight(.heavy)
                                 }
@@ -127,8 +136,8 @@ extension NutritionDiaryScreen {
                     
                     CircularProgressBar(progress: eatenPercentage() + 0.0001,
                                         progressColor: .nxAccent,
-                                        text: "\(diary.eatenCalories.formatCalories()) kcal",
-                                        description: "\(eatenPercentage().formatted())%")
+                                        text: "\(dailyNutrition.eatenCalories.formatCalories())\nkcal",
+                                        description: "\(eatenPercentage().formatCalories())%")
                     .frame(width: 80, height: 80)
                 }
             }
@@ -140,23 +149,63 @@ extension NutritionDiaryScreen {
         }
         
         private func eatenPercentage() -> Double {
-            let completionPercentage = (diary.eatenCalories / currentUser.neededCalories) * 100
-            return min(completionPercentage, 100)
+            let completionPercentage = dailyNutrition.eatenCalories / userStore.currentUser.neededCalories
+            return (min(completionPercentage, 1.0) + 0.00001)
         }
+    }
+    
+    
+    struct FoodsSection: View {
+        @EnvironmentObject var diaryStore: NutritionDiaryStore
+        @ObservedObject var currentDiary: DailyNutrition
+        
+        var body: some View {
+            VStack {
+                ForEach(currentDiary.wrappedFoods, id: \.objectID) { food in
+                    VStack(alignment: .leading) {
+                        Text(food.wrappedName)
+                            .bodyFontStyle()
+                        
+                        Text(food.wrappedNutritionalInfo.caloriesPerGram.formatCalories() + " kcal")
+                            .captionFontStyle()
+                            .foregroundStyle(.secondary)
+                    }
+                    .hSpacing(.leading)
+                    .padding()
+                    .background {
+                        RoundedRectangle(cornerRadius: 20.0)
+                            .fill(Color(.nxCard))
+                    }
+                    .swipeActions(allowsFullSwipe: true) {
+                        Button(role: .destructive) {
+                            diaryStore.removeFoodFromDiary(food: food)
+                        } label: {
+                            Text("Delete")
+                        }
+                    }
+                    .onTapGesture {
+                        diaryStore.removeFoodFromDiary(food: food)
+                    }
+                }
+//                .onDelete(perform: removeFood)
+                
+            }
+        }
+        
+//        private func removeFood(at offsets: IndexSet) {
+//            diaryStore.removeFoodFromDiary(food: offsets)
+//        }
     }
 }
 
 
 // MARK: - ACTIONS -
 extension NutritionDiaryScreen {
+    
     private func logFood() {
-        var newFood = Food(context: context)
-        newFood = foods.randomElement() ?? Food(context: context)
-        
-        nutritionStore.currentDiary.addToFoods(newFood)
-        
-        try? context.save()
+        nutritionStore.logFood(foods: foods)
     }
+    
 }
 
 struct CircularProgressBar: View {
@@ -188,7 +237,7 @@ struct CircularProgressBar: View {
                 
                 VStack(spacing: 4.0) {
                     Text(text)
-                        .font(.customFont(font: .audiowide, size: .body, relativeTo: .body))
+                        .font(.customFont(font: .audiowide, size: .caption, relativeTo: .caption))
                         .multilineTextAlignment(.center)
                     
                     if let desc = description {
@@ -250,3 +299,5 @@ struct MacroView: View {
         .environmentObject(UserStore())
         .environmentObject(NutritionDiaryStore())
 }
+
+

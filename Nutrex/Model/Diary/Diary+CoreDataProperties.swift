@@ -21,10 +21,9 @@ extension Diary {
     @NSManaged public var dailyWorkout: NSSet?
     @NSManaged public var user: User?
     
-    static func userDiariesForDate(_ user: User, date: Date) -> NSFetchRequest<Diary> {
-        let request = Diary.fetchRequest()
-        request.sortDescriptors = []
-        request.predicate = NSPredicate(format: "user == %@ AND date == %@", argumentArray: [user, date])
+    static func userDiariesForDate(_ uid: String, date: Date) -> NSFetchRequest<Diary> {
+        let request: NSFetchRequest<Diary> = Diary.fetchRequest()
+        request.predicate = NSPredicate(format: "user.uid == %@ AND date == %@", uid, date.onlyDate as CVarArg)
         return request
     }
 
@@ -36,7 +35,7 @@ extension Diary {
         let set = dailyNutrition as? Set<DailyNutrition> ?? []
         
         return set.sorted {
-            $0.wrappedDate > $1.wrappedDate
+            $0.wrappedDate < $1.wrappedDate
         }
     }
 }
