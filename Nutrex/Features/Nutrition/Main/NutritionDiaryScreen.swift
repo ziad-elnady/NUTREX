@@ -203,7 +203,8 @@ extension NutritionDiaryScreen {
 extension NutritionDiaryScreen {
     
     private func logFood() {
-        nutritionStore.logFood(foods: foods)
+//        nutritionStore.logFood(foods: foods)
+        isShowingFoodSearch = true
     }
     
 }

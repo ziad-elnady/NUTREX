@@ -70,6 +70,10 @@ extension View {
         self.modifier(BodyFontStyle(letterSpacing: letterSpacing))
     }
     
+    func sectionHeaderFontStyle(letterSpacing: CGFloat = 0) -> some View {
+        self.modifier(SectionHeaderTitle(letterSpacing: letterSpacing))
+    }
+    
     func headlineFontStyle(letterSpacing: CGFloat = 0, fontWidth: Font.Width = .standard) -> some View {
         self.modifier(HeadlineFontStyle(letterSpacing: letterSpacing, fontWidth: fontWidth))
     }

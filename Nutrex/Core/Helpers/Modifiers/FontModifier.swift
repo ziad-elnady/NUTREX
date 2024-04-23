@@ -55,6 +55,16 @@ struct BodyFontStyle: ViewModifier {
     }
 }
 
+struct SectionHeaderTitle: ViewModifier {
+    var letterSpacing: CGFloat = 0
+    
+    func body(content: Content) -> some View {
+        content
+            .font(.system(.body, design: .rounded, weight: .semibold))
+            .kerning(letterSpacing)
+    }
+}
+
 struct ThinBodyFontStyle: ViewModifier {
     func body(content: Content) -> some View {
         content

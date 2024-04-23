@@ -31,10 +31,8 @@ class NutritionDiaryStore: ObservableObject {
         
     }
     
-    func logFood(foods: [Food]) {
-        var newFood = Food(context: context)
-        newFood = foods.randomElement() ?? Food(context: context)
-        currentDiary.addToFoods(newFood)
+    func logFood(food: Food) {
+        currentDiary.addToFoods(food)
         
         CoreDataController.shared.saveContext()
     }
