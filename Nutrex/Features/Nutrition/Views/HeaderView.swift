@@ -22,9 +22,9 @@ extension NutritionDiaryScreen {
         
         var body: some View {
             VStack {
-                VStack(alignment: .leading) {
-                    Text("DIARY")
-                        .impactFontHeaderStyle(letterSpacing: 2)
+                VStack(alignment: .leading, spacing: 0.0) {
+                    Text("MY DIARY")
+                        .headerFontStyle(letterSpacing: 2.0)
                     
                     Text(date.formatted(date: .complete, time: .omitted))
                         .bodyFontStyle()

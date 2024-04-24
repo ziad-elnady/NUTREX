@@ -132,6 +132,7 @@ struct FoodSearchScreen: View {
             }
             .navigationTitle(currentMeal.name)
             .navigationBarTitleDisplayMode(.inline)
+            .ignoresSafeArea(.keyboard)
             .onAppear {
                 focusedField = .search
             }
@@ -160,6 +161,9 @@ struct FoodSearchScreen: View {
                 } label: {
                     Image(systemName: "trash")
                 }
+            }
+            .navigationDestination(for: Food.self) { food in
+                FoodDetailScreen()
             }
         }
     }
@@ -230,7 +234,6 @@ extension FoodSearchScreen {
                 ContentUnavailableView("No Loggs Yet.",
                                        systemImage: "tray",
                                        description: Text("Any food you log will be saved in\nthis section for easier logs"))
-                
             }
             .padding(.top, 12.0)
         }
@@ -321,6 +324,7 @@ extension FoodSearchScreen {
                     .foregroundStyle(.secondary)
                     .captionFontStyle()
             }
+            .hSpacing(.leading)
             .padding(.leading, 12.0)
             
             ForEach(searchResults, id: \.objectID) { food in
@@ -334,9 +338,7 @@ extension FoodSearchScreen {
                 //                        }
                 //                    }
                 
-                Button {
-                    logFood(food: food)
-                } label: {
+                NavigationLink(value: food) {
                     HStack {
                         VStack(alignment: .leading) {
                             Text(food.wrappedName)
@@ -367,10 +369,10 @@ extension FoodSearchScreen {
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 12.0))
                 }
-                .overlay {
-                    if foods.isEmpty {
-                        ContentUnavailableView.search(text: searchTerm)
-                    }
+            }
+            .overlay {
+                if foods.isEmpty {
+                    ContentUnavailableView.search(text: searchTerm)
                 }
             }
             .foregroundStyle(.primary)

@@ -5,6 +5,7 @@
 //  Created by Ziad Ahmed on 12/03/2024.
 //
 
+import Charts
 import SwiftUI
 
 struct NutritionDiaryScreen: View {
@@ -34,13 +35,9 @@ struct NutritionDiaryScreen: View {
                     
                     VStack(alignment: .leading) {
                         NutritionSection(dailyNutrition: nutritionStore.currentDiary)
+                        GraphSectionView(dailyNtrition: nutritionStore.currentDiary)
                         
-                        Text("Foods")
-                            .bodyFontStyle()
-                            .padding([.top, .leading], 16.0)
-                            .padding(.bottom, 8.0)
-                        
-                        FoodsSection(currentDiary: nutritionStore.currentDiary)
+//                        FoodsSection(currentDiary: nutritionStore.currentDiary)
                     }
                     .padding(.horizontal)
                 }
@@ -155,6 +152,116 @@ extension NutritionDiaryScreen {
     }
     
     
+    struct GraphSectionView: View {
+        @ObservedObject var dailyNtrition: DailyNutrition
+        
+        struct ChartModel: Identifiable {
+            let id = UUID()
+            
+            let date: Date
+            let calories: Double
+        }
+        
+        var items:  [ChartModel] = [
+            ChartModel(date: Date().addingTimeInterval(-9 * 24 * 3600), calories: 2400),
+            ChartModel(date: Date().addingTimeInterval(-8 * 24 * 3600), calories: 2100),
+            ChartModel(date: Date().addingTimeInterval(-7 * 24 * 3600), calories: 1900),
+            ChartModel(date: Date().addingTimeInterval(-6 * 24 * 3600), calories: 2000),
+            ChartModel(date: Date().addingTimeInterval(-5 * 24 * 3600), calories: 1800),
+            ChartModel(date: Date().addingTimeInterval(-4 * 24 * 3600), calories: 2200),
+            ChartModel(date: Date().addingTimeInterval(-3 * 24 * 3600), calories: 2400),
+            ChartModel(date: Date().addingTimeInterval(-2 * 24 * 3600), calories: 2100),
+            ChartModel(date: Date().addingTimeInterval(-1 * 24 * 3600), calories: 1900),
+        ]
+        
+        var body: some View {
+            VStack(alignment: .leading) {
+                Text("Stats")
+                    .sectionHeaderFontStyle()
+                    .padding(.leading)
+                
+                VStack(alignment: .leading) {
+                    HStack(spacing: 16.0) {
+                        HStack {
+                            RoundedRectangle(cornerRadius: 12.0)
+                                .fill(Color(.nxAccent))
+                                .frame(width: 16.0, height: 4.0)
+                            
+                            
+                            Text("Today's Res")
+                                .captionFontStyle()
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        HStack {
+                            RoundedRectangle(cornerRadius: 12.0)
+                                .fill(.secondary)
+                                .frame(width: 16.0, height: 4.0)
+                            
+                            
+                            Text("Prev Res")
+                                .captionFontStyle()
+                                .fontWeight(.semibold)
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        HStack(spacing: 0.0) {
+                            Text("Avg,")
+                                .captionFontStyle()
+                                .fontWeight(.heavy)
+                                .foregroundStyle(.primary)
+                            
+                            Text("24MD")
+                                .captionFontStyle()
+                                .fontWeight(.heavy)
+                                .foregroundStyle(Color(.nxAccent))
+                        }
+                    }
+                    
+                    Chart {
+                        ForEach(items, id: \.id) { item in
+                            
+                            LineMark(
+                                x: .value("Day", item.date, unit: .day),
+                                y: .value("Calories", item.calories)
+                            )
+                            .foregroundStyle(Color(.nxAccent))
+                            .interpolationMethod(.catmullRom)
+                            
+    //                        AreaMark(
+    //                            x: .value("Day", item.date, unit: .day),
+    //                            y: .value("Calories", item.calories)
+    //                        )
+    //                        .foregroundStyle( LinearGradient(
+    //                            gradient: Gradient(colors: [
+    //                                Color(.nxAccent).opacity(0.3), // Start with full opacity blue at the top
+    //                                Color(.nxAccent).opacity(0.0)  // End with fully transparent blue at the bottom
+    //                            ]),
+    //                            startPoint: .top,
+    //                            endPoint: .bottom
+    //                        ))
+    //                        .interpolationMethod(.catmullRom)
+                        }
+                    }
+                    .chartYAxis(.hidden)
+                    .padding(.top, 12.0)
+                    .padding(.horizontal)
+                    .frame(maxHeight: 250)
+                }
+                .padding()
+                .background {
+                    RoundedRectangle(cornerRadius: 20.0)
+                        .fill(Color(.nxCard))
+                }
+            }
+            .padding(.top)
+        }
+    }
+    
+    
     struct FoodsSection: View {
         @EnvironmentObject var diaryStore: NutritionDiaryStore
         @ObservedObject var currentDiary: DailyNutrition
@@ -198,16 +305,6 @@ extension NutritionDiaryScreen {
     }
 }
 
-
-// MARK: - ACTIONS -
-extension NutritionDiaryScreen {
-    
-    private func logFood() {
-//        nutritionStore.logFood(foods: foods)
-        isShowingFoodSearch = true
-    }
-    
-}
 
 struct CircularProgressBar: View {
     let progress: Double
@@ -257,6 +354,18 @@ struct CircularProgressBar: View {
         return minLength * 0.08
     }
 }
+
+// MARK: - ACTIONS -
+extension NutritionDiaryScreen {
+    
+    private func logFood() {
+//        nutritionStore.logFood(foods: foods)
+        isShowingFoodSearch = true
+    }
+    
+}
+
+
 
 struct MacroView: View {
     let title: String
