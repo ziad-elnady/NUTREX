@@ -58,6 +58,7 @@
 		B7A91DD32B9F3DFC007D493A /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD22B9F3DFC007D493A /* FirebaseFirestoreSwift */; };
 		B7A91DD52B9F3E11007D493A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD42B9F3E11007D493A /* FirebaseAuth */; };
 		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
+		B7B839AC2BDA427C00764983 /* QRFoodScannerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B839AB2BDA427C00764983 /* QRFoodScannerScreen.swift */; };
 		B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C89B742BA38846001B7B46 /* UserStore.swift */; };
 		B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */; };
 		B7CB029F2BAB83A8006ACB1A /* LoadingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */; };
@@ -164,6 +165,7 @@
 		B7A91D892B9F280D007D493A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
+		B7B839AB2BDA427C00764983 /* QRFoodScannerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRFoodScannerScreen.swift; sourceTree = "<group>"; };
 		B7C89B742BA38846001B7B46 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModifier.swift; sourceTree = "<group>"; };
@@ -463,6 +465,14 @@
 			path = PreferenceKeys;
 			sourceTree = "<group>";
 		};
+		B79EFF162BDA2C5F0094407D /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				B7B839AB2BDA427C00764983 /* QRFoodScannerScreen.swift */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
 		B7A91D802B9F2214007D493A /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +585,7 @@
 		B7D731B82BA09C3D00C94A2D /* Nutrition */ = {
 			isa = PBXGroup;
 			children = (
+				B79EFF162BDA2C5F0094407D /* Scanner */,
 				B78CC1F72BB3789200C0C3A2 /* Food */,
 				B76319F62BB3151100EF5D1D /* Main */,
 				B78BD8D92BB1B5C600812F9C /* Views */,
@@ -943,6 +954,7 @@
 				B7A462662BC59C3E00B72B4D /* DoubleExt.swift in Sources */,
 				B7D731E82BA0A08400C94A2D /* Diary+CoreDataClass.swift in Sources */,
 				B7D7320D2BA0A3C900C94A2D /* Bundle-Decodable.swift in Sources */,
+				B7B839AC2BDA427C00764983 /* QRFoodScannerScreen.swift in Sources */,
 				B769A08F2BA2559B00878070 /* Separator.swift in Sources */,
 				B7D731F62BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift in Sources */,
 				B7D731CB2BA0A00100C94A2D /* CoreDataController.swift in Sources */,
@@ -1127,6 +1139,7 @@
 				INFOPLIST_FILE = Nutrex/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NUTRIX;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "scanning food or qr codes requires camera usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1161,6 +1174,7 @@
 				INFOPLIST_FILE = Nutrex/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NUTRIX;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCameraUsageDescription = "scanning food or qr codes requires camera usage";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

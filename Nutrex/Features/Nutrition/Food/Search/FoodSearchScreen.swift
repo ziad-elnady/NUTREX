@@ -69,6 +69,7 @@ struct FoodSearchScreen: View {
     @State private var currentMeal  = NXRoutineMeal.example[0]
     @State private var currentTab   = 0
     @State private var isShowingSearchResults = false
+    @State private var isShowingFoodScannerScreen = false
     
     @State private var foods: [Food] = []
     
@@ -152,6 +153,14 @@ struct FoodSearchScreen: View {
                         Image(systemName: "xmark.circle.fill")
                     }
                 }
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        isShowingFoodScannerScreen = true
+                    } label: {
+                        Image(systemName: "qrcode.viewfinder")
+                    }
+                }
             }
             .toolbarTitleMenu {
                 Picker(selection: $currentMeal) {
@@ -164,6 +173,9 @@ struct FoodSearchScreen: View {
             }
             .navigationDestination(for: Food.self) { food in
                 FoodDetailScreen()
+            }
+            .fullScreenCover(isPresented: $isShowingFoodScannerScreen) {
+                QRFoodScannerScreen()
             }
         }
     }
