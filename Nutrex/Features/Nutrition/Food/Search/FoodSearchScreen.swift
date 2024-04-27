@@ -174,6 +174,9 @@ struct FoodSearchScreen: View {
             .navigationDestination(for: Food.self) { food in
                 FoodDetailScreen()
             }
+            .navigationDestination(for: Meal.self) { meal in
+                MealDetailScreen()
+            }
             .fullScreenCover(isPresented: $isShowingFoodScannerScreen) {
                 QRFoodScannerScreen()
             }
@@ -268,20 +271,22 @@ extension FoodSearchScreen {
                 ScrollView(.horizontal) {
                     HStack(spacing: 16.0) {
                         ForEach(savedMeals, id: \.self) { meal in
-                            VStack {
-                                Circle()
-                                    .frame(width: 60.0, height: 60.0)
-                                    .overlay {
-                                        Image("food-\(Int.random(in: 1...4))")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 32.0, height: 32.0)
-                                    }
-                                    .foregroundColor(Color(.nxCard))
-                                
-                                Text(meal)
-                                    .captionFontStyle()
-                                    .foregroundStyle(.secondary)
+                            NavigationLink(value: meal) {
+                                VStack {
+                                    Circle()
+                                        .frame(width: 60.0, height: 60.0)
+                                        .overlay {
+                                            Image("food-\(Int.random(in: 1...4))")
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 32.0, height: 32.0)
+                                        }
+                                        .foregroundColor(Color(.nxCard))
+                                    
+                                    Text(meal)
+                                        .captionFontStyle()
+                                        .foregroundStyle(.gray)
+                                }
                             }
                             .frame(width: 60)
                         }

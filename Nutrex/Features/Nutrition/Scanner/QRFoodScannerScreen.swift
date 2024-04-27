@@ -72,7 +72,7 @@ struct QRFoodScannerScreen: View {
                     }
                     
                     CameraView(frameSize: .init(width: size.width, height: size.width), session: $camSession)
-                        .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                        .clipShape(RoundedRectangle(cornerRadius: 4.0))
                         .scaleEffect(0.9, anchor: .center)
                 }
                 /// Square shape.

@@ -25,6 +25,10 @@ extension View {
         self.modifier(GlassEffectModifier(cornerRadius))
     }
     
+    func carded(_ cornerRadius: CGFloat = 16.0) -> some View {
+        self.modifier(CardedModifier(cornerRadius))
+    }
+    
     func stroked() -> some View {
         self.modifier(StrokedModifier())
     }

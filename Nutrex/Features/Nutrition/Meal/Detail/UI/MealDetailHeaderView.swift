@@ -1,16 +1,16 @@
 //
-//  FoodDetailHeaderView.swift
+//  MealDetailHeaderView.swift
 //  Nutrex
 //
-//  Created by Ziad Ahmed on 24/04/2024.
+//  Created by Ziad Ahmed on 26/04/2024.
 //
 
 import SwiftUI
 
-extension FoodDetailScreen {
+extension MealDetailScreen {
     
     
-    struct FoodHeaderView: View {
+    struct MealDetailHeaderView: View {
         var body: some View {
             Rectangle()
                 .opacity(0.0)
@@ -44,7 +44,7 @@ extension FoodDetailScreen {
 }
 
 #Preview {
-    FoodDetailScreen()
+    MealDetailScreen()
 }
 
 struct StetchyHeaderModifier: ViewModifier {

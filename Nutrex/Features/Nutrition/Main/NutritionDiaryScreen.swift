@@ -162,16 +162,24 @@ extension NutritionDiaryScreen {
             let calories: Double
         }
         
-        var items:  [ChartModel] = [
-            ChartModel(date: Date().addingTimeInterval(-9 * 24 * 3600), calories: 2400),
-            ChartModel(date: Date().addingTimeInterval(-8 * 24 * 3600), calories: 2100),
-            ChartModel(date: Date().addingTimeInterval(-7 * 24 * 3600), calories: 1900),
-            ChartModel(date: Date().addingTimeInterval(-6 * 24 * 3600), calories: 2000),
-            ChartModel(date: Date().addingTimeInterval(-5 * 24 * 3600), calories: 1800),
-            ChartModel(date: Date().addingTimeInterval(-4 * 24 * 3600), calories: 2200),
-            ChartModel(date: Date().addingTimeInterval(-3 * 24 * 3600), calories: 2400),
-            ChartModel(date: Date().addingTimeInterval(-2 * 24 * 3600), calories: 2100),
-            ChartModel(date: Date().addingTimeInterval(-1 * 24 * 3600), calories: 1900),
+        var thisWeek: [ChartModel] = [
+            ChartModel(date: Date().addingTimeInterval(-6 * 24 * 3600), calories: 2400), // 6 days ago
+            ChartModel(date: Date().addingTimeInterval(-5 * 24 * 3600), calories: 2100), // 5 days ago
+            ChartModel(date: Date().addingTimeInterval(-4 * 24 * 3600), calories: 1900), // 4 days ago
+            ChartModel(date: Date().addingTimeInterval(-3 * 24 * 3600), calories: 2000), // 3 days ago
+            ChartModel(date: Date().addingTimeInterval(-2 * 24 * 3600), calories: 1800), // 2 days ago
+            ChartModel(date: Date().addingTimeInterval(-1 * 24 * 3600), calories: 2200), // 1 day ago
+            ChartModel(date: Date(), calories: 2400) // today
+        ]
+        
+        var prevWeek: [ChartModel] = [
+            ChartModel(date: Date().addingTimeInterval(-13 * 24 * 3600), calories: 2400), // 6 days ago
+            ChartModel(date: Date().addingTimeInterval(-12 * 24 * 3600), calories: 2100), // 5 days ago
+            ChartModel(date: Date().addingTimeInterval(-11 * 24 * 3600), calories: 1900), // 4 days ago
+            ChartModel(date: Date().addingTimeInterval(-10 * 24 * 3600), calories: 2000), // 3 days ago
+            ChartModel(date: Date().addingTimeInterval(-9 * 24 * 3600), calories: 1800), // 2 days ago
+            ChartModel(date: Date().addingTimeInterval(-8 * 24 * 3600), calories: 2200), // 1 day ago
+            ChartModel(date: Date().addingTimeInterval(-7 * 24 * 3600), calories: 2200) // today
         ]
         
         var body: some View {
@@ -222,10 +230,10 @@ extension NutritionDiaryScreen {
                     }
                     
                     Chart {
-                        ForEach(items, id: \.id) { item in
+                        ForEach(thisWeek, id: \.id) { item in
                             
                             LineMark(
-                                x: .value("Day", item.date, unit: .day),
+                                x: .value("Day", item.date, unit: .weekday),
                                 y: .value("Calories", item.calories)
                             )
                             .foregroundStyle(Color(.nxAccent))
