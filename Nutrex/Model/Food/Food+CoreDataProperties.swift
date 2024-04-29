@@ -25,6 +25,10 @@ extension Food {
     @NSManaged public var measurementUnits: NSSet?
     @NSManaged public var nutrition: DailyNutrition?
     @NSManaged public var nutritionalInfo: NutritionalInfo?
+    
+    static var example: Food {
+        NutritionDiaryStore.foods[5]
+    }
 
     var measurmentUnitsList: [MeasurementUnit] {
         let set = measurementUnits as? Set<MeasurementUnit> ?? []
@@ -58,9 +62,25 @@ extension Food {
     var wrappedUnitName: String {
         measurmentUnitsList[Int(unit)].unitName ?? "No Unit"
     }
-
+    
     var calculatedNutritionalInfo: (calories: Double, protein: Double, carbs: Double, fat: Double) {
         NutritionCalculator.shared.calculateNutrition(food: self, unitIndex: Int(unit), servings: serving)
+    }
+    
+    func calculateMacroPercentages() -> (proteinPercentage: Double, carbPercentage: Double, fatPercentage: Double) {
+        let nutritions = calculatedNutritionalInfo
+        let calories = nutritions.calories
+        
+        guard calories > 0 else {
+            return (1.0, 1.0, 1.0)
+        }
+        
+        // Calculate percentages
+        let proteinPercentage = (nutritions.protein / calories) * 100
+        let carbPercentage = (nutritions.carbs / calories) * 100
+        let fatPercentage = (nutritions.fat / calories) * 100
+        
+        return (proteinPercentage, carbPercentage, fatPercentage)
     }
     
 }

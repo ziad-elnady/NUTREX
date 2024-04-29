@@ -33,7 +33,7 @@ extension DailyNutrition {
     }
     
     public func remainingCalories(userGoal: Double) ->  Double {
-        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
+//        let foodsCalories = wrappedFoods.map { $0.calculatedNutritionalInfo.calories }
         return userGoal - eatenCalories
     }
 

@@ -17,9 +17,6 @@ struct NutritionDiaryScreen: View {
     @State private var alert: NXGenericAlert? = nil
     @State private var isShowingFoodSearch = false
     
-    // TODO: For Testing
-    private let foods: [Food] = Bundle.main.decode("Foods.json")
-    
     var body: some View {
         NavigationStack {
             ScrollView(.vertical) {
@@ -173,13 +170,13 @@ extension NutritionDiaryScreen {
         ]
         
         var prevWeek: [ChartModel] = [
-            ChartModel(date: Date().addingTimeInterval(-13 * 24 * 3600), calories: 2400), // 6 days ago
-            ChartModel(date: Date().addingTimeInterval(-12 * 24 * 3600), calories: 2100), // 5 days ago
-            ChartModel(date: Date().addingTimeInterval(-11 * 24 * 3600), calories: 1900), // 4 days ago
-            ChartModel(date: Date().addingTimeInterval(-10 * 24 * 3600), calories: 2000), // 3 days ago
-            ChartModel(date: Date().addingTimeInterval(-9 * 24 * 3600), calories: 1800), // 2 days ago
-            ChartModel(date: Date().addingTimeInterval(-8 * 24 * 3600), calories: 2200), // 1 day ago
-            ChartModel(date: Date().addingTimeInterval(-7 * 24 * 3600), calories: 2200) // today
+            ChartModel(date: Date().addingTimeInterval(-6 * 24 * 3600), calories: 1850), // 6 days ago
+            ChartModel(date: Date().addingTimeInterval(-5 * 24 * 3600), calories: 340), // 5 days ago
+            ChartModel(date: Date().addingTimeInterval(-4 * 24 * 3600), calories: 1250), // 4 days ago
+            ChartModel(date: Date().addingTimeInterval(-3 * 24 * 3600), calories: 1850), // 3 days ago
+            ChartModel(date: Date().addingTimeInterval(-2 * 24 * 3600), calories: 4000), // 2 days ago
+            ChartModel(date: Date().addingTimeInterval(-1 * 24 * 3600), calories: 520), // 1 day ago
+            ChartModel(date: Date(), calories: 50) // today
         ]
         
         var body: some View {
@@ -256,7 +253,6 @@ extension NutritionDiaryScreen {
                     }
                     .chartYAxis(.hidden)
                     .padding(.top, 12.0)
-                    .padding(.horizontal)
                     .frame(maxHeight: 250)
                 }
                 .padding()

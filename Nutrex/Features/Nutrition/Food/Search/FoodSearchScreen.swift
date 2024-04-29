@@ -138,7 +138,7 @@ struct FoodSearchScreen: View {
                 focusedField = .search
             }
             .task {
-                foods = Bundle.main.decode("Foods.json")
+                foods = NutritionDiaryStore.foods
             }
             .onChange(of: searchTerm) {
                 if searchTerm.isEmpty {
@@ -172,7 +172,7 @@ struct FoodSearchScreen: View {
                 }
             }
             .navigationDestination(for: Food.self) { food in
-                FoodDetailScreen()
+                FoodDetailScreen(food: food)
             }
             .navigationDestination(for: Meal.self) { meal in
                 MealDetailScreen()

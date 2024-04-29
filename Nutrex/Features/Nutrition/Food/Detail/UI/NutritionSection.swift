@@ -20,5 +20,5 @@ extension FoodDetailScreen {
 }
 
 #Preview {
-    FoodDetailScreen()
+    FoodDetailScreen(food: Food.example)
 }

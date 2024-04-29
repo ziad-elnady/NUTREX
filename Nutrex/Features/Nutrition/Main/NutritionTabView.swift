@@ -125,7 +125,7 @@ struct NutritionTabView: View {
                 }
             }
         }
-        .background(.bar)
+        .background(.ultraThinMaterial)
     }
 }
 

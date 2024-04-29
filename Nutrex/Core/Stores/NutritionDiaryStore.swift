@@ -14,6 +14,9 @@ class NutritionDiaryStore: ObservableObject {
     
     @Published var currentDiary: DailyNutrition = DailyNutrition.empty
     
+    // TODO: For Testing
+    static let foods: [Food] = Bundle.main.decode("Foods.json")
+    
     func getCurrentDiary(user: User, date: Date) {
         let diariesRequest = Diary.userDiariesForDate(user.wrappedUid, date: date)
         
