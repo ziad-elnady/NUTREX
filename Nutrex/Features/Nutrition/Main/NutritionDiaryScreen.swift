@@ -25,8 +25,7 @@ struct NutritionDiaryScreen: View {
                        
                     } header: {
                         HeaderView(date: selectedDate) {
-//                            isShowingFoodSearch = true
-                            logFood()
+                            isShowingFoodSearch = true
                         }
                     }
                     
@@ -47,7 +46,9 @@ struct NutritionDiaryScreen: View {
         }
         .showAlert(alert: $alert)
         .fullScreenCover(isPresented: $isShowingFoodSearch) {
-            FoodSearchScreen()
+            FoodSearchScreen() { food in
+                logFood(food: food)
+            }
         }
         .onAppear {
             nutritionStore.getCurrentDiary(user: userStore.currentUser,
@@ -226,32 +227,17 @@ extension NutritionDiaryScreen {
                         }
                     }
                     
-                    Chart {
-                        ForEach(thisWeek, id: \.id) { item in
-                            
-                            LineMark(
-                                x: .value("Day", item.date, unit: .weekday),
-                                y: .value("Calories", item.calories)
-                            )
-                            .foregroundStyle(Color(.nxAccent))
-                            .interpolationMethod(.catmullRom)
-                            
-    //                        AreaMark(
-    //                            x: .value("Day", item.date, unit: .day),
-    //                            y: .value("Calories", item.calories)
-    //                        )
-    //                        .foregroundStyle( LinearGradient(
-    //                            gradient: Gradient(colors: [
-    //                                Color(.nxAccent).opacity(0.3), // Start with full opacity blue at the top
-    //                                Color(.nxAccent).opacity(0.0)  // End with fully transparent blue at the bottom
-    //                            ]),
-    //                            startPoint: .top,
-    //                            endPoint: .bottom
-    //                        ))
-    //                        .interpolationMethod(.catmullRom)
-                        }
+                    Chart(thisWeek) { e in
+                        LineMark(x: .value("Date", e.date, unit: .day),
+                                 y: .value("Reps", e.calories)
+                        )
+                        .foregroundStyle(Color(.nxAccent))
+                        .interpolationMethod(.catmullRom)
                     }
                     .chartYAxis(.hidden)
+                    .chartXAxis {
+                        AxisMarks(values: .automatic(desiredCount: 7))
+                    }
                     .padding(.top, 12.0)
                     .frame(maxHeight: 250)
                 }
@@ -362,8 +348,8 @@ struct CircularProgressBar: View {
 // MARK: - ACTIONS -
 extension NutritionDiaryScreen {
     
-    private func logFood() {
-//        nutritionStore.logFood(foods: foods)
+    private func logFood(food: Food) {
+        nutritionStore.logFood(food: food)
         isShowingFoodSearch = true
     }
     

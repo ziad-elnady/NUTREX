@@ -85,6 +85,8 @@ struct FoodSearchScreen: View {
     let tabBarOptions = ["Foods", "Meals", "Supplements"]
     let savedMeals = ["MyFav"]
     
+    let didSelectFood: (Food) -> Void
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -172,7 +174,9 @@ struct FoodSearchScreen: View {
                 }
             }
             .navigationDestination(for: Food.self) { food in
-                FoodDetailScreen(food: food)
+                FoodDetailScreen(food: food) { food in
+                    logFood(food: food)
+                }
             }
             .navigationDestination(for: Meal.self) { meal in
                 MealDetailScreen()
@@ -186,7 +190,7 @@ struct FoodSearchScreen: View {
 
 #Preview {
     NavigationStack {
-        FoodSearchScreen()
+        FoodSearchScreen() { _ in }
     }
 }
 
@@ -367,7 +371,7 @@ extension FoodSearchScreen {
                         
                         Spacer()
                         Button {
-                            logFood(food: food)
+                            didSelectFood(food)
                         } label: {
                             Circle()
                                 .frame(width: 32.0, height: 32.0)
@@ -396,7 +400,6 @@ extension FoodSearchScreen {
             .listStyle(.plain)
         }
         .hSpacing(.leading)
-        .padding(.top)
         .padding(.horizontal)
     }
     

@@ -123,20 +123,26 @@ fileprivate struct ToastView: View {
                 Image(systemName: symbol)
                     .font(.title3)
                     .foregroundStyle(item.tint)
-                    .padding(.trailing, 12)
+                    .padding(.trailing, 6.0)
             }
             
             Text(item.title)
-                .lineLimit(1)
+                .lineLimit(2)
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 8)
         .background(
-            .background
-                .shadow(.drop(color: .primary.opacity(0.02), radius: 5, x: 5, y: 5))
-                .shadow(.drop(color: .primary.opacity(0.02), radius: 8, x: -5, y: -5)),
-            in: .capsule
+            //            .background
+            //                .shadow(.drop(color: .primary.opacity(0.02), radius: 5, x: 5, y: 5))
+            //                .shadow(.drop(color: .primary.opacity(0.02), radius: 8, x: -5, y: -5)),
+            //            in: .capsule
+            .regularMaterial
+            , in: .capsule
         )
+        .overlay {
+            Capsule()
+                .stroke(.ultraThinMaterial, lineWidth: 1.0)
+        }
         .contentShape(.capsule)
         .gesture(
             DragGesture(minimumDistance: 0)
@@ -163,7 +169,7 @@ fileprivate struct ToastView: View {
             
             removeToast()
         }
-        .frame(maxWidth: size.width * 0.7)
+        .frame(maxWidth: size.width * 0.95)
     }
     
     func removeToast() {
@@ -184,5 +190,8 @@ fileprivate struct ToastView: View {
 #Preview {
     RootView {
         AuthenticationScreen()
+            .onTapGesture {
+                Toast.shared.present(title: "This is a toast message test to see how does it fits on the screen", symbol: "checkmark.circle", tint: .nxAccent)
+            }
     }
 }

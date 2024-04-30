@@ -36,8 +36,8 @@ class NutritionDiaryStore: ObservableObject {
     
     func logFood(food: Food) {
         currentDiary.addToFoods(food)
-        
         CoreDataController.shared.saveContext()
+        Toast.shared.present(title: "Successfully logged \(food.wrappedName) to your diary", symbol: "checkmark.circle.fill", tint: .nxAccent)
     }
     
     func removeFoodFromDiary(food: Food) {

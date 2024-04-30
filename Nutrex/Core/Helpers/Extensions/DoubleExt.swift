@@ -21,4 +21,16 @@ extension Double {
         numberFormatter.maximumFractionDigits = 0
         return numberFormatter.string(from: NSNumber(value: self)) ?? "\(self)"
     }
+    
+    func formattedNumber() -> String {
+        let stringValue = String(format: "%.1f", self)
+        if let formattedValue = Double(stringValue) {
+            if formattedValue == rounded() {
+                return String(Int(formattedValue))
+            } else {
+                return stringValue
+            }
+        }
+        return stringValue
+    }
 }

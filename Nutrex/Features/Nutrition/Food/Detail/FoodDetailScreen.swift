@@ -64,36 +64,37 @@ struct FoodDetailScreen: View {
         ])
     ]
     
+    let didSelectFood: (Food) -> Void
+    
     var body: some View {
-        let _ = Self._printChanges()
-        
         ScrollView {
             LazyVStack(alignment: .leading, spacing: 0.0, pinnedViews: [.sectionHeaders]) {
                 Section {
                     FoodNameSection()
-                        .padding(.top)
+                        .padding(.top, 8.0)
                     
                     NXSectionView(header: "serving") {
                         ServingSection()
                     }
-                        .padding(.top)
+                    .padding(.top)
                     
                     NXSectionView(header: "macros") {
                         MacrosChartView()
                     }
-                        .padding(.top)
+                    .padding(.top)
                     
                     NXSectionView(header: "percent of daily goals") {
                         MacrosView()
                     }
-                        .padding(.top)
+                    .padding(.top)
                     
                     NXSectionView(header: "nutritions") {
                         DetailedNutritionsView()
                     }
-                        .padding(.top)
+                    .padding(.top)
                 } header: {
                     HeaderActions()
+                        .padding(.top, 12.0)
                 }
             }
             .hSpacing(.leading)
@@ -148,7 +149,7 @@ extension FoodDetailScreen {
             
             HStack(spacing: 8.0) {
                 Button {
-                    print("log")
+                    print("fav")
                 } label: {
                     Image(systemName: "heart")
                         .font(.body)
@@ -162,16 +163,16 @@ extension FoodDetailScreen {
                 }
                 
                 Button {
-                    print("log")
+                    didSelectFood(food)
                 } label: {
-                    Image(systemName: "bag.fill.badge.plus")
-                        .font(.body)
+                    Image(systemName: "checkmark")
+                        .font(.title2.bold())
                 }
-                .foregroundStyle(.nxAccent)
+                .foregroundStyle(.invertedPrimary)
                 .frame(width: 50, height: 50)
                 .background {
                     Circle()
-                        .fill(Color(.nxCard))
+                        .fill(Color(.nxAccent))
                         
                 }
             }
@@ -182,11 +183,12 @@ extension FoodDetailScreen {
     private func FoodNameSection() -> some View {
         HStack {
             VStack(alignment: .leading) {
-                HStack {
+                HStack(spacing: 4.0) {
                     Text(food.wrappedName)
                         .headlineFontStyle()
                     
-                    Image(systemName: "checkerboard.shield")
+                    Image(systemName: "checkmark.seal.fill")
+                        .font(.caption)
                         .foregroundStyle(.nxAccent)
                 }
                 Text("#protien #meal #product")
@@ -196,8 +198,15 @@ extension FoodDetailScreen {
             
             Spacer()
             
-            Text("\(nutritionFacts.calories, specifier: "%.1f") kcal")
-                .headlineFontStyle()
+            VStack {
+                Text("\(nutritionFacts.calories.formattedNumber())")
+                    .headlineFontStyle()
+                    
+                Text("kcal")
+                    .captionFontStyle()
+                    .foregroundStyle(.secondary)
+                    .fontWeight(.semibold)
+            }
         }
         .carded()
         .padding(.top)
@@ -264,10 +273,10 @@ extension FoodDetailScreen {
     private func MacrosChartView() -> some View {
         VStack(alignment: .leading) {
             HStack {
-                VStack(alignment: .leading) {
-                    ChartMacroView(macroSet: MacroSet.protein, value: nutritionFacts.protein)
-                    ChartMacroView(macroSet: MacroSet.carbs, value: nutritionFacts.carbs)
-                    ChartMacroView(macroSet: MacroSet.fats, value: nutritionFacts.fat)
+                VStack(alignment: .leading, spacing: 6.0) {
+                    ChartMacroView(macroSet: MacroSet.protein, value: nutritionFacts.protein, percentage: macrosPercentages.proteinPercentage)
+                    ChartMacroView(macroSet: MacroSet.carbs, value: nutritionFacts.carbs, percentage: macrosPercentages.carbPercentage)
+                    ChartMacroView(macroSet: MacroSet.fats, value: nutritionFacts.fat, percentage: macrosPercentages.fatPercentage)
                 }
                 
                 Spacer()
@@ -379,7 +388,7 @@ extension FoodDetailScreen {
                         .bodyFontStyle()
                         .fontWeight(.semibold)
                     Spacer()
-                    Text("\(nutrient.totalValue.formatCalories())")
+                    Text("\(nutrient.totalValue.formattedNumber()) g")
                         .bodyFontStyle()
                         .fontWeight(.semibold)
                 }
@@ -397,7 +406,7 @@ extension FoodDetailScreen {
                                 .bodyFontStyle()
                                 .foregroundStyle(.secondary)
                             Spacer()
-                            Text("\(subNutrient.value.formatCalories())")
+                            Text("\(subNutrient.value.formattedNumber()) g")
                                 .captionFontStyle()
                                 .fontWeight(.semibold)
                                 .foregroundStyle(.secondary)
@@ -442,6 +451,7 @@ extension FoodDetailScreen {
     struct ChartMacroView: View {
         let macroSet: MacroSet
         let value: Double
+        let percentage: Double
         
         var body: some View {
             HStack {
@@ -452,12 +462,19 @@ extension FoodDetailScreen {
                 
                 VStack(alignment: .leading) {
                     Text(macroSet.name)
-                        .bodyFontStyle()
-                        .fontWeight(.semibold)
-                    
-                    Text("\(value, specifier: "%.1f") gm ~ NaN%")
                         .captionFontStyle()
+                        .fontWeight(.semibold)
                         .foregroundStyle(.secondary)
+                    
+                    HStack(alignment: .bottom, spacing: 0.0) {
+                        Text("\(value.formattedNumber()) g")
+                            .bodyFontStyle()
+                            .fontWeight(.semibold)
+                        
+                        Text(" - \(percentage.formattedNumber())%")
+                            .captionFontStyle()
+                            .foregroundStyle(.secondary)
+                    }
                 }
             }
         }
@@ -478,7 +495,7 @@ extension FoodDetailScreen {
                 HStack(alignment: .bottom) {
                     
                     
-                    Text("\(value, specifier: "%.1f") g")
+                    Text("\(value.formattedNumber()) g")
                         .bodyFontStyle()
                         .fontWeight(.semibold)
                     
@@ -549,7 +566,7 @@ extension FoodDetailScreen {
 }
 
 #Preview {
-    FoodDetailScreen(food: Food.example)
+    FoodDetailScreen(food: Food.example) { _ in }
 }
 
 struct RoundedCorner: Shape {
