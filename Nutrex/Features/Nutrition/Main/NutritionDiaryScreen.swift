@@ -50,7 +50,7 @@ struct NutritionDiaryScreen: View {
                 logFood(food: food)
             }
         }
-        .onAppear {
+        .task {
             nutritionStore.getCurrentDiary(user: userStore.currentUser,
                                            date: selectedDate.wrappedValue)
         }

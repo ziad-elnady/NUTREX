@@ -12,6 +12,7 @@ struct AppCoordinator: View {
     @EnvironmentObject private var userStore: UserStore
     
     @StateObject var nutritionStore = NutritionDiaryStore()
+    @StateObject var routineMealStore = RoutineMealStore()
     
     @Binding var isShowingSplashScreen: Bool
         
@@ -28,6 +29,7 @@ struct AppCoordinator: View {
             if userStore.currentUser.isProfileCompleted {
                 NutritionTabView()
                     .environmentObject(nutritionStore)
+                    .environmentObject(routineMealStore)
             } else {
                 ProfileSetupScreen()
             }
@@ -46,6 +48,9 @@ struct AppCoordinator: View {
 
 #Preview {
     AppCoordinator(uid: "empty", isShowingSplashScreen: .constant(false))
+        .environmentObject(UserStore())
+        .environmentObject(NutritionDiaryStore())
+        .environmentObject(RoutineMealStore())
 }
 
 

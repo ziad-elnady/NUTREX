@@ -61,12 +61,14 @@ struct FoodSearchScreen: View {
     }
     
     @Environment(\.dismiss) private var dismiss
+    
+    @EnvironmentObject private var userStore: UserStore
     @EnvironmentObject private var nutritionStore: NutritionDiaryStore
+    @EnvironmentObject private var routineMealStore: RoutineMealStore
     
     @FocusState private var focusedField: Field?
     
     @State private var searchTerm   = ""
-    @State private var currentMeal  = NXRoutineMeal.example[0]
     @State private var currentTab   = 0
     @State private var isShowingSearchResults = false
     @State private var isShowingFoodScannerScreen = false
@@ -81,13 +83,14 @@ struct FoodSearchScreen: View {
         }
     }
     
-    let routineMeals = NXRoutineMeal.example
     let tabBarOptions = ["Foods", "Meals", "Supplements"]
     let savedMeals = ["MyFav"]
     
     let didSelectFood: (Food) -> Void
     
     var body: some View {
+        let _ = Self._printChanges()
+        
         NavigationStack {
             VStack {
                 HStack {
@@ -111,7 +114,7 @@ struct FoodSearchScreen: View {
                 .padding(.vertical, 8.0)
                 .padding(.horizontal)
                 
-                AnimatedTabView(currentTab: $currentTab, tabBarOptions: tabBarOptions)
+                NXAnimatedTabbarView(currentTab: $currentTab, tabBarOptions: tabBarOptions)
                     .padding(.horizontal)
                     .padding(.bottom, 0.0)
                 
@@ -133,7 +136,7 @@ struct FoodSearchScreen: View {
                 Color(.nxBackground)
                     .ignoresSafeArea()
             }
-            .navigationTitle(currentMeal.name)
+            .navigationTitle(routineMealStore.currentMeal ?? "Select a Meal")
             .navigationBarTitleDisplayMode(.inline)
             .ignoresSafeArea(.keyboard)
             .onAppear {
@@ -141,6 +144,7 @@ struct FoodSearchScreen: View {
             }
             .task {
                 foods = NutritionDiaryStore.foods
+                routineMealStore.fetchRoutineMeals(forUid: userStore.currentUser.wrappedUid)
             }
             .onChange(of: searchTerm) {
                 if searchTerm.isEmpty {
@@ -165,12 +169,10 @@ struct FoodSearchScreen: View {
                 }
             }
             .toolbarTitleMenu {
-                Picker(selection: $currentMeal) {
-                    ForEach(routineMeals, id: \.self) { routineMeal in
-                        Text(routineMeal.name).tag(Optional(routineMeal.name))
+                Picker("", selection: $routineMealStore.currentMeal) {
+                    ForEach(routineMealStore.routineMeals, id: \.objectID) { routineMeal in
+                        Text(routineMeal.wrappedName).tag(Optional(routineMeal.wrappedName))
                     }
-                } label: {
-                    Image(systemName: "trash")
                 }
             }
             .navigationDestination(for: Food.self) { food in
@@ -192,6 +194,8 @@ struct FoodSearchScreen: View {
     NavigationStack {
         FoodSearchScreen() { _ in }
     }
+    .environmentObject(UserStore())
+    .environmentObject(RoutineMealStore())
 }
 
 // MARK: - VIEWS -
@@ -349,38 +353,57 @@ extension FoodSearchScreen {
             .padding(.leading, 12.0)
             
             ForEach(searchResults, id: \.objectID) { food in
-                //                    NavigationLink(value: food) {
-                //                        VStack(alignment: .leading) {
-                //                            Text(food.wrappedName)
-                //                                .sectionHeaderFontStyle()
-                //                            Text("calories: \(food.wrappedNutritionalInfo.caloriesPerGram.formatCalories()) kcal")
-                //                                .captionFontStyle()
-                //                                .foregroundStyle(.secondary)
-                //                        }
-                //                    }
-                
                 NavigationLink(value: food) {
                     HStack {
-                        VStack(alignment: .leading) {
-                            Text(food.wrappedName)
-                                .sectionHeaderFontStyle()
-                            Text("calories: \(food.wrappedNutritionalInfo.caloriesPerGram.formatCalories()) kcal")
-                                .captionFontStyle()
-                                .foregroundStyle(.secondary)
+                        Group {
+                            VStack(alignment: .leading) {
+                                Text(food.wrappedName)
+                                    .sectionHeaderFontStyle()
+                                Text("calories: \(food.wrappedNutritionalInfo.caloriesPerGram.formatCalories()) kcal")
+                                    .captionFontStyle()
+                                    .foregroundStyle(.secondary)
+                            }
+                            
+                            Spacer()
                         }
                         
-                        Spacer()
-                        Button {
-                            didSelectFood(food)
-                        } label: {
-                            Circle()
-                                .frame(width: 32.0, height: 32.0)
-                                .foregroundStyle(Color(.nxBackground))
-                                .overlay {
-                                    Image(systemName: "plus")
-                                        .sectionHeaderFontStyle()
-                                        .foregroundStyle(.nxAccent)
+                        if routineMealStore.currentMeal == nil {
+                            Menu {
+                                ForEach(routineMealStore.routineMeals, id: \.self) { routineMeal in
+                                    Button {
+                                        routineMealStore.currentMeal = routineMeal.wrappedName
+                                        food.meal = routineMeal.wrappedName
+                                        
+                                        didSelectFood(food)
+                                    } label: {
+                                        Text(routineMeal.wrappedName).tag(Optional(routineMeal.name))
+                                    }
                                 }
+                            } label: { 
+                                Circle()
+                                    .frame(width: 32.0, height: 32.0)
+                                    .foregroundStyle(Color(.nxBackground))
+                                    .overlay {
+                                        Image(systemName: "plus")
+                                            .sectionHeaderFontStyle()
+                                            .foregroundStyle(.nxAccent)
+                                    }
+                            }
+                        } else  {
+                            Button {
+                                food.meal = routineMealStore.currentMeal
+                                
+                                didSelectFood(food)
+                            } label: {
+                                Circle()
+                                    .frame(width: 32.0, height: 32.0)
+                                    .foregroundStyle(Color(.nxBackground))
+                                    .overlay {
+                                        Image(systemName: "plus")
+                                            .sectionHeaderFontStyle()
+                                            .foregroundStyle(.nxAccent)
+                                    }
+                            }
                         }
                     }
                     .padding(.vertical, 12.0)
@@ -414,62 +437,4 @@ extension FoodSearchScreen {
         dismiss()
     }
     
-}
-
-struct AnimatedTabView: View {
-    @Binding var currentTab: Int
-    @Namespace var namespace
-    
-    var tabBarOptions: [String]// = ["All", "My Meals", "Recents"]
-    
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 20.0) {
-                ForEach(Array(zip(self.tabBarOptions.indices,
-                                  self.tabBarOptions)),
-                        id: \.0,
-                        content: {
-                    index, name in
-                    AnimatedTabBarItem(currentTab: self.$currentTab,
-                               namespace: namespace.self,
-                               tabBarItemName: name,
-                               tab: index)
-                    
-                })
-            }
-        }
-        .frame(height: 40.0)
-    }
-}
-
-struct AnimatedTabBarItem: View {
-    @Binding var currentTab: Int
-    let namespace: Namespace.ID
-    
-    var tabBarItemName: String
-    var tab: Int
-    
-    var body: some View {
-        Button {
-            self.currentTab = tab
-        } label: {
-            VStack {
-                Spacer()
-                Text(tabBarItemName)
-                    .foregroundStyle(currentTab == tab ? .primary : .secondary)
-                if currentTab == tab {
-                    Color.primary
-                        .frame(height: 4)
-                        .clipShape(Capsule())
-                        .matchedGeometryEffect(id: "underline",
-                                               in: namespace,
-                                               properties: .frame)
-                } else {
-                    Color.clear.frame(height: 2)
-                }
-            }
-            .animation(.bouncy(), value: self.currentTab)
-        }
-        .buttonStyle(.plain)
-    }
 }

@@ -11,6 +11,7 @@ import SwiftUI
 struct FoodDetailScreen: View {
     @Environment(\.dismiss) private var dismiss
     
+    @EnvironmentObject private var routineMealStore: RoutineMealStore
     @ObservedObject var food: Food
     
     @State private var isShowingUnitSelectionSheet = false
@@ -74,7 +75,12 @@ struct FoodDetailScreen: View {
                         .padding(.top, 8.0)
                     
                     NXSectionView(header: "serving") {
-                        ServingSection()
+                        ServingPropsView()
+                    }
+                    .padding(.top)
+                    
+                    NXSectionView(header: "Meal") {
+                        RoutineMealView()
                     }
                     .padding(.top)
                     
@@ -213,7 +219,7 @@ extension FoodDetailScreen {
     }
     
     @ViewBuilder
-    private func ServingSection() -> some View {
+    private func ServingPropsView() -> some View {
         VStack(alignment: .leading) {
             VStack {
                 HStack {
@@ -228,7 +234,6 @@ extension FoodDetailScreen {
                             food.serving = 999
                         }
                     }
-//                    .textFieldStyle(RoundedBorderTextFieldStyle())
                     .multilineTextAlignment(.center)
                     .foregroundStyle(.secondary)
                     .background(.clear)
@@ -270,6 +275,31 @@ extension FoodDetailScreen {
     }
     
     @ViewBuilder
+    private func RoutineMealView() -> some View {
+        HStack {
+            Text("select a meal")
+                .bodyFontStyle()
+                .fontWeight(.semibold)
+            
+            Spacer()
+            
+            Picker("Meal", selection: $routineMealStore.currentMeal) {
+                if routineMealStore.currentMeal == nil {
+                    Text("meal").tag(nil as String?)
+                }
+                ForEach(routineMealStore.routineMeals, id: \.self) { routineMeal in
+                    Text(routineMeal.wrappedName).tag(Optional(routineMeal.wrappedName))
+                }
+            }
+            .fontWeight(.bold)
+            .onChange(of: routineMealStore.currentMeal) { _ , newValue in
+                food.meal = newValue
+            }
+        }
+        .carded()
+    }
+    
+    @ViewBuilder
     private func MacrosChartView() -> some View {
         VStack(alignment: .leading) {
             HStack {
@@ -295,37 +325,6 @@ extension FoodDetailScreen {
             }
             .carded()
         }
-    }
-    
-    @ViewBuilder
-    private func CaloriesSectionView() -> some View {
-        VStack(alignment: .leading) {
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Calories")
-                        .sectionHeaderFontStyle()
-                        .foregroundStyle(.secondary)
-                    Text("514 kcal")
-                        .headerFontStyle()
-                }
-                
-                Spacer()
-                
-//                VStack {
-//                    CircularProgressBar(progress: 0.3,
-//                                        progressColor: .nxAccent,
-//                                        text: "57%")
-//                    .frame(width: 70, height: 70)
-//                }
-            }
-        }
-//        .padding(.horizontal, 24)
-//        .padding(.vertical)
-//        .background {
-//            RoundedRectangle(cornerRadius: 20.0)
-//                .fill(Color(.nxCard))
-//        }
-        .padding([.top, .horizontal])
     }
     
     @ViewBuilder
@@ -567,6 +566,7 @@ extension FoodDetailScreen {
 
 #Preview {
     FoodDetailScreen(food: Food.example) { _ in }
+        .environmentObject(RoutineMealStore())
 }
 
 struct RoundedCorner: Shape {

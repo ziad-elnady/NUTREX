@@ -137,7 +137,9 @@ fileprivate struct ToastView: View {
             //                .shadow(.drop(color: .primary.opacity(0.02), radius: 8, x: -5, y: -5)),
             //            in: .capsule
             .regularMaterial
-            , in: .capsule
+                .shadow(.drop(color: .invertedPrimary.opacity(0.05), radius: 15, x: 5, y: 5))
+                .shadow(.drop(color: .invertedPrimary.opacity(0.05), radius: 15, x: -5, y: -5)),
+            in: .capsule
         )
         .overlay {
             Capsule()

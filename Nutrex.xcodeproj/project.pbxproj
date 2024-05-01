@@ -115,6 +115,9 @@
 		B7E2DE1A2BA329EE0084FD23 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE122BA329EE0084FD23 /* Ubuntu-Medium.ttf */; };
 		B7E2DE1B2BA329EE0084FD23 /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B7E2DE132BA329EE0084FD23 /* Ubuntu-Bold.ttf */; };
 		B7E2DE1D2BA350080084FD23 /* LoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */; };
+		B7F8A67F2BE2565E007A7AE3 /* MealStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8A67E2BE2565E007A7AE3 /* MealStore.swift */; };
+		B7F8A6832BE256A2007A7AE3 /* RoutineMealStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8A6822BE256A2007A7AE3 /* RoutineMealStore.swift */; };
+		B7F8A6852BE260FC007A7AE3 /* NXAnimatedTabbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F8A6842BE260FC007A7AE3 /* NXAnimatedTabbarView.swift */; };
 		B7FCC9962BD9A6110078E471 /* FoodDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCC9952BD9A6110078E471 /* FoodDetailScreen.swift */; };
 		B7FCC9992BD9A65C0078E471 /* NutritionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCC9982BD9A65C0078E471 /* NutritionSection.swift */; };
 		B7FCC99D2BD9A6880078E471 /* ServingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FCC99C2BD9A6880078E471 /* ServingView.swift */; };
@@ -225,6 +228,9 @@
 		B7E2DE122BA329EE0084FD23 /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Medium.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Medium.ttf"; sourceTree = "<group>"; };
 		B7E2DE132BA329EE0084FD23 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Ubuntu-Bold.ttf"; path = "../../../../../Fonts/Ubuntu/Ubuntu-Bold.ttf"; sourceTree = "<group>"; };
 		B7E2DE1C2BA350080084FD23 /* LoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingScreen.swift; sourceTree = "<group>"; };
+		B7F8A67E2BE2565E007A7AE3 /* MealStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealStore.swift; sourceTree = "<group>"; };
+		B7F8A6822BE256A2007A7AE3 /* RoutineMealStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineMealStore.swift; sourceTree = "<group>"; };
+		B7F8A6842BE260FC007A7AE3 /* NXAnimatedTabbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NXAnimatedTabbarView.swift; sourceTree = "<group>"; };
 		B7FCC9952BD9A6110078E471 /* FoodDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailScreen.swift; sourceTree = "<group>"; };
 		B7FCC9982BD9A65C0078E471 /* NutritionSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionSection.swift; sourceTree = "<group>"; };
 		B7FCC99C2BD9A6880078E471 /* ServingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingView.swift; sourceTree = "<group>"; };
@@ -583,6 +589,8 @@
 			children = (
 				B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */,
 				B7A91DD92B9F5E35007D493A /* FireStore.swift */,
+				B7F8A67E2BE2565E007A7AE3 /* MealStore.swift */,
+				B7F8A6822BE256A2007A7AE3 /* RoutineMealStore.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -664,6 +672,7 @@
 		B7D731BE2BA09D2000C94A2D /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B7F8A6862BE261DB007A7AE3 /* Tabbar */,
 				B769A08D2BA2558800878070 /* Other */,
 				B7338FDB2BAA497600332486 /* Picker */,
 				B7338FD12BAA41F100332486 /* Popups */,
@@ -820,6 +829,14 @@
 				B7D86C3F2BAB15900006FAB5 /* AuthenticationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B7F8A6862BE261DB007A7AE3 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B7F8A6842BE260FC007A7AE3 /* NXAnimatedTabbarView.swift */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		B7FCC9932BD9A5D90078E471 /* Search */ = {
@@ -981,6 +998,7 @@
 				B7D731C62BA09ECD00C94A2D /* NutrexDataModel.xcdatamodeld in Sources */,
 				B7FCC99D2BD9A6880078E471 /* ServingView.swift in Sources */,
 				B7D731FB2BA0A08400C94A2D /* Food+CoreDataProperties.swift in Sources */,
+				B7F8A67F2BE2565E007A7AE3 /* MealStore.swift in Sources */,
 				B76019DA2BC1BC9F007473E2 /* GlassEffectModifier.swift in Sources */,
 				B7D86C392BAB117C0006FAB5 /* NXAlert.swift in Sources */,
 				B7A462662BC59C3E00B72B4D /* DoubleExt.swift in Sources */,
@@ -991,6 +1009,7 @@
 				B7D731F62BA0A08400C94A2D /* DailyWorkout+CoreDataClass.swift in Sources */,
 				B7D731CB2BA0A00100C94A2D /* CoreDataController.swift in Sources */,
 				B7CB029F2BAB83A8006ACB1A /* LoadingModifier.swift in Sources */,
+				B7F8A6852BE260FC007A7AE3 /* NXAnimatedTabbarView.swift in Sources */,
 				B7D731B62BA09C0200C94A2D /* AuthenticationScreen.swift in Sources */,
 				B7D86C402BAB15900006FAB5 /* AuthenticationManager.swift in Sources */,
 				B74224352BA2040D00A9C0FC /* StrokedModifier.swift in Sources */,
@@ -1016,6 +1035,7 @@
 				B7D731FA2BA0A08400C94A2D /* Food+CoreDataClass.swift in Sources */,
 				B7D731EE2BA0A08400C94A2D /* RoutineMeal+CoreDataClass.swift in Sources */,
 				B7D731E92BA0A08400C94A2D /* Diary+CoreDataProperties.swift in Sources */,
+				B7F8A6832BE256A2007A7AE3 /* RoutineMealStore.swift in Sources */,
 				B7D731E72BA0A08400C94A2D /* DailyNutrition+CoreDataProperties.swift in Sources */,
 				B7D731ED2BA0A08400C94A2D /* Exercise+CoreDataProperties.swift in Sources */,
 				B7D731F32BA0A08400C94A2D /* NutritionalInfo+CoreDataProperties.swift in Sources */,

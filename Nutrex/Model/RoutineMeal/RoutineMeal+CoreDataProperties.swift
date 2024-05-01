@@ -19,6 +19,12 @@ extension RoutineMeal {
     @NSManaged public var index: Int16
     @NSManaged public var name: String?
     @NSManaged public var user: User?
+    
+    static func userRoutineMeals(_ uid: String) -> NSFetchRequest<RoutineMeal> {
+        let request: NSFetchRequest<RoutineMeal> = RoutineMeal.fetchRequest()
+        request.predicate = NSPredicate(format: "user.uid == %@", uid)
+        return request
+    }
 
     var wrappedName: String {
         name ?? "No Routine Meal Name"
