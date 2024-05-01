@@ -14,6 +14,7 @@ class RoutineMealStore: ObservableObject {
     @Published var currentMeal: String? = nil
     
     @Published var routineMeals: [RoutineMeal] = RoutineMeal.defaultMeals()
+    @Published var filterdFoodsForRoutineMeal: [Food] = []
     
     func fetchRoutineMeals(forUid uid: String) {
         let routineMealsRequest = RoutineMeal.userRoutineMeals(uid)
@@ -47,12 +48,40 @@ class RoutineMealStore: ObservableObject {
         saveContext()
     }
     
-    func removeItems(at offsets: IndexSet) {
+    func removeRotineMeal(at offsets: IndexSet) {
         offsets.forEach { index in
             dataController.viewContext.delete(routineMeals[index])
         }
         routineMeals.remove(atOffsets: offsets)
         saveContext()
+    }
+    
+    func deleteFoodFromRotineMeal(diary: DailyNutrition, at offsets: IndexSet) {
+        offsets.forEach { index in
+            let deletedFood = filterdFoodsForRoutineMeal[index]
+            diary.removeFromFoods(deletedFood)
+            filterdFoodsForRoutineMeal.remove(atOffsets: offsets)
+            Toast.shared.present(title: "Successfully removed \(deletedFood) from your diary", symbol: "checkmark.circle", tint: .nxAccent)
+            saveContext()
+        }
+    }
+    
+    func filterFoodsForRoutineMeal(diary: DailyNutrition, mealName: String) {
+        filterdFoodsForRoutineMeal = diary.wrappedFoods.filter { $0.wrappedMealName == mealName }
+    }
+    
+    func calculateMealNutritions() -> (calories: Double, protein: Double, carbs: Double, fat: Double) {
+        var total: (calories: Double, protein: Double, carbs: Double, fat: Double) = (0.0, 0.0, 0.0, 0.0)
+        
+        filterdFoodsForRoutineMeal.forEach {
+            let foodNutritions = $0.calculatedNutritionalInfo
+            total.calories += foodNutritions.calories
+            total.protein += foodNutritions.protein
+            total.carbs += foodNutritions.carbs
+            total.fat += foodNutritions.fat
+        }
+        
+        return total
     }
     
     private func saveContext() {
