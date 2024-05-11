@@ -158,6 +158,11 @@ extension User {
         self.activityLevel   = config.activityLevel.rawValue
         self.createdAt       = Timestamp().dateValue()
         self.updatedAt       = Timestamp().dateValue()
+        
+        // Setting default meals
+        for routineMeal in RoutineMeal.defaultMeals() {
+            self.addToMealRoutines(routineMeal)
+        }
     }
     
 }

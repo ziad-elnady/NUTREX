@@ -13,6 +13,7 @@ class NutritionDiaryStore: ObservableObject {
     private let context = CoreDataController.shared.viewContext
     
     @Published var currentDiary: DailyNutrition = DailyNutrition.empty
+    @Published var historyItems: [HistoryItem]  = []
     
     // TODO: For Testing
     static let foods: [Food] = Bundle.main.decode("Foods.json")
@@ -34,35 +35,26 @@ class NutritionDiaryStore: ObservableObject {
         
     }
     
-    func logFood(food: Food) {
-//        , forRoutineMeal meal: String?
-//        guard meal != nil else { return }
-//        food.meal = meal
-        
-        currentDiary.addToFoods(food)
-        if !HistoryItem.foodExists(food) {
-            food.historyItem = createHistoryItem(forLoggedFood: food)
-        }
-        
-        CoreDataController.shared.saveContext()
-        Toast.shared.present(title: "Successfully logged \(food.wrappedName) to your diary", symbol: "checkmark.circle.fill", tint: .nxAccent)
-        
-        print(food.wrappedMealName)
+    func fetchHistoryItems(term: String) {
+        let fetchRequest = HistoryItem.historyItemsForSearchTerm(term: term)
+        guard let fetchedHistoryItems = try? context.fetch(fetchRequest) else { return }
+        historyItems = fetchedHistoryItems
     }
     
-    func createHistoryItem(forLoggedFood food: Food) -> HistoryItem {
+    func logFood(food: Food,forRoutineMeal meal: String?) {
+        guard meal != nil else { return }
+        food.meal = meal
         
-        let historyItem = HistoryItem(context: context)
+        food.loggedAt = Date.now
+        food.createHistoryItemIfNeeded()
+               
+        //TODO: Fix 0
+        currentDiary.addToFoods(food)
         
-        historyItem.text = food.name
-        historyItem.createdAt = Date.now
-        historyItem.unit = food.measurmentUnitsList[Int(food.unit)].unitName
-        historyItem.serving = food.serving
-        historyItem.repetition += 1
-        
-        historyItem.food = food
-        
-        return historyItem
+        print(food.meal)
+                
+        CoreDataController.shared.saveContext()
+        Toast.shared.present(title: "Successfully logged \(food.wrappedName) to your diary", symbol: "checkmark.circle.fill", tint: .nxAccent)
     }
     
     func removeFoodFromDiary(food: Food) {
@@ -72,6 +64,11 @@ class NutritionDiaryStore: ObservableObject {
         context.delete(food)
         CoreDataController.shared.saveContext()
         //        }
+    }
+    
+    func filterFoodsForMeal(mealName: String) -> [Food] {
+        let filterdFoods = currentDiary.wrappedFoods.filter { $0.wrappedMealName == mealName }
+        return filterdFoods
     }
     
     private func createNewDiary(withUser user: User, forDate date: Date) {

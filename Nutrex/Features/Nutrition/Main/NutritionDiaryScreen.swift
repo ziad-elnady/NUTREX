@@ -13,6 +13,7 @@ struct NutritionDiaryScreen: View {
     
     @EnvironmentObject private var userStore: UserStore
     @EnvironmentObject private var nutritionStore: NutritionDiaryStore
+    @EnvironmentObject private var routineMealStore: RoutineMealStore
         
     @State private var alert: NXGenericAlert? = nil
     @State private var isShowingFoodSearch = false
@@ -349,7 +350,8 @@ struct CircularProgressBar: View {
 extension NutritionDiaryScreen {
     
     private func logFood(food: Food) {
-        nutritionStore.logFood(food: food)
+        nutritionStore.logFood(food: food,
+                               forRoutineMeal: routineMealStore.currentMeal)
         isShowingFoodSearch = true
     }
     
@@ -398,6 +400,7 @@ struct MacroView: View {
     NutritionDiaryScreen()
         .environmentObject(UserStore())
         .environmentObject(NutritionDiaryStore())
+        .environmentObject(RoutineMealStore())
 }
 
 

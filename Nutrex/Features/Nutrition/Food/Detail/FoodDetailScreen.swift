@@ -178,9 +178,9 @@ extension FoodDetailScreen {
                 .frame(width: 50, height: 50)
                 .background {
                     Circle()
-                        .fill(Color(.nxAccent))
-                        
+                        .fill(routineMealStore.currentMeal == nil ? .secondary : Color(.nxAccent))
                 }
+                .disabled(routineMealStore.currentMeal == nil)
             }
         }
     }

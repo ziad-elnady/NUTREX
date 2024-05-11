@@ -22,6 +22,7 @@ extension RoutineMeal {
     
     static func userRoutineMeals(_ uid: String) -> NSFetchRequest<RoutineMeal> {
         let request: NSFetchRequest<RoutineMeal> = RoutineMeal.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "index", ascending: true)]
         request.predicate = NSPredicate(format: "user.uid == %@", uid)
         return request
     }
@@ -32,20 +33,22 @@ extension RoutineMeal {
     
     static func defaultMeals() -> [RoutineMeal] {
         let context = CoreDataController.shared.viewContext
+        let defaultMealNames = ["Breakfast", "Lunch", "Dinner", "Snacks"]
         
-        let meal1 = RoutineMeal(context: context)
-        meal1.name = "Breakfast"
-        meal1.index = 0
+        var routineMeals: [RoutineMeal] = []
         
-        let meal2 = RoutineMeal(context: context)
-        meal2.name = "Lunch"
-        meal2.index = 1
+        for mealName in defaultMealNames {
+            var index = 0
+            
+            let meal = RoutineMeal(context: context)
+            meal.name = mealName
+            meal.index = Int16(index)
+            
+            routineMeals.append(meal)
+            index += 1
+        }
         
-        let meal3 = RoutineMeal(context: context)
-        meal3.name = "Dinner"
-        meal3.index = 2
-        
-        return [meal1, meal2, meal3]
+        return routineMeals
     }
     
 }

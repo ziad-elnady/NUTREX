@@ -89,8 +89,6 @@ struct FoodSearchScreen: View {
     let didSelectFood: (Food) -> Void
     
     var body: some View {
-        let _ = Self._printChanges()
-        
         NavigationStack {
             VStack {
                 HStack {
@@ -144,7 +142,6 @@ struct FoodSearchScreen: View {
             }
             .task {
                 foods = NutritionDiaryStore.foods
-                routineMealStore.fetchRoutineMeals(forUid: userStore.currentUser.wrappedUid)
             }
             .onChange(of: searchTerm) {
                 if searchTerm.isEmpty {
@@ -180,6 +177,11 @@ struct FoodSearchScreen: View {
                     logFood(food: food)
                 }
             }
+            .navigationDestination(for: HistoryItem.self) { historyItem in
+                FoodDetailScreen(food: historyItem.wrappedFood) { food in
+                    logFood(food: food)
+                }
+            }
             .navigationDestination(for: Meal.self) { meal in
                 MealDetailScreen()
             }
@@ -204,7 +206,7 @@ extension FoodSearchScreen {
     
     @ViewBuilder
     private func FoodsPage() -> some View {
-        VStack {
+        ScrollView {
             VStack(alignment: .leading, spacing: 16.0) {
                 VStack(alignment: .leading, spacing: 2.0) {
                     Text("Categories by need")
@@ -243,23 +245,10 @@ extension FoodSearchScreen {
             }
             .padding(.top, 12.0)
             
-            VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: 2.0) {
-                    Text("Recently logged")
-                        .sectionHeaderFontStyle()
-                    
-                    Text("recent foods will be here.")
-                        .foregroundStyle(.secondary)
-                        .captionFontStyle()
-                }
-                    .padding(.leading)
-                
-                ContentUnavailableView("No Loggs Yet.",
-                                       systemImage: "tray",
-                                       description: Text("Any food you log will be saved in\nthis section for easier logs"))
-            }
-            .padding(.top, 12.0)
+            Historylist(sortOption: .mostRecent, didSelectFood: didSelectFood)
+                .padding(.horizontal)
         }
+        .scrollIndicators(.hidden)
     }
     
     @ViewBuilder
@@ -420,8 +409,8 @@ extension FoodSearchScreen {
                 }
             }
             .foregroundStyle(.primary)
-            .listStyle(.plain)
         }
+        .scrollIndicators(.hidden)
         .hSpacing(.leading)
         .padding(.horizontal)
     }
@@ -429,11 +418,126 @@ extension FoodSearchScreen {
     
 }
 
+// MARK: - VIEWS -
+extension FoodSearchScreen {
+    
+    enum SortOption: String, CaseIterable {
+        case mostRecent = "most recent"
+        case mostFrequent = "most frequent"
+    }
+    
+    struct Historylist: View {
+        @FetchRequest var historyItems: FetchedResults<HistoryItem>
+        
+        @EnvironmentObject private var routineMealStore: RoutineMealStore
+        
+        let didSelectFood: (Food) -> Void
+        
+        init(sortOption: SortOption, didSelectFood: @escaping (Food) -> Void) {
+            switch sortOption {
+            case .mostFrequent:
+                _historyItems = FetchRequest<HistoryItem>(sortDescriptors: [SortDescriptor(\.repetition)])
+            case .mostRecent:
+                _historyItems = FetchRequest<HistoryItem>(sortDescriptors: [SortDescriptor(\.createdAt)])
+            }
+            
+            self.didSelectFood = didSelectFood
+        }
+        
+        var body: some View {
+            VStack(alignment: .leading, spacing: 2.0) {
+                Text("Recently logged")
+                    .sectionHeaderFontStyle()
+                
+                Text("recent foods will be here.")
+                    .foregroundStyle(.secondary)
+                    .captionFontStyle()
+            }
+            .hSpacing(.leading)
+            .padding(.top, 12.0)
+            
+            if historyItems.isEmpty {
+                ContentUnavailableView("No Loggs Yet.",
+                                       systemImage: "tray",
+                                       description: Text("Any food you log will be saved in\nthis section for easier logs"))
+                .padding(.top, 48.0)
+            }
+            
+            ForEach(historyItems, id: \.objectID) { historyItem in
+                NavigationLink(value: historyItem) {
+                    HStack {
+                        Group {
+                            VStack(alignment: .leading) {
+                                Text(historyItem.wrappedText)
+                                    .sectionHeaderFontStyle()
+                                Text("serving: \(historyItem.serving.formattedNumber()), unit: \(historyItem.wrappedUnit)")
+                                    .captionFontStyle()
+                                    .foregroundStyle(.secondary)
+                            }
+                            
+                            Spacer()
+                        }
+                        
+                        if routineMealStore.currentMeal == nil {
+                            Menu {
+                                ForEach(routineMealStore.routineMeals, id: \.self) { routineMeal in
+                                    Button {
+                                        routineMealStore.currentMeal = routineMeal.wrappedName
+                                        historyItem.wrappedFood.meal = routineMeal.wrappedName
+                                        
+                                        didSelectFood(historyItem.wrappedFood)
+                                    } label: {
+                                        Text(routineMeal.wrappedName).tag(Optional(routineMeal.name))
+                                    }
+                                }
+                            } label: {
+                                Circle()
+                                    .frame(width: 32.0, height: 32.0)
+                                    .foregroundStyle(Color(.nxBackground))
+                                    .overlay {
+                                        Image(systemName: "plus")
+                                            .sectionHeaderFontStyle()
+                                            .foregroundStyle(.nxAccent)
+                                    }
+                            }
+                        } else  {
+                            Button {
+                                historyItem.food?.meal = routineMealStore.currentMeal
+                                
+                                didSelectFood(historyItem.food ?? Food.example)
+                            } label: {
+                                Circle()
+                                    .frame(width: 32.0, height: 32.0)
+                                    .foregroundStyle(Color(.nxBackground))
+                                    .overlay {
+                                        Image(systemName: "plus")
+                                            .sectionHeaderFontStyle()
+                                            .foregroundStyle(.nxAccent)
+                                    }
+                            }
+                        }
+                    }
+                    .padding(.vertical, 12.0)
+                    .padding(.horizontal)
+                    .background {
+                        Color(.nxCard)
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 12.0))
+                }
+                .foregroundStyle(.primary)
+            }
+            .hSpacing(.leading)
+            .vSpacing(.top)
+        }
+    }
+}
+
 // MARK: - ACTIONS -
 extension FoodSearchScreen {
     
     private func logFood(food: Food) {
-        nutritionStore.logFood(food: food)
+        nutritionStore.logFood(food: food,
+                               forRoutineMeal: routineMealStore.currentMeal)
         dismiss()
     }
     

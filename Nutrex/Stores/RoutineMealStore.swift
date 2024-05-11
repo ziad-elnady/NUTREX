@@ -26,19 +26,22 @@ class RoutineMealStore: ObservableObject {
         routineMeals = fetchedRoutineMeals
     }
 
-    func createNewRoutineMeal(name: String) {
+    func createNewRoutineMeal(name: String, user: User) {
         let itemExist = routineMeals.contains(where: { $0.name == name })
         if itemExist { return }
         
-        let newRoutineMeal = RoutineMeal(context: dataController.viewContext)
-        newRoutineMeal.name = name
-        newRoutineMeal.index = Int16(routineMeals.count)
+        let newRoutineMeal      = RoutineMeal(context: dataController.viewContext)
+        newRoutineMeal.user     = user
+        newRoutineMeal.name     = name
+        newRoutineMeal.index    = Int16(routineMeals.count)
         
         routineMeals.append(newRoutineMeal)
+        user.addToMealRoutines(newRoutineMeal)
+        
         saveContext()
     }
     
-    func moveRoutineMeal(from source: IndexSet, to destination: Int) {
+    func moveRoutineMeal(from source: IndexSet, to destination: Int, user: User) {
         routineMeals.move(fromOffsets: source, toOffset: destination)
         
         for (index, routineMeal) in routineMeals.enumerated() {
@@ -56,15 +59,15 @@ class RoutineMealStore: ObservableObject {
         saveContext()
     }
     
-    func deleteFoodFromRotineMeal(diary: DailyNutrition, at offsets: IndexSet) {
-        offsets.forEach { index in
-            let deletedFood = filterdFoodsForRoutineMeal[index]
-            diary.removeFromFoods(deletedFood)
-            filterdFoodsForRoutineMeal.remove(atOffsets: offsets)
-            Toast.shared.present(title: "Successfully removed \(deletedFood) from your diary", symbol: "checkmark.circle", tint: .nxAccent)
-            saveContext()
-        }
-    }
+//    func deleteFoodFromRotineMeal(diary: DailyNutrition, at offsets: IndexSet) {
+//        offsets.forEach { index in
+//            let deletedFood = filterdFoodsForRoutineMeal[index]
+//            diary.removeFromFoods(deletedFood)
+//            filterdFoodsForRoutineMeal.remove(atOffsets: offsets)
+//            Toast.shared.present(title: "Successfully removed \(deletedFood) from your diary", symbol: "checkmark.circle", tint: .nxAccent)
+//            saveContext()
+//        }
+//    }
     
     func filterFoodsForRoutineMeal(diary: DailyNutrition, mealName: String) {
         filterdFoodsForRoutineMeal = diary.wrappedFoods.filter { $0.wrappedMealName == mealName }

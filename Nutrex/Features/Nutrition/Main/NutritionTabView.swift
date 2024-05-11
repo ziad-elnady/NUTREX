@@ -13,7 +13,7 @@ struct NutritionTabView: View {
     
     enum TabItem: String, CaseIterable {
         case diary
-        case meals
+        case routine
         case store
         case profile
         
@@ -21,7 +21,7 @@ struct NutritionTabView: View {
             switch self {
             case .diary:
                 return "diary"
-            case .meals:
+            case .routine:
                 return "meals"
             case .store:
                 return "store"
@@ -34,7 +34,7 @@ struct NutritionTabView: View {
             switch self {
             case .diary:
                 return "calendar"
-            case .meals:
+            case .routine:
                 return "fork.knife"
             case .store:
                 return "storefront"
@@ -75,8 +75,8 @@ struct NutritionTabView: View {
         switch tab {
         case .diary:
             NutritionDiaryScreen()
-        case .meals:
-            Text("Settings")
+        case .routine:
+            RoutineMealScreen()
         case .store:
             Text("Notifications")
         case .profile:

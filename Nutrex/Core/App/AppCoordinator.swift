@@ -30,6 +30,9 @@ struct AppCoordinator: View {
                 NutritionTabView()
                     .environmentObject(nutritionStore)
                     .environmentObject(routineMealStore)
+                    .task {
+                        routineMealStore.fetchRoutineMeals(forUid: userStore.currentUser.wrappedUid)
+                    }
             } else {
                 ProfileSetupScreen()
             }

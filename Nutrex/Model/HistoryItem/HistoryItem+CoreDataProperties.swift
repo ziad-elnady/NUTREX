@@ -24,9 +24,24 @@ extension HistoryItem {
     @NSManaged public var food: Food?
     @NSManaged public var meal: Meal?
     
+    static func historyItemsForSearchTerm(term: String) -> NSFetchRequest<HistoryItem> {
+        let request: NSFetchRequest<HistoryItem> = HistoryItem.fetchRequest()
+        request.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
+        request.predicate = NSPredicate(format: "text == %@", term)
+        return request
+    }
+    
+    public var wrappedText: String {
+        text ?? "No Name"
+    }
+    
     public var wrappedFood: Food {
         let context = CoreDataController.shared.viewContext
         return food ?? Food(context: context)
+    }
+    
+    public var wrappedUnit: String {
+        unit ?? "No Unit"
     }
     
     static func foodExists(_ food: Food) -> Bool {

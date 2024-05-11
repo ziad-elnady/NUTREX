@@ -2,7 +2,7 @@
 //  Food+CoreDataClass.swift
 //  Nutrex
 //
-//  Created by Ziad Ahmed on 12/03/2024.
+//  Created by Ziad Ahmed on 07/05/2024.
 //
 //
 
@@ -35,5 +35,5 @@ public class Food: NSManagedObject, Codable {
         try container.encode(serving, forKey: .serving)
         try container.encode(measurementUnits as! Set<MeasurementUnit>, forKey: .measurementUnits)
         try container.encode(nutritionalInfo, forKey: .nutritionalInfo)
-      }
+    }
 }

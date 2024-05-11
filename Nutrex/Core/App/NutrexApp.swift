@@ -56,6 +56,7 @@ struct NutrexApp: App {
             .environmentObject(authStore)
             .environmentObject(userStore)
             .tint(.nxAccent)
+//            APITestScreen()
         }
         
     }

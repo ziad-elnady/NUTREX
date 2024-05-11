@@ -2,7 +2,7 @@
 //  Food+CoreDataProperties.swift
 //  Nutrex
 //
-//  Created by Ziad Ahmed on 12/03/2024.
+//  Created by Ziad Ahmed on 07/05/2024.
 //
 //
 
@@ -20,19 +20,37 @@ extension Food {
     @NSManaged public var name: String?
     @NSManaged public var serving: Double
     @NSManaged public var unit: Int16
+    @NSManaged public var loggedAt: Date?
+    @NSManaged public var updatedAt: Date?
     @NSManaged public var customMeal: Meal?
     @NSManaged public var historyItem: HistoryItem?
     @NSManaged public var measurementUnits: NSSet?
     @NSManaged public var nutrition: DailyNutrition?
     @NSManaged public var nutritionalInfo: NutritionalInfo?
+
+    func createHistoryItemIfNeeded() {
+        if HistoryItem.foodExists(self) { return }
+    
+        let historyItem = HistoryItem(context: CoreDataController.shared.viewContext)
+    
+        historyItem.text = self.name
+        historyItem.createdAt = Date.now
+        historyItem.unit = self.measurmentUnitsList[Int(self.unit)].unitName
+        historyItem.serving = self.serving
+        historyItem.repetition += 1
+    
+        historyItem.food = self
+    
+        self.historyItem = historyItem
+    }
     
     static var example: Food {
         NutritionDiaryStore.foods[5]
     }
-
+    
     var measurmentUnitsList: [MeasurementUnit] {
         let set = measurementUnits as? Set<MeasurementUnit> ?? []
-        
+    
         return set.sorted {
             $0.wrappedUnitName < $1.wrappedUnitName
         }
@@ -43,7 +61,7 @@ extension Food {
         let proteinPerGram = nutritionalInfo?.proteinPerGram ?? 0.0
         let carbsPerGram = nutritionalInfo?.carbsPerGram ?? 0.0
         let fatPerGram = nutritionalInfo?.fatPerGram ?? 0.0
-        
+    
         return (caloriesPerGram, proteinPerGram, carbsPerGram, fatPerGram)
     }
     
@@ -70,18 +88,19 @@ extension Food {
     func calculateMacroPercentages() -> (proteinPercentage: Double, carbPercentage: Double, fatPercentage: Double) {
         let nutritions = calculatedNutritionalInfo
         let calories = nutritions.calories
-        
+    
         guard calories > 0 else {
             return (1.0, 1.0, 1.0)
         }
-        
+    
         // Calculate percentages
         let proteinPercentage = (nutritions.protein / calories) * 100
         let carbPercentage = (nutritions.carbs / calories) * 100
         let fatPercentage = (nutritions.fat / calories) * 100
-        
+    
         return (proteinPercentage, carbPercentage, fatPercentage)
     }
+
     
 }
 
