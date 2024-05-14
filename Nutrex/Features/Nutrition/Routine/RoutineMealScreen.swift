@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct RoutineMealScreen: View {
+    @Environment(\.selectedDate) private var currentDate
+    
     @EnvironmentObject private var userStore: UserStore
     @EnvironmentObject private var routineMealStore: RoutineMealStore
     
-    @State private var date = Date()
     @State private var isShowingEditRoutineMeals = false
     
     var body: some View {
@@ -39,7 +40,7 @@ struct RoutineMealScreen: View {
                             .captionFontStyle()
                         
                         Image(systemName: "calendar.badge.checkmark.rtl")
-                        Text(formatDate(date))
+                        Text(formatDate(currentDate.wrappedValue))
                         
                         Image(systemName: "chevron.forward")
                             .captionFontStyle()
@@ -47,7 +48,7 @@ struct RoutineMealScreen: View {
                     .overlay {
                         DatePicker(
                             "",
-                            selection: $date,
+                            selection: currentDate,
                             displayedComponents: [.date]
                         )
                         .blendMode(.destinationOver)

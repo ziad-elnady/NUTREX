@@ -13,94 +13,83 @@ struct RoutineMealsEditorSheet: View {
     @State private var isEditMode = true
     @State private var isShowingNewMealDialog = false
     @State private var newMealName = ""
+    @State private var isAddNewMealScreenPresented = false
     
     let user: User
     
     var body: some View {
-        VStack {
-            HStack {
-                Button {
-                    isShowingNewMealDialog = true
-                } label: {
-                    Text("\(Image(systemName: "plus.circle.fill"))  Add New")
-                        .bodyFontStyle()
-                        .fontWeight(.semibold)
-                }
-                
-                Spacer()
-                
-                Button {
-                    withAnimation {
-                        isEditMode.toggle()
-                    }
-                } label: {
-                    Text(isEditMode ? "Done" : "Edit")
-                        .bodyFontStyle()
-                        .fontWeight(.semibold)
-                }
-            }
-            .hSpacing(.trailing)
-            .padding(.horizontal)
-            .padding(.vertical, 24.0)
-                        
-//            VStack(alignment: .leading) {
-//                Text("Your existing ones")
-//                    .headlineFontStyle()
-//
-//                Text("It's very flexible editing and adding all your daily routine meals")
-//                    .captionFontStyle()
-//                    .foregroundStyle(.secondary)
-//            }
-//            .hSpacing(.leading)
-//            .padding([.horizontal, .top])
-            
-            List {
-                ForEach(routineMealStore.routineMeals) { routineMeal in
-                    VStack(alignment: .leading) {
-                        Text(routineMeal.wrappedName)
+        NavigationStack {
+            VStack {
+                HStack {
+                    Button {
+//                        isShowingNewMealDialog = true
+                        isAddNewMealScreenPresented = true
+                    } label: {
+                        Text("\(Image(systemName: "plus.circle.fill"))  Add New")
                             .bodyFontStyle()
                             .fontWeight(.semibold)
-                        
-                        Text("no description")
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        withAnimation {
+                            isEditMode.toggle()
+                        }
+                    } label: {
+                        Text(isEditMode ? "Done" : "Edit")
                             .bodyFontStyle()
-                            .foregroundStyle(.secondary)
+                            .fontWeight(.semibold)
                     }
                 }
-                .onDelete(perform: removeItems)
-                .onMove(perform: moveItems)
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color(.nxCard))
+                .hSpacing(.trailing)
+                .padding(.horizontal)
+                .padding(.top, 24.0)
+                Divider()
+                List {
+                    ForEach(routineMealStore.routineMeals) { routineMeal in
+                        VStack(alignment: .leading) {
+                            Text(routineMeal.wrappedName)
+                                .bodyFontStyle()
+                                .fontWeight(.semibold)
+                            
+                            Text("no description")
+                                .bodyFontStyle()
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .onDelete(perform: removeItems)
+                    .onMove(perform: moveItems)
+                    .listRowSeparator(.hidden)
+                    .listRowBackground(Color(.nxCard))
+                }
             }
-        }
-        .alert("Add new meal routine", isPresented: $isShowingNewMealDialog) {
-            TextField("Enter meal name", text: $newMealName)
-            Button("Save") {
-                routineMealStore.createNewRoutineMeal(name: newMealName,
-                                                      user: user)
+            .environment(\.editMode, .constant(isEditMode ? .active : .inactive))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .scrollContentBackground(.hidden)
+            .listStyle(.plain)
+            .background {
+                Color(.nxBackground)
+                    .ignoresSafeArea()
             }
-            Button("Cancel", role: .cancel) { }
-        } message: {
-            Text("This will add a new meal routine to your existing ones.")
-        }
-        .environment(\.editMode, .constant(isEditMode ? .active : .inactive))
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .scrollContentBackground(.hidden)
-        .listStyle(.plain)
-        .background {
-            Color(.nxBackground)
-                .ignoresSafeArea()
+            
+            .navigationDestination(isPresented: $isAddNewMealScreenPresented) {
+                CreateNewMealRoutineScreen()
+            }
         }
     }
     
     private func removeItems(at offsets: IndexSet) {
         Task {
-            routineMealStore.removeRotineMeal(at:)
+            routineMealStore.removeRotineMeal(at: offsets, user: user)
         }
     }
     
     private func moveItems(from source: IndexSet, to destination: Int) {
         Task {
-            routineMealStore.moveRoutineMeal
+            routineMealStore.moveRoutineMeal(from: source,
+                                             to: destination,
+                                             user: user)
         }
     }
 }

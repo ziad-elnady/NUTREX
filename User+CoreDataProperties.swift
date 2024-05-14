@@ -115,6 +115,15 @@ extension User {
         updatedAt ?? Date.now
     }
 
+    
+    var wrappedRoutineMeals: [RoutineMeal] {
+        let set = mealRoutines as? Set<RoutineMeal> ?? []
+        
+        return set.sorted {
+            $0.index < $1.index
+        }
+    }
+    
     var isProfileCompleted: Bool {
         return bodyType != nil &&
         dateOfBirth != nil &&

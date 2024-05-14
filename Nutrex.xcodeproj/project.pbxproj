@@ -64,6 +64,7 @@
 		B7A91DD52B9F3E11007D493A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B7A91DD42B9F3E11007D493A /* FirebaseAuth */; };
 		B7A91DDA2B9F5E35007D493A /* FireStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A91DD92B9F5E35007D493A /* FireStore.swift */; };
 		B7B839AC2BDA427C00764983 /* QRFoodScannerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B839AB2BDA427C00764983 /* QRFoodScannerScreen.swift */; };
+		B7BA83492BF20AD80067D6D2 /* CreateNewMealRoutineScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA83482BF20AD80067D6D2 /* CreateNewMealRoutineScreen.swift */; };
 		B7C89B752BA38846001B7B46 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C89B742BA38846001B7B46 /* UserStore.swift */; };
 		B7C89B772BA3AD0E001B7B46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */; };
 		B7CB029F2BAB83A8006ACB1A /* LoadingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */; };
@@ -180,6 +181,7 @@
 		B7A91DCD2B9F3839007D493A /* AuthenticationStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationStore.swift; sourceTree = "<group>"; };
 		B7A91DD92B9F5E35007D493A /* FireStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStore.swift; sourceTree = "<group>"; };
 		B7B839AB2BDA427C00764983 /* QRFoodScannerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRFoodScannerScreen.swift; sourceTree = "<group>"; };
+		B7BA83482BF20AD80067D6D2 /* CreateNewMealRoutineScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewMealRoutineScreen.swift; sourceTree = "<group>"; };
 		B7C89B742BA38846001B7B46 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		B7C89B762BA3AD0E001B7B46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7CB029E2BAB83A8006ACB1A /* LoadingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingModifier.swift; sourceTree = "<group>"; };
@@ -863,6 +865,7 @@
 				B7E1B3F52BEA5A4B00AE700B /* RoutineMealScreen.swift */,
 				B78FC6CB2BEF7809004FC43F /* RoutineMealsEditorSheet.swift */,
 				B78FC6CE2BEFB4BC004FC43F /* RoutineMealDetailScreen.swift */,
+				B7BA83482BF20AD80067D6D2 /* CreateNewMealRoutineScreen.swift */,
 			);
 			path = Routine;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				B7D732002BA0A12400C94A2D /* User+CoreDataProperties.swift in Sources */,
 				B78C157B2BDC0C0C003ECAAA /* MealDetailScreen.swift in Sources */,
 				B71DC3062BA4F35500F423AC /* NXRadioButton.swift in Sources */,
+				B7BA83492BF20AD80067D6D2 /* CreateNewMealRoutineScreen.swift in Sources */,
 				B73DE3902B9B8B2B009BFFCD /* NutrexApp.swift in Sources */,
 				B7338FD62BAA42AC00332486 /* ToastEnv.swift in Sources */,
 				B7D731F82BA0A08400C94A2D /* WorkoutPlan+CoreDataClass.swift in Sources */,

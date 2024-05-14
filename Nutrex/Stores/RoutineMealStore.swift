@@ -42,20 +42,31 @@ class RoutineMealStore: ObservableObject {
     }
     
     func moveRoutineMeal(from source: IndexSet, to destination: Int, user: User) {
+        // Rearrange routineMeals array based on the provided source and destination
         routineMeals.move(fromOffsets: source, toOffset: destination)
         
+        // Update indices of routineMeals
         for (index, routineMeal) in routineMeals.enumerated() {
             routineMeal.index = Int16(index)
         }
         
+        // Update the relationship between user and routineMeals
+        user.removeFromMealRoutines(user.mealRoutines ?? NSSet())
+        user.addToMealRoutines(NSSet(array: routineMeals))
+        
+        // Save changes to Core Data context
         saveContext()
     }
     
-    func removeRotineMeal(at offsets: IndexSet) {
+    func removeRotineMeal(at offsets: IndexSet, user: User) {
         offsets.forEach { index in
-            dataController.viewContext.delete(routineMeals[index])
+            if index < user.wrappedRoutineMeals.count {
+                let routineMealToRemove = user.wrappedRoutineMeals[index]
+                user.removeFromMealRoutines(routineMealToRemove)
+            }
+            
+            routineMeals.remove(atOffsets: offsets)
         }
-        routineMeals.remove(atOffsets: offsets)
         saveContext()
     }
     

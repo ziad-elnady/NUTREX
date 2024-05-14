@@ -1,0 +1,311 @@
+<?xml version="1.0" ?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 128 128" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style type="text/css">
+	.st0{fill:#69A401;}
+	.st1{fill:#EFE691;}
+	.st2{fill:#B20000;}
+	.st3{fill:#DF1801;}
+	.st4{fill:#F40603;}
+	.st5{fill:#FFEEEE;}
+	.st6{fill:#847B3C;}
+	.st7{fill:#CEB600;}
+	.st8{fill:#F8CD02;}
+	.st9{fill:#F7C800;}
+	.st10{fill:#F6E8B9;}
+	.st11{fill:#F6E9CA;}
+	.st12{fill:#CF8A11;}
+	.st13{fill:#286F0D;}
+	.st14{fill:#63271D;}
+	.st15{fill:#EB8102;}
+	.st16{fill:#E37303;}
+	.st17{fill:#D97102;}
+	.st18{fill:#BF6302;}
+	.st19{fill:#EA9735;}
+	.st20{fill:#3E1A01;}
+	.st21{fill:#C96A0A;}
+	.st22{fill:#CE2335;}
+	.st23{fill:#C0242D;}
+	.st24{fill:#BA1A23;}
+	.st25{fill:#F9DCC7;}
+	.st26{fill:#DBE2CE;}
+	.st27{fill:#7D4B12;}
+	.st28{fill:#75480C;}
+	.st29{fill:#66410C;}
+	.st30{fill:#88550D;}
+	.st31{fill:#FFFEE9;}
+	.st32{fill:#9B9F1A;}
+	.st33{fill:#F6E177;}
+	.st34{fill:#443A00;}
+	.st35{fill:#305209;}
+	.st36{fill:#7F7C04;}
+	.st37{fill:#BAB424;}
+	.st38{fill:#F7CF43;}
+	.st39{fill:#DE940E;}
+	.st40{fill:#5F570A;}
+	.st41{fill:#175424;}
+	.st42{fill:#215B25;}
+	.st43{fill:#1B5020;}
+	.st44{fill:#C0F9C0;}
+	.st45{fill:#F3DA78;}
+	.st46{fill:#BC441C;}
+	.st47{fill:#148E2E;}
+	.st48{fill:#283767;}
+	.st49{fill:#425285;}
+	.st50{fill:#CFDFFF;}
+	.st51{fill:#1F2C55;}
+	.st52{fill:#776220;}
+	.st53{fill:#90236B;}
+	.st54{fill:#5D1A47;}
+	.st55{fill:#99499A;}
+	.st56{fill:#FCCAFA;}
+	.st57{fill:#917C31;}
+	.st58{fill:#F4C435;}
+	.st59{fill:#F1BC02;}
+	.st60{fill:#F0B102;}
+	.st61{fill:#F1F7BA;}
+	.st62{fill:#E3DCB9;}
+	.st63{fill:#BD6800;}
+	.st64{fill:#E19704;}
+	.st65{fill:#B2CA2B;}
+	.st66{fill:#AFC20F;}
+	.st67{fill:#B9CB00;}
+	.st68{fill:#E5F392;}
+	.st69{fill:#F78202;}
+	.st70{fill:#F79613;}
+	.st71{fill:#331F07;}
+	.st72{fill:#402B16;}
+	.st73{fill:#669404;}
+	.st74{fill:#F58E13;}
+	.st75{fill:#D87117;}
+	.st76{fill:#216604;}
+	.st77{fill:#286D08;}
+	.st78{fill:#C8C625;}
+	.st79{fill:#2C441F;}
+	.st80{fill:#F1E6BF;}
+	.st81{fill:#F2BE2E;}
+	.st82{fill:#BF8F33;}
+	.st83{fill:#568804;}
+	.st84{fill:#669614;}
+	.st85{fill:#688E0C;}
+	.st86{fill:#4C7005;}
+	.st87{fill:#A0CA49;}
+	.st88{fill:#99BD70;}
+	.st89{fill:#78AA25;}
+	.st90{fill:#4B7C23;}
+	.st91{fill:#EADBC8;}
+	.st92{fill:#F0D5B0;}
+	.st93{fill:#DF2B2B;}
+	.st94{fill:#D1262C;}
+	.st95{fill:#B7252C;}
+	.st96{fill:#46670C;}
+	.st97{fill:#F49D5B;}
+	.st98{fill:#F57A55;}
+	.st99{fill:#F1C3A7;}
+	.st100{fill:#CC0917;}
+	.st101{fill:#DC1035;}
+	.st102{fill:#9BAC0F;}
+	.st103{fill:#667A1D;}
+	.st104{fill:#7A9D18;}
+	.st105{fill:#F6F7E6;}
+	.st106{fill:#F0194D;}
+	.st107{fill:#362420;}
+	.st108{fill:#530618;}
+	.st109{fill:#44041A;}
+	.st110{fill:#490419;}
+	.st111{fill:#F8A459;}
+	.st112{fill:#871B22;}
+	.st113{fill:#600613;}
+	.st114{fill:#F8C790;}
+	.st115{fill:#447832;}
+	.st116{fill:#7C473D;}
+	.st117{fill:#441432;}
+	.st118{fill:#51163F;}
+	.st119{fill:#5B1A41;}
+	.st120{fill:#FCEBF9;}
+	.st121{fill:#ECE5CE;}
+	.st122{fill:#BC3E2C;}
+	.st123{fill:#A60F26;}
+	.st124{fill:#C61632;}
+	.st125{fill:#BD1331;}
+	.st126{fill:#F8B772;}
+	.st127{fill:#F7DDAC;}
+	.st128{fill:#850E11;}
+	.st129{fill:#191200;}
+	.st130{fill:#553D2D;}
+	.st131{fill:#F9E2D2;}
+	.st132{fill:#CA8937;}
+	.st133{fill:#462D16;}
+	.st134{fill:#6D8916;}
+	.st135{fill:#96B54E;}
+	.st136{fill:#E3E2DE;}
+	.st137{fill:#261811;}
+	.st138{fill:#525C11;}
+	.st139{fill:#14581E;}
+	.st140{fill:#3D7712;}
+	.st141{fill:#9BC148;}
+	.st142{fill:#E22434;}
+	.st143{fill:#C6DD9E;}
+	.st144{fill:#F89A07;}
+	.st145{fill:#F7A410;}
+	.st146{fill:#F8AB19;}
+	.st147{fill:#F7B81C;}
+	.st148{fill:#E5870A;}
+	.st149{fill:#97A304;}
+	.st150{fill:#A88C5C;}
+	.st151{fill:#ADC21E;}
+	.st152{fill:#A3BA0B;}
+	.st153{fill:#8D9E08;}
+	.st154{fill:#E0DAB9;}
+	.st155{fill:#684219;}
+	.st156{fill:#777F05;}
+	.st157{fill:#F2E9C4;}
+	.st158{fill:#CBB465;}
+	.st159{fill:#FFF5CA;}
+	.st160{fill:#E52828;}
+	.st161{fill:#F87302;}
+	.st162{fill:#FF7B22;}
+	.st163{fill:#FC7F10;}
+	.st164{fill:#F8A200;}
+	.st165{fill:#F8DC91;}
+	.st166{fill:#FFFFFF;}
+	.st167{fill:#F5D7D5;}
+	.st168{fill:#EDA07A;}
+	.st169{fill:#FCBEBE;}
+	.st170{fill:#EAD991;}
+	.st171{fill:#582612;}
+</style>
+<g id="_x33_0_Mulberry">
+<g id="XMLID_364_">
+<g id="XMLID_346_">
+<path class="st0" d="M66.45,10.369c-3.207,4.742-3.602,10.284-1.627,15.107     c5.721-0.715,11.044-3.627,14.251-8.369C82.281,12.365,82.676,6.823,80.701,2C74.98,2.715,69.657,5.627,66.45,10.369z" id="XMLID_350_"/>
+<path class="st1" d="M65.147,36.772c-0.013,0-0.025,0-0.038,0c-1.104-0.021-1.983-0.933-1.963-2.037l0.107-5.778     c0-4.295-2.277-8.301-6.093-10.679c-0.938-0.584-1.224-1.817-0.64-2.755c0.584-0.938,1.818-1.225,2.755-0.64     c4.995,3.113,7.978,8.389,7.978,14.11l-0.107,5.815C67.126,35.901,66.234,36.772,65.147,36.772z"/>
+</g>
+<g id="XMLID_19_">
+<ellipse class="st2" cx="59.22" cy="33.576" id="XMLID_1473_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="71.511" cy="33.576" id="XMLID_1474_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="49.55" cy="36.581" id="XMLID_1482_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="55.866" cy="43.713" id="XMLID_1475_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="65.678" cy="40.636" id="XMLID_1492_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="79.936" cy="36.581" id="XMLID_1483_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="45.114" cy="46.132" id="XMLID_2063_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="53.562" cy="51.7" id="XMLID_1485_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="63.604" cy="51.7" id="XMLID_2074_" rx="7.514" ry="7.164"/>
+<ellipse class="st3" cx="73.381" cy="43.713" id="XMLID_2070_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="83.869" cy="43.713" id="XMLID_2079_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="42.786" cy="55.121" id="XMLID_2090_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="49.55" cy="62.023" id="XMLID_2086_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="59.839" cy="62.023" id="XMLID_2094_" rx="7.514" ry="7.164"/>
+<ellipse class="st3" cx="72.13" cy="62.023" id="XMLID_2091_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="75.338" cy="51.7" id="XMLID_1499_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="85.163" cy="51.7" id="XMLID_1182_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="41.701" cy="63.485" id="XMLID_1513_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="66.297" cy="59.048" id="XMLID_1500_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="57.885" cy="68.348" id="XMLID_1150_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="66.967" cy="69.732" id="XMLID_1134_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="78.923" cy="60.358" id="XMLID_1189_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="87.378" cy="59.048" id="XMLID_1151_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="40.458" cy="69.732" id="XMLID_1545_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="50.07" cy="71.855" id="XMLID_1521_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="59.019" cy="77.252" id="XMLID_1637_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="68.88" cy="78.012" id="XMLID_1547_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="76.514" cy="68.81" id="XMLID_1642_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="87.378" cy="67.271" id="XMLID_1638_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="41.701" cy="78.012" id="XMLID_1646_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="51.829" cy="80.776" id="XMLID_1643_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="60.51" cy="85.715" id="XMLID_1651_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="70.062" cy="85.715" id="XMLID_1647_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="77.969" cy="78.518" id="XMLID_1655_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="87.378" cy="74.966" id="XMLID_1652_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="43.092" cy="86.933" id="XMLID_1666_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="52.763" cy="90.147" id="XMLID_1663_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="62.324" cy="93.763" id="XMLID_1670_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="73.636" cy="94.968" id="XMLID_1667_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="87.542" cy="84.168" id="XMLID_1671_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="45.803" cy="96.597" id="XMLID_1677_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="56.528" cy="99.92" id="XMLID_1674_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="67.178" cy="101.124" id="XMLID_1681_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="80.094" cy="86.523" id="XMLID_1678_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="58.287" cy="107.798" id="XMLID_1685_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="73.093" cy="105.626" id="XMLID_1682_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="65.882" cy="111.782" id="XMLID_1690_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="87.378" cy="93.501" id="XMLID_1686_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="78.923" cy="97.933" id="XMLID_1694_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="85.163" cy="102.754" id="XMLID_1691_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="49.244" cy="105.8" id="XMLID_365_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="52.915" cy="113.687" id="XMLID_807_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="60.721" cy="119.843" id="XMLID_1695_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="70.801" cy="119.843" id="XMLID_1696_" rx="6.458" ry="6.157"/>
+<ellipse class="st4" cx="77.969" cy="112.233" id="XMLID_1640_" rx="6.458" ry="6.157"/>
+<ellipse class="st2" cx="80.094" cy="118.389" id="XMLID_48_" rx="6.458" ry="6.157"/>
+<ellipse class="st3" cx="85.672" cy="107.798" id="XMLID_49_" rx="6.458" ry="6.157"/>
+</g>
+<g id="XMLID_1751_">
+<ellipse class="st5" cx="47.927" cy="35.079" id="XMLID_127_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="59.373" cy="31.927" id="XMLID_131_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="56.008" cy="43.713" id="XMLID_158_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="71.118" cy="31.927" id="XMLID_271_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="43.612" cy="44.537" id="XMLID_299_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="41.701" cy="54.859" id="XMLID_414_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="52.915" cy="52.288" id="XMLID_555_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="65.254" cy="39.733" id="XMLID_593_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="66.635" cy="57.744" id="XMLID_1411_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="61.736" cy="50.786" id="XMLID_1725_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="58.287" cy="59.247" id="XMLID_1726_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="41.99" cy="60.749" id="XMLID_1727_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="39.345" cy="68.348" id="XMLID_1728_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="42.786" cy="76.325" id="XMLID_1729_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="43.092" cy="87.607" id="XMLID_1731_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="52.261" cy="80.366" id="XMLID_1733_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="49.244" cy="71.095" id="XMLID_1734_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="51.572" cy="89.199" id="XMLID_1735_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="57.63" cy="66.515" id="XMLID_1736_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="68.257" cy="86.104" id="XMLID_1738_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="68.257" cy="99.92" id="XMLID_1739_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="73.636" cy="52.288" id="XMLID_1740_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="85.163" cy="75.889" id="XMLID_1741_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="76.52" cy="68.752" id="XMLID_1742_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="75.338" cy="42.139" id="XMLID_1743_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="83.54" cy="48.964" id="XMLID_1744_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="76.961" cy="111.228" id="XMLID_1745_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="52.763" cy="113.687" id="XMLID_1747_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="60.51" cy="119.843" id="XMLID_1749_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="46.916" cy="96.303" id="XMLID_1750_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="87.542" cy="92.679" id="XMLID_1752_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="58.887" cy="74.966" id="XMLID_1756_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="80.92" cy="118.341" id="XMLID_1758_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="84.426" cy="107.53" id="XMLID_1759_" rx="1.623" ry="1.503"/>
+<ellipse class="st5" cx="77.969" cy="96.303" id="XMLID_1760_" rx="1.623" ry="1.503"/>
+</g>
+</g>
+</g>
+<g id="_x32_9_Star_Fruit"/>
+<g id="_x32_8_Apricot"/>
+<g id="_x32_7_Litchi"/>
+<g id="_x32_6_Kiwi"/>
+<g id="_x32_5_Jackfruit"/>
+<g id="_x32_4_Avacado"/>
+<g id="_x32_3_Blueberry"/>
+<g id="_x32_2_Purple_Grapes"/>
+<g id="_x32_1_Melon"/>
+<g id="_x32_0_Green_Grapes"/>
+<g id="_x31_9_Papaya"/>
+<g id="_x31_8_Pineapple"/>
+<g id="_x31_7_Banana"/>
+<g id="_x31_6_Tender_Coconut"/>
+<g id="_x31_5_Strawberry"/>
+<g id="_x31_4_Dragon_Fruit"/>
+<g id="_x31_3_Plum"/>
+<g id="_x31_2_Fig"/>
+<g id="_x31_1_Peach"/>
+<g id="_x31_0_Cherry"/>
+<g id="_x30_9_Sapota"/>
+<g id="_x30_8_Custard_Apple"/>
+<g id="_x30_7_Watermelon"/>
+<g id="_x30_6_Mango"/>
+<g id="_x30_5_Pear"/>
+<g id="_x30_4_Guava"/>
+<g id="_x30_3_Pomegranate"/>
+<g id="_x30_2_Orange"/>
+<g id="_x30_1_Apple"/>
+</svg>
