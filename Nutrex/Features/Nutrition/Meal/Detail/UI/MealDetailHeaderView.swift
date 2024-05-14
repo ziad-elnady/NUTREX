@@ -15,7 +15,7 @@ extension MealDetailScreen {
             Rectangle()
                 .opacity(0.0)
                 .overlay {
-                    Image("meal-1")
+                    Image(.chicken)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                 }

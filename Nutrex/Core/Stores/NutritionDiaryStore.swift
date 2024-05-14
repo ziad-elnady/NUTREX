@@ -50,9 +50,7 @@ class NutritionDiaryStore: ObservableObject {
                
         //TODO: Fix 0
         currentDiary.addToFoods(food)
-        
-        print(food.meal)
-                
+                        
         CoreDataController.shared.saveContext()
         Toast.shared.present(title: "Successfully logged \(food.wrappedName) to your diary", symbol: "checkmark.circle.fill", tint: .nxAccent)
     }
@@ -69,6 +67,20 @@ class NutritionDiaryStore: ObservableObject {
     func filterFoodsForMeal(mealName: String) -> [Food] {
         let filterdFoods = currentDiary.wrappedFoods.filter { $0.wrappedMealName == mealName }
         return filterdFoods
+    }
+    
+    func calculateTotalNutrientsForFoods(foods: [Food]) -> (calories: Double, protein: Double, carbs: Double, fat: Double) {
+        var total: (calories: Double, protein: Double, carbs: Double, fat: Double) = (0.0, 0.0, 0.0, 0.0)
+        
+        foods.forEach {
+            let foodNutritions = $0.calculatedNutritionalInfo
+            total.calories += foodNutritions.calories
+            total.protein += foodNutritions.protein
+            total.carbs += foodNutritions.carbs
+            total.fat += foodNutritions.fat
+        }
+        
+        return total
     }
     
     private func createNewDiary(withUser user: User, forDate date: Date) {
