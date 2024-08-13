@@ -15,6 +15,7 @@
 
 - **Swift & SwiftUI**: Utilized for building a modern, responsive user interface with advanced view composition techniques, custom view modifiers, and dynamic layouts.
 - **Combine**: Used for handling asynchronous data streams and managing state efficiently.
+- **Core Data**: Employed for local data storage and management, allowing for seamless integration with the app’s data model.
 - **Firebase**: Employed for backend services including user authentication, real-time database, and analytics.
 - **Clear Architecture**: Followed to ensure maintainability and scalability of the app, including well-defined separation of concerns and modular design.
 - **State Management**: Leveraged Observables and SwiftUI’s state management solutions for a seamless and reactive user experience.
@@ -25,11 +26,10 @@
 
 ## Contact
 
-For any inquiries or feedback, please reach out to us at:
+For personalized inquiries or to discuss potential collaborations, please contact me directly:
 
-- **Email**: [support@nutrexapp.com](mailto:support@nutrexapp.com)
-- **Twitter**: [@NutrexApp](https://twitter.com/NutrexApp)
-- **Facebook**: [NutrexApp](https://facebook.com/NutrexApp)
+- **Email**: [ziadelnady555@gmail.com](ziadelnady555@gmail.com)
+- **LinkedIn**: [Ziad Ahmed](www.linkedin.com/in/ziad-ahmed-said-ahmed)
 
 ## License
 
@@ -37,4 +37,4 @@ This project is for read-only purposes. Please refer to the [LICENSE](LICENSE) f
 
 ---
 
-Thank you for using Nutrex! We hope you find it helpful in reaching your fitness and nutrition goals.
+Thank you for exploring Nutrex! I look forward to any feedback or opportunities for collaboration.
