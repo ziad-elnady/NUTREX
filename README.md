@@ -22,7 +22,7 @@
 
 ## Screenshots
 
-*Include screenshots of the app here to showcase the UI and features.*
+![Nutrex Screens](https://github.com/user-attachments/assets/d17d9cd5-e33a-4b83-a0f8-ba9f37a0c8fc)
 
 ## Contact
 
